@@ -1,6 +1,7 @@
 package gogo.gadgeto.car;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -29,7 +30,10 @@ public class LoginActivity extends Activity {
         loginButton.setOnClickListener(new OnClickListener() {
 			
 			public void onClick(View v) {
-				debugOutput.setText("Debug: " + username.getText() + " " + userpassword.getText());				
+				debugOutput.setText("Debug: " + username.getText() + " " + userpassword.getText());
+				
+				Intent newIntent = new Intent(LoginActivity.this, MainMenuActivity.class);
+				startActivity(newIntent);
 			}
 		});
     }

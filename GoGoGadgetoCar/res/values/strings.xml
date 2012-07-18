@@ -8,5 +8,6 @@
     <string name="userPassword">Benutzerpasswort</string>
     <string name="login">Let me in!</string>
     <string name="debugOutput">Debug Ausgabe</string>
+    <string name="title_activity_main_menu">MainMenuActivity</string>
 
 </resources>
