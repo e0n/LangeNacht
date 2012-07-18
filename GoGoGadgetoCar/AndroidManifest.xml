@@ -2,7 +2,12 @@
     package="gogo.gadgeto.car"
     android:versionCode="1"
     android:versionName="1.0" >
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-sdk
+        android:minSdkVersion="11"
+        android:targetSdkVersion="16" />
 
     <application
         android:icon="@drawable/ic_launcher"
@@ -45,8 +50,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".NewDistanceActivity"
+            android:name=".NewDistanceFragment"
             android:label="@string/title_activity_new_distance" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".FuelFragment"
+            android:label="@string/title_activity_fuel_fragment" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

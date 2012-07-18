@@ -55,14 +55,16 @@ public class LoginActivity extends Activity {
 				parameters.put("username", username.getText());
 				parameters.put("userpass", userpassword.getText());
 				
-				String response = communicateWithServer("login", parameters);		
+				/*String response = communicateWithServer("login", parameters);		
 				debugOutput.setText("Debug: " + response );
 				
 				if (response.equals("Accept"))
 				{
 					Intent newIntent = new Intent(LoginActivity.this, MainMenuActivity.class);
 					startActivity(newIntent);
-				}
+				}*/
+				Intent newIntent = new Intent(LoginActivity.this, MainMenuActivity.class);
+				startActivity(newIntent);
 			}
 			
 			private String communicateWithServer(String command, Map<String, Editable> parameters) {

@@ -21,5 +21,6 @@
     <string name="distanceKM">Distanz in km</string>
     <string name="send">Abschicken</string>
     <string name="mainmenu">Hauptmenu</string>
+    <string name="title_activity_fuel_fragment">FuelFragment</string>
 
 </resources>

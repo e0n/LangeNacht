@@ -1,40 +1,46 @@
 package gogo.gadgeto.car;
 
+import gogo.gadgeto.model.Database;
+import android.app.ActionBar;
 import android.app.Activity;
-import android.content.Intent;
+import android.app.Fragment;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
 
 public class MainMenuActivity extends Activity {
+	public static Context appContext;
 	
-	private Button newDistanceButton;
-	private Button fuelButton;
+	private Database database;
+	
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
         
-        newDistanceButton = (Button) findViewById(R.id.newDistanceButton);        
-        newDistanceButton.setOnClickListener(new OnClickListener() {
-        	
-			public void onClick(View v) {
-				Intent newIntent = new Intent(MainMenuActivity.this, NewDistanceActivity.class);
-				startActivity(newIntent);
-			}
-		});
+        ActionBar bar = getActionBar();
+        bar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
         
-        fuelButton = (Button) findViewById(R.id.fuelButton);
-        fuelButton.setOnClickListener(new OnClickListener() {
-			
-			public void onClick(View v) {
-				Intent newIntent = new Intent(MainMenuActivity.this, FuelSelectMemberActivity.class);
-				startActivity(newIntent);				
-			}
-		});
+        ActionBar.Tab distanceTab 	= bar.newTab().setText("Distance");
+        ActionBar.Tab fuelTab 		= bar.newTab().setText("Fuel");
+        //ActionBar.Tab settingsTab 	= bar.newTab().setText("Settings");
+        
+        Fragment fragmentDistance 	= new NewDistanceFragment();
+        Fragment fragmentFuel 		= new FuelFragment();
+        //Fragment fragmentSettings 	= new SettingsFragment();
+        
+        distanceTab.setTabListener(new MyTabsListener(fragmentDistance));
+        fuelTab.setTabListener(new MyTabsListener(fragmentFuel));
+        //settingsTab.setTabListener(new MyTabsListener(fragmentSettings));
+        
+        bar.addTab(distanceTab);
+        bar.addTab(fuelTab);
+        //bar.addTab(settingsTab);
+        
+        
+        database = new Database();
+       
     }
 
     @Override
@@ -43,5 +49,8 @@ public class MainMenuActivity extends Activity {
         return true;
     }
 
+    public Database getDatabase() {
+    	return database;
+    }
     
 }
