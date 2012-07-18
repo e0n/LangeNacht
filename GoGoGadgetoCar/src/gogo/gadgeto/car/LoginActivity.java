@@ -18,7 +18,6 @@ import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 
-import android.R.bool;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -65,51 +64,44 @@ public class LoginActivity extends Activity {
 					startActivity(newIntent);
 				}
 			}
-
+			
 			private String communicateWithServer(String command, Map<String, Editable> parameters) {
 				
 				String address = "http://le88.dyndns.org/android/php/CarSharing/" + command + ".php";
 				
-				HttpResponse response = null;
-				String endResult = "";
+				HttpResponse httpResponse = null;
+				String result = "";
 								
-				HttpClient client = new DefaultHttpClient();
-				HttpPost post = new HttpPost(address);
+				HttpClient httpClient = new DefaultHttpClient();
+				HttpPost httpPost = new HttpPost(address);
 				
-				List<NameValuePair> pairs = new ArrayList<NameValuePair>();
+				List<NameValuePair> listPairs = new ArrayList<NameValuePair>();
 				for (String key : parameters.keySet()) {
-					pairs.add(new BasicNameValuePair(key, parameters.get(key).toString()));
+					listPairs.add(new BasicNameValuePair(key, parameters.get(key).toString()));
 				}
 				
 				try {
-					post.setEntity(new UrlEncodedFormEntity(pairs));
-					response = client.execute(post);
+					httpPost.setEntity(new UrlEncodedFormEntity(listPairs));
+					httpResponse = httpClient.execute(httpPost);
 					
 				} catch (UnsupportedEncodingException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (ClientProtocolException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (IllegalStateException e) {
 					e.printStackTrace();
 				}
 				
-				BasicResponseHandler myHandler = new BasicResponseHandler();
+				BasicResponseHandler basicResponseHandler = new BasicResponseHandler();
 				try {
-					endResult = myHandler.handleResponse(response);
+					result = basicResponseHandler.handleResponse(httpResponse);
 				} catch (HttpResponseException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				
-				return endResult;
+				return result;
 			}
 		});
     }
