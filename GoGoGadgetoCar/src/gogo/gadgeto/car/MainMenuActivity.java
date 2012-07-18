@@ -22,7 +22,7 @@ public class MainMenuActivity extends Activity {
         newDistanceButton.setOnClickListener(new OnClickListener() {
         	
 			public void onClick(View v) {
-				Intent newIntent = new Intent(MainMenuActivity.this, NewDistanceSelectDriverActivity.class);
+				Intent newIntent = new Intent(MainMenuActivity.this, NewDistanceActivity.class);
 				startActivity(newIntent);
 			}
 		});

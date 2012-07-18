@@ -1,24 +1,33 @@
 package gogo.gadgeto.car;
 
+import android.app.ListActivity;
 import android.os.Bundle;
-import android.app.Activity;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.support.v4.app.NavUtils;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.Toast;
 
-public class NewDistanceSelectDriverActivity extends Activity {
+public class NewDistanceSelectDriverActivity extends ListActivity {
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new_distance_select_driver);
-    }
+	private String[] colors = {"Red","Blue","Green","Black","White"};
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_new_distance_select_driver, menu);
-        return true;
-    }
+	  /** Called when the activity is first created. */
+	     @Override
+	     public void onCreate(Bundle savedInstanceState) {
+	         super.onCreate(savedInstanceState);
+	       
+	         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_multiple_choice,colors);
+	         // Get the activity's ListView and set its choice mode as multiple choice
+	         getListView().setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+	         setListAdapter(adapter);
+	     }
 
-    
+	  protected void onListItemClick(ListView l, View v, int position, long id) {
+	   // TODO Auto-generated method stub
+	   super.onListItemClick(l, v, position, id);
+
+	   Toast.makeText(this,"Item Clicked", Toast.LENGTH_SHORT).show();
+	  
+	  }
+	
 }

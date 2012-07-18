@@ -1,0 +1,82 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/driverTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="57dp"
+        android:layout_marginTop="66dp"
+        android:text="@string/driver" />
+
+    <TextView
+        android:id="@+id/numberOfDriversTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/driverTextView"
+        android:layout_marginLeft="81dp"
+        android:layout_toRightOf="@+id/driverTextView"
+        android:text="@string/numberOfDriver" />
+
+    <Spinner
+        android:id="@+id/driversSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/driverTextView"
+        android:layout_alignRight="@+id/numberOfDriversTextView"
+        android:layout_below="@+id/driverTextView"
+        android:layout_marginTop="23dp" />
+
+    <Button
+        android:id="@+id/changeDriversButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/driversSpinner"
+        android:layout_alignRight="@+id/driversSpinner"
+        android:layout_below="@+id/driversSpinner"
+        android:layout_marginTop="32dp"
+        android:text="@string/change" />
+
+    <TextView
+        android:id="@+id/distanceTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/changeDriversButton"
+        android:layout_below="@+id/changeDriversButton"
+        android:layout_marginTop="32dp"
+        android:text="@string/distanceKM" />
+
+    <EditText
+        android:id="@+id/travelledDistanceEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/distanceTextView"
+        android:layout_alignRight="@+id/changeDriversButton"
+        android:layout_below="@+id/distanceTextView"
+        android:ems="10"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/InsertDistanceButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/travelledDistanceEditText"
+        android:layout_alignRight="@+id/changeDriversButton"
+        android:layout_below="@+id/travelledDistanceEditText"
+        android:layout_marginTop="23dp"
+        android:text="@string/send" />
+
+    <Button
+        android:id="@+id/backToMainMenuButton"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:text="@string/mainmenu" />
+
+</RelativeLayout>
