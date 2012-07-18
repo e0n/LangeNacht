@@ -4,5 +4,9 @@
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
     <string name="title_activity_login">LoginActivity</string>
+    <string name="userName">Benutzername</string>
+    <string name="userPassword">Benutzerpasswort</string>
+    <string name="login">Let me in!</string>
+    <string name="debugOutput">Debug Ausgabe</string>
 
 </resources>

@@ -1,17 +1,37 @@
 package gogo.gadgeto.car;
 
-import android.os.Bundle;
 import android.app.Activity;
+import android.os.Bundle;
 import android.view.Menu;
-import android.view.MenuItem;
-import android.support.v4.app.NavUtils;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class LoginActivity extends Activity {
+	
+	private EditText username;
+	private EditText userpassword;
+	private Button loginButton;
+	private TextView debugOutput;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        
+        username = (EditText) findViewById(R.id.userNameEditText);
+        userpassword = (EditText) findViewById(R.id.userPasswordEditText);
+        loginButton = (Button) findViewById(R.id.logInButton);
+        debugOutput = (TextView) findViewById(R.id.DebugOutputTextView);
+        
+        loginButton.setOnClickListener(new OnClickListener() {
+			
+			public void onClick(View v) {
+				debugOutput.setText("Debug: " + username.getText() + " " + userpassword.getText());				
+			}
+		});
     }
 
     @Override
