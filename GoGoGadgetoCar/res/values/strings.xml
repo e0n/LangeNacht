@@ -9,5 +9,10 @@
     <string name="login">Let me in!</string>
     <string name="debugOutput">Debug Ausgabe</string>
     <string name="title_activity_main_menu">MainMenuActivity</string>
+    <string name="addNewDistance">Neue Strecke</string>
+    <string name="fuel">Tanken</string>
+    <string name="mainMenu">Hauptmenu</string>
+    <string name="title_activity_new_distance_select_driver">NewDistanceSelectDriverActivity</string>
+    <string name="title_activity_fuel_select_member">FuelSelectMemberActivity</string>
 
 </resources>
