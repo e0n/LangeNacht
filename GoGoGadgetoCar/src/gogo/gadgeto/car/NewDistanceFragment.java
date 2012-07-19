@@ -1,5 +1,8 @@
 package gogo.gadgeto.car;
 
+import java.util.Set;
+
+import gogo.gadgeto.model.Database;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
@@ -37,7 +40,10 @@ public class NewDistanceFragment extends Fragment {
         
         driverSprinner = (Spinner) myView.findViewById(R.id.driversSpinner);
         
-        driverCount.setText(" " + 1);
+        
+        Database database = Database.getInstance();
+        Set<String> set = database.getSelectedNames();
+        driverCount.setText(" " + set.size());
         
         changeDriversButton.setOnClickListener(new OnClickListener() {			
 			public void onClick(View v) {
@@ -55,5 +61,13 @@ public class NewDistanceFragment extends Fragment {
 		
 		// Inflate the layout for this fragment
         return myView;
-    }    
+    }
+	
+	@Override
+    public void onStart() {
+		super.onStart();
+		Database database = Database.getInstance();
+        Set<String> set = database.getSelectedNames();
+        driverCount.setText(" " + set.size());
+	}
 }
