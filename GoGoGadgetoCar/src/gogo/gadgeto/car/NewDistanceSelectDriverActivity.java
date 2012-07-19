@@ -14,9 +14,9 @@ import android.widget.Toast;
 
 public class NewDistanceSelectDriverActivity extends ListActivity {
 
-	 private Set<String> availableNames;
-	 private Set<String> selectedDrivers;
-	 private Database database;
+	 private Set<String> availableNames;	// all available names in carsharing group
+	 private Set<String> selectedDrivers;	// selected names
+	 private Database database;	
 
 	  /** Called when the activity is first created. */
      @Override
@@ -39,10 +39,10 @@ public class NewDistanceSelectDriverActivity extends ListActivity {
          getListView().setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
          setListAdapter(adapter);
          
-         // Mark selected items in ListView
-         
+         // Mark selected items in ListView         
          for(int positionIndex = 0; positionIndex < availableNames.size(); positionIndex++) {
         	 String currentName =  (String) getListView().getItemAtPosition(positionIndex);
+        	 
         	 if (selectedDrivers.contains(currentName)) {
         		 getListView().setItemChecked(positionIndex, true);
         	 }
@@ -54,18 +54,13 @@ public class NewDistanceSelectDriverActivity extends ListActivity {
      }
      
 	 protected void onListItemClick(ListView l, View v, int position, long id) {
-		 // TODO Auto-generated method stub
 		 super.onListItemClick(l, v, position, id);
 		
 		 Toast.makeText(this,"Item Clicked", Toast.LENGTH_SHORT).show();
-		 			  
-		 String item = (String) getListView().getItemAtPosition(position);
-		 //TODO: no set correcting here
-		 boolean result = selectedDrivers.add(item);
-		 if (!result) {
-			 selectedDrivers.remove(item);
-		 }
-		 database.setSelectedNames(selectedDrivers);
+		 
+		 // get selected name and toggle it
+		 String toggledName = (String) getListView().getItemAtPosition(position);		 
+		 database.toggleSelectedName(toggledName);
 	 }
 	
 }

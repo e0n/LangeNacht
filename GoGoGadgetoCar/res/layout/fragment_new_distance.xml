@@ -22,32 +22,22 @@
         android:layout_toRightOf="@+id/driverTextView"
         android:text="@string/numberOfDriver" />
 
-    <Spinner
-        android:id="@+id/driversSpinner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/driverTextView"
-        android:layout_alignRight="@+id/numberOfDriversTextView"
-        android:layout_below="@+id/driverTextView"
-        android:layout_marginTop="23dp" />
-
     <Button
         android:id="@+id/changeDriversButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/driversSpinner"
-        android:layout_alignRight="@+id/driversSpinner"
-        android:layout_below="@+id/driversSpinner"
-        android:layout_marginTop="32dp"
+        android:layout_below="@+id/numberOfDriversTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
         android:text="@string/change" />
 
     <TextView
         android:id="@+id/distanceTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/changeDriversButton"
+        android:layout_alignLeft="@+id/driverTextView"
         android:layout_below="@+id/changeDriversButton"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="20dp"
         android:text="@string/distanceKM" />
 
     <EditText
@@ -55,7 +45,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/distanceTextView"
-        android:layout_alignRight="@+id/changeDriversButton"
         android:layout_below="@+id/distanceTextView"
         android:ems="10"
         android:inputType="number" />
@@ -64,10 +53,9 @@
         android:id="@+id/InsertDistanceButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/travelledDistanceEditText"
-        android:layout_alignRight="@+id/changeDriversButton"
-        android:layout_below="@+id/travelledDistanceEditText"
-        android:layout_marginTop="23dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="86dp"
         android:text="@string/send" />
 
 </RelativeLayout>
