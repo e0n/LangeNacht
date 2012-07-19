@@ -3,6 +3,7 @@ package gogo.gadgeto.car.helper;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -64,36 +65,8 @@ public class HelperClass {
     
 	public static String communicateWithServer(String command) {
 		
-		String address = "http://le88.dyndns.org/android/php/CarSharing/" + command + ".php";
-		
-		HttpResponse httpResponse = null;
-		String result = "";
-						
-		HttpClient httpClient = new DefaultHttpClient();
-		HttpPost httpPost = new HttpPost(address);
-				
-		try {
-			httpResponse = httpClient.execute(httpPost);
-			
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
-		} catch (ClientProtocolException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
-		BasicResponseHandler basicResponseHandler = new BasicResponseHandler();
-		
-		try {
-			result = basicResponseHandler.handleResponse(httpResponse);
-		} catch (HttpResponseException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
-		return result;
+		return communicateWithServer(command, new HashMap<String,Editable>());
 	}
 
+	
 }
