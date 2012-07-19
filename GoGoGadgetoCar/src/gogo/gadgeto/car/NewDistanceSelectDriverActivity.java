@@ -24,7 +24,7 @@ public class NewDistanceSelectDriverActivity extends ListActivity {
          super.onCreate(savedInstanceState);
          
          database = Database.getInstance();
-         selectedDrivers = database.getSelectedNames();
+         selectedDrivers = database.getSelectedDriverNames();
          availableNames = database.getAvailableDriverNames();
          
          // Insert all available names into array adapter
@@ -60,7 +60,7 @@ public class NewDistanceSelectDriverActivity extends ListActivity {
 		 
 		 // get selected name and toggle it
 		 String toggledName = (String) getListView().getItemAtPosition(position);		 
-		 database.toggleSelectedName(toggledName);
+		 database.toggleSelectedDriverName(toggledName);
 	 }
 	
 }

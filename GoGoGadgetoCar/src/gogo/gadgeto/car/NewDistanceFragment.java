@@ -57,7 +57,7 @@ public class NewDistanceFragment extends Fragment {
 				if (text.length() != 0)
 				{
 					int distance = Integer.parseInt(text.toString());
-					String result = database.sendToDatabase(database.getSelectedNames(), distance, database.getUsername());
+					String result = database.sendDistanceToDatabase(database.getSelectedDriverNames(), distance, database.getUsername());
 				
 					Toast.makeText(getActivity(), result, Toast.LENGTH_LONG).show();
 				} else {
@@ -72,9 +72,9 @@ public class NewDistanceFragment extends Fragment {
 
 	private void writeDriversCount() {
 		
-        Set<String> selectedNames = database.getSelectedNames();
+        Set<String> selectedNames = database.getSelectedDriverNames();
         if (selectedNames.size() == 0) {
-        	database.toggleSelectedName(database.getUsername());
+        	database.toggleSelectedDriverName(database.getUsername());
         	driverCount.setText(database.getUsername());
         } else if (selectedNames.size() == 1) {
         	driverCount.setText(selectedNames.iterator().next());

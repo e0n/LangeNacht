@@ -22,5 +22,8 @@
     <string name="send">Abschicken</string>
     <string name="mainmenu">Hauptmenu</string>
     <string name="title_activity_fuel_fragment">FuelFragment</string>
+    <string name="payment">Betrag in Euro</string>
+    <string name="payer">Bezahlt von</string>
+    <string name="payername">NAME</string>
 
 </resources>

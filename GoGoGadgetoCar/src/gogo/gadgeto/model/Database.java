@@ -4,18 +4,18 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
-import android.widget.Toast;
-
 public class Database {
 	
 	private static Database INSTANCE = null;
 	Set<String> selectedDriverNames;
+	Set<String> selectedPayerNames;
 	Set<String> availableDriverNames;
 	String username;
 	
 	private Database() {
 		username = "ph";
 		selectedDriverNames= new HashSet<String>();
+		selectedPayerNames = new HashSet<String>();
 		availableDriverNames = new HashSet<String>();
 		availableDriverNames.add("Lars");
 		availableDriverNames.add("ph");
@@ -36,15 +36,17 @@ public class Database {
 		return availableDriverNames;		
 	}
 	
-	public Set<String> getSelectedNames() {
+	public Set<String> getSelectedDriverNames() {
 		return selectedDriverNames;		
 	}
 	
-	public void setSelectedNames(Set<String> newNames) {
-		selectedDriverNames = newNames;
+	public void setSelectedDriverNames(Set<String> newNames) {
+		if (newNames != null) {
+			selectedDriverNames = newNames;			
+		}
 	}
 	
-	public void toggleSelectedName (String newName){
+	public void toggleSelectedDriverName (String newName){
 		boolean result = selectedDriverNames.add(newName);
 		 if (!result) {
 			 selectedDriverNames.remove(newName);
@@ -55,13 +57,13 @@ public class Database {
 		return username;
 	}
 	
-	public String sendToDatabase(Set<String> driverNames, int distance, String username) {
+	public String sendDistanceToDatabase(Set<String> driverNames, int distance, String username2) {
 		String result;
 		if ( driverNames != null ) {
-			if ( username != null) {
+			if ( username2 != null) {
 				if ( distance != 0) {
 					
-					result = username + " inserted: ";
+					result = username2 + " inserted: ";
 					Iterator<String> it = driverNames.iterator();
 					if (driverNames.size() != 0) {
 						result += it.next();
@@ -83,6 +85,47 @@ public class Database {
 			result = "drivers set invalid.";
 		}		
 		return result;
+	}
+
+	public String sendFuelToDatabase(Set<String> selectedNames, int payment, String username2) {
+		String result;
+		if ( selectedNames != null ) {
+			if ( username2 != null) {
+				if ( payment != 0) {
+					
+					result = username2 + " inserted: ";
+					Iterator<String> it = selectedNames.iterator();
+					if (selectedNames.size() != 0) {
+						result += it.next();
+						while (it.hasNext()) {
+							result += ", " + it.next();
+						}
+						result += " fueled for " + payment + "euro.";
+					} else {
+						result = "No Names selected.";
+					}
+					
+				} else {
+					result = "no payment entered.";
+				}
+			} else {
+				result = "no username found.";
+			}
+		} else {
+			result = "drivers set invalid.";
+		}		
+		return result;
+	}
+
+	public Set<String> getSelectedPayerNames() {
+		return selectedPayerNames;
+	}
+
+	public void toggleSelectedPayerName(String toggledName) {
+		boolean result = selectedPayerNames.add(toggledName);
+		 if (!result) {
+			 selectedPayerNames.remove(toggledName);
+		 }		
 	}
 
 }
