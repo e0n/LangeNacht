@@ -41,7 +41,7 @@ public class LoginActivity extends Activity {
 				parameters.put("username", username.getText());
 				parameters.put("userpass", userpassword.getText());
 								
-				new RetreiveResponseTask().execute("login", parameters);		
+				new RetreiveResponseTask().execute("userLogin", parameters);		
 			}					
 		});
     }
