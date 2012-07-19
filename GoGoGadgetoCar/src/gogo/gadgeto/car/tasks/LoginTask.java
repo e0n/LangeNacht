@@ -73,6 +73,7 @@ public class LoginTask extends AsyncTask<Void, Void, Boolean> {
                     
                     return true;
                 }else{
+                	// TODO: Rausnehmen - nur drinne lassen bis logout funktion in main activity vorhanden!
                 	userFunction.logoutUser(activity.getApplicationContext());
                 	error_msg = json.getString(KEY_ERROR_MSG);             	
                 	return false;
