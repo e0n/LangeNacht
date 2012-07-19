@@ -21,7 +21,7 @@ import android.text.Editable;
 
 public class HelperClass {
 	
-    public static String communicateWithServer(String command, Map<String, Editable> parameters) {
+	public static String communicateWithServer(String command, Map<String, Editable> parameters) {
 		
 		String address = "http://le88.dyndns.org/android/php/CarSharing/" + command + ".php";
 		
@@ -31,6 +31,7 @@ public class HelperClass {
 		HttpClient httpClient = new DefaultHttpClient();
 		HttpPost httpPost = new HttpPost(address);
 		
+		
 		List<NameValuePair> listPairs = new ArrayList<NameValuePair>();
 		for (String key : parameters.keySet()) {
 			listPairs.add(new BasicNameValuePair(key, parameters.get(key).toString()));
@@ -38,6 +39,40 @@ public class HelperClass {
 		
 		try {
 			httpPost.setEntity(new UrlEncodedFormEntity(listPairs));
+			httpResponse = httpClient.execute(httpPost);
+			
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		} catch (ClientProtocolException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		BasicResponseHandler basicResponseHandler = new BasicResponseHandler();
+		
+		try {
+			result = basicResponseHandler.handleResponse(httpResponse);
+		} catch (HttpResponseException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+    
+	public static String communicateWithServer(String command) {
+		
+		String address = "http://le88.dyndns.org/android/php/CarSharing/" + command + ".php";
+		
+		HttpResponse httpResponse = null;
+		String result = "";
+						
+		HttpClient httpClient = new DefaultHttpClient();
+		HttpPost httpPost = new HttpPost(address);
+				
+		try {
 			httpResponse = httpClient.execute(httpPost);
 			
 		} catch (UnsupportedEncodingException e) {
