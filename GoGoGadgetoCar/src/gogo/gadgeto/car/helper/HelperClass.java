@@ -17,6 +17,9 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import android.text.Editable;
 
@@ -63,10 +66,19 @@ public class HelperClass {
 		return result;
 	}
     
-	public static String communicateWithServer(String command) {
+	public static JSONObject communicateWithServer(String command) {
 		
-		return communicateWithServer(command, new HashMap<String,Editable>());
+		JSONObject json = null;
+		
+		String result = communicateWithServer(command, new HashMap<String,Editable>());
+		
+		try {
+			JSONArray resultArray = new JSONArray(result);
+			json = resultArray.getJSONObject(1);
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		return json;
 	}
-
 	
 }
