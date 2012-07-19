@@ -39,7 +39,7 @@ public class MainMenuActivity extends Activity {
         //bar.addTab(settingsTab);
         
         
-        database = new Database();
+        database = Database.getInstance();
        
     }
 
