@@ -1,0 +1,78 @@
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="left" >
+
+        <EditText
+            android:id="@+id/register_userNameEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="72dp"
+            android:ems="10"
+            android:inputType="textPersonName" />
+
+        <TextView
+            android:id="@+id/register_userNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/register_userNameEditText"
+            android:layout_alignLeft="@+id/register_userNameEditText"
+            android:layout_marginBottom="33dp"
+            android:text="@string/name" />
+
+        <TextView
+            android:id="@+id/register_userPasswordTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/register_userNameEditText"
+            android:layout_below="@+id/register_userNameEditText"
+            android:layout_marginTop="20dp"
+            android:text="@string/userPassword" />
+
+        <EditText
+            android:id="@+id/register_userPasswordEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/register_userPasswordTextView"
+            android:layout_alignRight="@+id/register_userNameEditText"
+            android:layout_below="@+id/register_userPasswordTextView"
+            android:ems="10"
+            android:inputType="textPassword" />
+
+        <TextView
+            android:id="@+id/register_userEmailTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/register_userNameEditText"
+            android:layout_alignRight="@+id/register_userPasswordTextView"
+            android:layout_below="@+id/register_userPasswordEditText"
+            android:layout_marginTop="20dp"
+            android:text="@string/userEmail" />
+
+        <EditText
+            android:id="@+id/register_userEmailEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/register_userPasswordEditText"
+            android:layout_alignRight="@+id/register_userPasswordEditText"
+            android:layout_below="@+id/register_userEmailTextView"
+            android:ems="10"
+            android:inputType="textEmailAddress" >
+
+            <requestFocus />
+        </EditText>
+
+        <Button
+            android:id="@+id/register_registerButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/register_userEmailEditText"
+            android:layout_alignRight="@+id/register_userEmailEditText"
+            android:layout_below="@+id/register_userEmailEditText"
+            android:layout_marginTop="22dp"
+            android:text="@string/register" />
+
+    </RelativeLayout>
