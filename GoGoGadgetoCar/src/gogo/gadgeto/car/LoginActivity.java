@@ -1,80 +1,74 @@
 package gogo.gadgeto.car;
 
-import gogo.gadgeto.car.helper.HelperClass;
-
-import java.util.HashMap;
-import java.util.Map;
-
+import gogo.gadgeto.car.helper.UserFunctions;
+import gogo.gadgeto.car.tasks.LoginTask;
 import android.app.Activity;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.text.Editable;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.Toast;
 
 public class LoginActivity extends Activity {
 	
-	private EditText username;
+	private EditText useremail;
 	private EditText userpassword;
 	private Button loginButton;
-	private TextView debugOutput;
+	private Button registerButton;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         
-        username = (EditText) findViewById(R.id.userNameEditText);
+        if (new UserFunctions().isUserLoggedIn(getApplicationContext())) {
+        	// Launch MainMenu Screen
+    		Intent newIntent = new Intent(LoginActivity.this, MainMenuActivity.class);
+    		startActivity(newIntent);
+        }
+        
+        useremail = (EditText) findViewById(R.id.userEmailEditText);
         userpassword = (EditText) findViewById(R.id.userPasswordEditText);
         loginButton = (Button) findViewById(R.id.logInButton);
-        debugOutput = (TextView) findViewById(R.id.DebugOutputTextView);
-                        
+        registerButton = (Button) findViewById(R.id.registerButton);
+        
         loginButton.setOnClickListener(new OnClickListener() {			
+			public void onClick(View v) {    
+				doLogIn();			} 	
+        });	 
+        
+        registerButton.setOnClickListener(new OnClickListener() {
+			
 			public void onClick(View v) {
-								
-				Map<String,Editable> parameters = new HashMap<String, Editable>();
-				parameters.put("username", username.getText());
-				parameters.put("userpass", userpassword.getText());
-								
-				new RetreiveResponseTask().execute("userLogin", parameters);		
-			}					
+				Intent newIntent = new Intent(LoginActivity.this, RegisterActivity.class);
+				startActivity(newIntent);
+			}
 		});
+    }					
+
+    public void doLogIn() {
+    	new LoginTask(this, useremail.getText().toString(), userpassword.getText().toString()).execute();	
+    	useremail.setText("");
+    	userpassword.setText("");
     }
+    
+    public void loginWindow() {
+		Intent newIntent = new Intent(LoginActivity.this, MainMenuActivity.class);
+		startActivity(newIntent);
+    }
+    
+	public void showErrorMsg(String msg)
+	{
+       	Toast.makeText(LoginActivity.this, msg, Toast.LENGTH_SHORT).show();
+	}
     
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.activity_login, menu);
         return true;
     } 
-    
-    private void setResponse(String response) {
-    	debugOutput.setText("Debug: " + response );
-		
-		if (response.equals("Accept"))
-		{
-			Intent newIntent = new Intent(LoginActivity.this, MainMenuActivity.class);
-			startActivity(newIntent);
-		}
-    }  
-    
-    public class RetreiveResponseTask extends AsyncTask<Object, Void, String> {
-    	
-        protected String doInBackground(Object... urls) {
-        	try {String command = (String)(urls[0]);
-            	Map<String, Editable> parameters = (Map<String, Editable>) (urls[1]); 
-                return HelperClass.communicateWithServer(command, parameters);
-            } catch (Exception e) {
-                return null;
-            }
-        }
-
-        protected void onPostExecute(String response) {
-        	setResponse(response);
-        }
-     }
 }
+    

@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
-
+
     <TextView
         android:id="@+id/userNameTextView"
         android:layout_width="wrap_content"
@@ -11,10 +11,10 @@
         android:layout_alignParentTop="true"
         android:layout_marginLeft="52dp"
         android:layout_marginTop="75dp"
-        android:text="@string/userName" />
+        android:text="@string/userEmail" />
 
     <EditText
-        android:id="@+id/userNameEditText"
+        android:id="@+id/userEmailEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/userNameTextView"
@@ -24,40 +24,43 @@
 
         <requestFocus />
     </EditText>
-
+
     <TextView
         android:id="@+id/userPasswordTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/userNameEditText"
-        android:layout_below="@+id/userNameEditText"
+        android:layout_alignLeft="@+id/userEmailEditText"
+        android:layout_below="@+id/userEmailEditText"
         android:layout_marginTop="25dp"
         android:text="@string/userPassword" />
-
+
     <EditText
         android:id="@+id/userPasswordEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/userPasswordTextView"
+        android:layout_alignRight="@+id/userEmailEditText"
         android:layout_below="@+id/userPasswordTextView"
         android:ems="10"
         android:inputType="textPassword" />
-
+
     <Button
         android:id="@+id/logInButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/userPasswordEditText"
+        android:layout_alignRight="@+id/userEmailEditText"
         android:layout_below="@+id/userPasswordEditText"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="69dp"
+        android:layout_marginTop="25dp"
         android:text="@string/login" />
 
-    <TextView
-        android:id="@+id/DebugOutputTextView"
+    <Button
+        android:id="@+id/registerButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/logInButton"
+        android:layout_alignRight="@+id/logInButton"
         android:layout_below="@+id/logInButton"
-        android:layout_centerHorizontal="true"
-        android:text="@string/debugOutput" />
+        android:text="@string/register" />
 
 </RelativeLayout>
