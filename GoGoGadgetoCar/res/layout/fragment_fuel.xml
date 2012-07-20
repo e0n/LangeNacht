@@ -22,8 +22,7 @@
         android:layout_marginLeft="57dp"
         android:layout_marginTop="66dp"
         android:text="@string/payer" />
-
-
+
     <Spinner
         android:id="@+id/payerSpinner"
         android:layout_width="210dp"
