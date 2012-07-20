@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/fragmentCarGroup">
-
+
     <Button
         android:id="@+id/joinCarGroupButton"
         android:layout_width="wrap_content"
@@ -12,7 +12,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="61dp"
         android:text="@string/joinGroup" />
-
+
     <Button
         android:id="@+id/leaveCarGroupButton"
         android:layout_width="wrap_content"
@@ -21,7 +21,7 @@
         android:layout_below="@+id/joinCarGroupButton"
         android:layout_marginTop="70dp"
         android:text="@string/leaveGroup" />
-
+
     <Button
         android:id="@+id/createCarGroupButton"
         android:layout_width="wrap_content"
