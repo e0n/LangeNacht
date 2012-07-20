@@ -113,7 +113,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
  
     /**
      * Getting user login status
-     * return true if rows are there in table
+     * return row count
      * */
     public int getRowCount() {
         String countQuery = "SELECT  * FROM " + TABLE_LOGIN;
