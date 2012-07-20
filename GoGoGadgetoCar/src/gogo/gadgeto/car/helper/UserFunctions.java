@@ -20,6 +20,7 @@ public class UserFunctions {
  
     private static String login_tag = "login";
     private static String register_tag = "register";
+    private static String getUsersInCarShare_tag = "getUsersInCarShare";
  
     // constructor
     public UserFunctions(){
@@ -44,7 +45,7 @@ public class UserFunctions {
     }
  
     /**
-     * function make Login Request
+     * function register new User
      * @param name
      * @param email
      * @param password
@@ -63,6 +64,24 @@ public class UserFunctions {
         return json;
     }
  
+    /**
+     * function register new User
+     * @param name
+     * @param email
+     * @param password
+     * */
+    public JSONObject getUsersInCarShare(String carShareId){
+        // Building Parameters
+        List<NameValuePair> params = new ArrayList<NameValuePair>();
+        params.add(new BasicNameValuePair("tag", getUsersInCarShare_tag));
+        params.add(new BasicNameValuePair("carShareId", carShareId));
+        // getting JSON Object
+        JSONObject json = jsonParser.getJSONFromUrl(registerURL, params);
+        // return json
+        return json;
+    }
+    
+    
     /**
      * Function get Login status
      * */

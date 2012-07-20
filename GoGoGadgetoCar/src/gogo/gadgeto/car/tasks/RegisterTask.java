@@ -70,7 +70,7 @@ public class RegisterTask extends AsyncTask<Void, Void, Boolean> {
 
                     // Clear all previous data in database
                     userFunction.logoutUser(activity.getApplicationContext());
-                    db.addUser(json_user.getString(KEY_NAME), json_user.getString(KEY_EMAIL), json.getString(KEY_UID), json_user.getString(KEY_CREATED_AT));                       
+                    db.addUser(json_user.getString(KEY_NAME), json_user.getString(KEY_EMAIL), json_user.getString(KEY_CREATED_AT));                       
                     activity.loginWindow();
                     
                     return true;
