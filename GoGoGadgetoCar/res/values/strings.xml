@@ -25,5 +25,11 @@
     <string name="payment">Betrag in Euro</string>
     <string name="payer">Bezahlt von</string>
     <string name="payername">NAME</string>
+    <string name="title_activity_car_group">CarGroup</string>
+    <string name="joinGroup">Gruppe beitreten</string>
+    <string name="leaveGroup">Gruppe verlassen</string>
+    <string name="createGroup">Gruppe erstellen</string>
+    <string name="title_activity_join_car_group">JoinCarGroupActivity</string>
+    <string name="finished">fertig</string>
 
 </resources>
