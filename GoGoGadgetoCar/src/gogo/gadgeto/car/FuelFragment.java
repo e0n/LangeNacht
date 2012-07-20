@@ -64,7 +64,7 @@ public class FuelFragment extends Fragment {
 				if (text.length() != 0)
 				{
 					int payment = Integer.parseInt(text.toString());
-					String result = database.sendFuelToDatabase(database.getSelectedPayerNames(), payment, database.getUsername());
+					String result = database.sendFuelToDatabase((String) payerSpinner.getSelectedItem(), payment, database.getUsername());
 				
 					Toast.makeText(getActivity(), result, Toast.LENGTH_LONG).show();
 				} else {

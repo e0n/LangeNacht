@@ -23,13 +23,23 @@
         android:layout_marginTop="66dp"
         android:text="@string/payer" />
 
-    <TextView
-        android:id="@+id/paymentTextView"
+    <Spinner
+        android:id="@+id/payerSpinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/PayerTextView"
         android:layout_below="@+id/PayerTextView"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="26dp"
+        android:gravity="bottom"
+        tools:listitem="@android:layout/simple_spinner_dropdown_item" />
+
+    <TextView
+        android:id="@+id/paymentTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/payerSpinner"
+        android:layout_below="@+id/payerSpinner"
+        android:layout_marginTop="23dp"
         android:text="@string/payment" />
 
     <EditText
@@ -38,16 +48,11 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/paymentTextView"
         android:layout_below="@+id/paymentTextView"
+        android:layout_marginTop="30dp"
         android:ems="10"
-        android:inputType="numberSigned" />
+        android:inputType="numberSigned" >
 
-    <Spinner
-        android:id="@+id/payerSpinner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/PayerTextView"
-        android:layout_alignRight="@+id/paymentEditText"
-        android:gravity="bottom"
-        tools:listitem="@android:layout/simple_spinner_dropdown_item" />
+        <requestFocus />
+    </EditText>
 
 </RelativeLayout>
