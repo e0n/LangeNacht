@@ -36,11 +36,7 @@ public class MainMenuActivity extends Activity {
         
         bar.addTab(distanceTab);
         bar.addTab(fuelTab);
-<<<<<<< HEAD
         //bar.addTab(settingsTab);
-=======
-        bar.addTab(carGroupTab);
->>>>>>> cb051ab4e70e8137327e01db1b8597d2f9a56877
                
         database = Database.getInstance();
        

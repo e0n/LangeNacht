@@ -33,11 +33,7 @@
 
         <requestFocus />
     </EditText>
-<<<<<<< HEAD
-
-=======
-
->>>>>>> cb051ab4e70e8137327e01db1b8597d2f9a56877
+
     <TextView
         android:id="@+id/numberOfDriversTextView"
         android:layout_width="wrap_content"
