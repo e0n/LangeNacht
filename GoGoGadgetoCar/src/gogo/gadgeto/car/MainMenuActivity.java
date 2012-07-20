@@ -24,21 +24,25 @@ public class MainMenuActivity extends Activity {
         
         ActionBar.Tab distanceTab 	= bar.newTab().setText("Distance");
         ActionBar.Tab fuelTab 		= bar.newTab().setText("Fuel");
+        ActionBar.Tab statisticTab 	= bar.newTab().setText("Statistic");
         ActionBar.Tab carGroupTab   = bar.newTab().setText("CarGroup");
         ActionBar.Tab logoutTab 	= bar.newTab().setText("Logout");
         
         Fragment fragmentDistance 	= new NewDistanceFragment();
         Fragment fragmentFuel 		= new FuelFragment();
+        Fragment fragmentStatistic	= new StatisticFragment();
         Fragment fragmentCarGroup   = new CarGroupFragment();
         Fragment fragmentLogout		= new LogoutFragment();
         
         distanceTab.setTabListener(new MyTabsListener(fragmentDistance));
         fuelTab.setTabListener(new MyTabsListener(fragmentFuel));
+        statisticTab.setTabListener(new MyTabsListener(fragmentStatistic));
         carGroupTab.setTabListener(new MyTabsListener(fragmentCarGroup));
         logoutTab.setTabListener(new MyTabsListener(fragmentLogout));
         
         bar.addTab(distanceTab);
         bar.addTab(fuelTab);
+        bar.addTab(statisticTab);
         bar.addTab(carGroupTab);
         bar.addTab(logoutTab);
                
