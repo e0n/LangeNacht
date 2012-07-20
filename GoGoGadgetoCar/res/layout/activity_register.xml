@@ -31,7 +31,7 @@
             android:layout_below="@+id/register_userNameEditText"
             android:layout_marginTop="20dp"
             android:text="@string/userPassword" />
-
+
         <EditText
             android:id="@+id/register_userPasswordEditText"
             android:layout_width="wrap_content"
@@ -51,7 +51,7 @@
             android:layout_below="@+id/register_userPasswordEditText"
             android:layout_marginTop="20dp"
             android:text="@string/userEmail" />
-
+
         <EditText
             android:id="@+id/register_userEmailEditText"
             android:layout_width="wrap_content"

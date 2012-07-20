@@ -35,6 +35,7 @@ public class LeaveCarGroupActivity extends Activity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         groupIdSpinner.setAdapter(adapter);
         
+
         
         leaveGroupButton.setOnClickListener(new OnClickListener() {
 			

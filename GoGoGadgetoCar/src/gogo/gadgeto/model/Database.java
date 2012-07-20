@@ -149,8 +149,8 @@ public class Database {
 	}
 
 	public String sendLeaveGroupRequest(String username2, String leavingGroupId) {
-		String result = username2 + " has left group " + leavingGroupId;
-		return result;
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

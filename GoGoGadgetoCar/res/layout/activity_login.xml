@@ -43,7 +43,7 @@
         android:layout_below="@+id/userPasswordTextView"
         android:ems="10"
         android:inputType="textPassword" />
-
+
     <Button
         android:id="@+id/logInButton"
         android:layout_width="wrap_content"
