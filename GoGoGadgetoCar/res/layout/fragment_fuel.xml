@@ -40,7 +40,11 @@
         android:layout_below="@+id/paymentTextView"
         android:ems="10"
         android:inputType="numberSigned" />
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> cb051ab4e70e8137327e01db1b8597d2f9a56877
     <Spinner
         android:id="@+id/payerSpinner"
         android:layout_width="wrap_content"

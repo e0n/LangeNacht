@@ -14,8 +14,11 @@
     <string name="title_activity_new_distance_select_driver">NewDistanceSelectDriverActivity</string>
     <string name="title_activity_fuel_select_member">FuelSelectMemberActivity</string>
     <string name="title_activity_new_distance">NewDistanceActivity</string>
+<<<<<<< HEAD
     <string name="title_activity_car_group">NewCarGroupActivity</string>
     <string name="title_activity_join_car_group">NewJoinCarGroupActivity</string>
+=======
+>>>>>>> cb051ab4e70e8137327e01db1b8597d2f9a56877
     <string name="driver">Driver</string>
     <string name="numberOfDriver">ANZAHL</string>
     <string name="change">Ändern</string>
@@ -26,6 +29,15 @@
     <string name="payment">Amount (€)</string>
     <string name="payer">Paid by</string>
     <string name="payername">Name</string>
+<<<<<<< HEAD
+=======
+    <string name="title_activity_car_group">CarGroup</string>
+    <string name="joinGroup">Gruppe beitreten</string>
+    <string name="leaveGroup">Gruppe verlassen</string>
+    <string name="createGroup">Gruppe erstellen</string>
+    <string name="title_activity_join_car_group">JoinCarGroupActivity</string>
+    <string name="finished">fertig</string>
+>>>>>>> cb051ab4e70e8137327e01db1b8597d2f9a56877
     <string name="register">Register</string>
     <string name="userEmail">Email</string>
     <string name="title_activity_register">RegisterActivity</string>
