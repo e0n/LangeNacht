@@ -19,7 +19,7 @@ public class UserFunctions {
     private static String registerURL = "http://le88.dyndns.org/android/php/android_api/";
  
     private static String login_tag = "login";
-    private static String register_tag = "register";
+    private static String register_tag = "registerUser";
     private static String getUsersInCarShare_tag = "getUsersInCarShare";
  
     // constructor
