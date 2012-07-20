@@ -1,40 +1,46 @@
 package gogo.gadgeto.car;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
+import gogo.gadgeto.model.Database;
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
-public class JoinCarGroupActivity extends Fragment {
+public class JoinCarGroupActivity extends Activity {
 	
-	private Button finishedButton;
+	private Button sendButton;
+	private EditText carGroupIdEditText;
+	private Database database;
 	
 	@Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_join_car_group);
 		
-		View myView = inflater.inflate(R.layout.fragment_fuel, container, false);
+		sendButton = (Button) findViewById(R.id.joinCarGroupSendButton);
+		carGroupIdEditText = (EditText) findViewById(R.id.joinCarGroupIdEditText);
 		
-		finishedButton = (Button) myView.findViewById(R.id.finishButton);
+		database = Database.getInstance();
 		
-		finishedButton.setOnClickListener(new OnClickListener() {
+		sendButton.setOnClickListener(new OnClickListener() {
 			
 			public void onClick(View v) {
-				FragmentManager manager = getFragmentManager();
-				FragmentTransaction transaction = manager.beginTransaction();
 				
-				CarGroupFragment fragment = new CarGroupFragment();
-				transaction.add(R.id.fragmentCarGroup, fragment);
-				transaction.commit();
+				String groupId = carGroupIdEditText.getText().toString();
+				String result = database.sendJoinCarGroupRequest(database.getUsername(), groupId);
 				
+				Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG).show();
+				
+				Intent newIntent = new Intent(JoinCarGroupActivity.this, MainMenuActivity.class);
+	    		startActivity(newIntent);
 			}
 		});
 		
-		return myView;
+
 		
 	}
     

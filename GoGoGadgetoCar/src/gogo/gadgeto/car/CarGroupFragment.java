@@ -15,13 +15,6 @@ public class CarGroupFragment extends Fragment {
 	private Button leaveGroupButton;
 	private Button createGroupButton;
 	
-//	public static CarGroupFragment INSTANCE;
-//
-//	public CarGroupFragment() {
-//		super();
-//		INSTANCE = new CarGroupFragment();
-//	}
-	
 	@Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		
@@ -33,7 +26,7 @@ public class CarGroupFragment extends Fragment {
 		
 		joinGroupButton.setOnClickListener(new OnClickListener() {			
 			public void onClick(View v) {
-				Intent newIntent = new Intent(getActivity().getApplicationContext(), FuelSelectMemberActivity.class);
+				Intent newIntent = new Intent(getActivity().getApplicationContext(), JoinCarGroupActivity.class);
 				startActivity(newIntent);
 			}
 		});

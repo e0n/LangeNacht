@@ -35,5 +35,6 @@
     <string name="userEmail">Email</string>
     <string name="title_activity_register">RegisterActivity</string>
     <string name="name">Name</string>
+    <string name="carGroupId">Car Group Id</string>
 
 </resources>
