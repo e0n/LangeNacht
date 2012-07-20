@@ -7,7 +7,7 @@
     android:padding="10dp">
      
      <TextView android:id="@+id/cashTxtTitle1"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="fill_parent"
         android:gravity="center_vertical"
         android:layout_alignParentTop="true"
@@ -21,7 +21,7 @@
      <TextView android:id="@+id/cashTxtTitle2"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:gravity="center_vertical"
+        android:gravity="right"
         android:layout_alignParentTop="true"
         android:layout_alignParentBottom="true"
         android:textStyle="bold"

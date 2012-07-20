@@ -27,7 +27,7 @@ public class StatisticFragment extends Fragment{
 			}
 		});		
 		
-		return myView;		
+		return myView;
 	}
 
 }
