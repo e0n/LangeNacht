@@ -14,9 +14,7 @@ public class LoginTask extends AsyncTask<Void, Void, Boolean> {
 
     // JSON Response node names
     private static String KEY_SUCCESS = "success";
-    private static String KEY_ERROR = "error";
     private static String KEY_ERROR_MSG = "error_msg";
-    private static String KEY_UID = "uid";
     private static String KEY_NAME = "name";
     private static String KEY_EMAIL = "email";
     private static String KEY_CREATED_AT = "created_at";

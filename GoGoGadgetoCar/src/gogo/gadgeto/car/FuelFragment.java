@@ -12,6 +12,7 @@ import gogo.gadgeto.car.helper.DatabaseHandler;
 import gogo.gadgeto.car.helper.UserFunctions;
 import gogo.gadgeto.car.tasks.GetUsersTask;
 import gogo.gadgeto.model.Database;
+import android.app.Activity;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
@@ -76,24 +77,20 @@ public class FuelFragment extends Fragment {
         return myView;
     }
 	
-	public void updateSpinner(List<String> daten) {
-		ArrayAdapter<String> datenAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, daten);
-		datenAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		payerSpinner.setAdapter(datenAdapter);	
-	}
+	public void updateSpinner(List<String> daten, String error_msg) {
+		
+		Activity activity;
+		
+		if ((activity = getActivity()) != null) {		
+			if(error_msg.isEmpty()) {
+				ArrayAdapter<String> datenAdapter = new ArrayAdapter<String>(activity, android.R.layout.simple_spinner_item, daten);
+				datenAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+				payerSpinner.setAdapter(datenAdapter);	
+			}
+			else {
+				Toast.makeText(activity, error_msg, Toast.LENGTH_SHORT).show();
+			}
+		}
 	
-//	private void writePayerCount() {
-//		Set<String> selectedNames = database.getSelectedPayerNames();
-//        if (selectedNames.size() == 0) {
-//        	database.toggleSelectedDriverName(database.getUsername());
-//        	payerCountTextView.setText(database.getUsername());
-//        } else if (selectedNames.size() == 1) {
-//        	payerCountTextView.setText(selectedNames.iterator().next());
-//        } else {
-//        	payerCountTextView.setText(" " + selectedNames.size());
-//        }		
-//	}
-	
-
-    
+	}    
 }

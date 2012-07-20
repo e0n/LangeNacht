@@ -35,21 +35,6 @@ public class LeaveCarGroupActivity extends Activity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         groupIdSpinner.setAdapter(adapter);
         
-        
-        
-//        groupIdSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//
-//			public void onItemSelected(AdapterView<?> parentView, View selectedItemView,
-//					int position, long id) {
-//				((TextView)parentView.getChildAt(0)).setTextColor(Color.rgb(0, 0, 0));  				
-//			}
-//
-//			public void onNothingSelected(AdapterView<?> arg0) {
-//				// TODO Auto-generated method stub
-//				
-//			}
-//		});
-        
     }
 
     @Override
@@ -57,6 +42,5 @@ public class LeaveCarGroupActivity extends Activity {
         getMenuInflater().inflate(R.menu.activity_leave_car_group, menu);
         return true;
     }
-
     
 }
