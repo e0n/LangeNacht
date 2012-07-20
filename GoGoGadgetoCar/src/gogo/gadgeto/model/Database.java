@@ -138,8 +138,8 @@ public class Database {
 		 }		
 	}
 	
-	public String sendJoinCarGroupRequest (String username, String groupId) {
-		String result = "Added " + username + " to group " +groupId;
+	public String sendJoinCarGroupRequest (String username, String groupId, String password) {
+		String result = "Added " + username + " to group " + groupId + " with password " + password;
 		return result;
 	}
 

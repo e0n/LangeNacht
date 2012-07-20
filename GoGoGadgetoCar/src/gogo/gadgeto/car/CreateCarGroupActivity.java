@@ -1,12 +1,18 @@
 package gogo.gadgeto.car;
 
-import android.os.Bundle;
+import gogo.gadgeto.model.Database;
 import android.app.Activity;
+import android.os.Bundle;
 import android.view.Menu;
-import android.view.MenuItem;
-import android.support.v4.app.NavUtils;
+import android.widget.Button;
+import android.widget.EditText;
 
 public class CreateCarGroupActivity extends Activity {
+	
+	private Button createGroupButton;
+	private EditText groupNameEditText;
+	
+	private Database database;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

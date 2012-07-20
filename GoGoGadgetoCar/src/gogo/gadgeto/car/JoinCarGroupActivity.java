@@ -14,6 +14,7 @@ public class JoinCarGroupActivity extends Activity {
 	
 	private Button sendButton;
 	private EditText carGroupIdEditText;
+	private EditText carGroupPasswordEditText;
 	private Database database;
 	
 	@Override
@@ -23,6 +24,7 @@ public class JoinCarGroupActivity extends Activity {
 		
 		sendButton = (Button) findViewById(R.id.joinCarGroupSendButton);
 		carGroupIdEditText = (EditText) findViewById(R.id.joinCarGroupIdEditText);
+		carGroupPasswordEditText = (EditText) findViewById(R.id.joinCarGroupPasswordEditText);
 		
 		database = Database.getInstance();
 		
@@ -31,7 +33,8 @@ public class JoinCarGroupActivity extends Activity {
 			public void onClick(View v) {
 				
 				String groupId = carGroupIdEditText.getText().toString();
-				String result = database.sendJoinCarGroupRequest(database.getUsername(), groupId);
+				String password = carGroupPasswordEditText.getText().toString();
+				String result = database.sendJoinCarGroupRequest(database.getUsername(), groupId, password);
 				
 				Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG).show();
 				

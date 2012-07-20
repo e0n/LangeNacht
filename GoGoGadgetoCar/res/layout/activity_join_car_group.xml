@@ -30,5 +30,26 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="121dp"
         android:text="@string/send" />
+
+    <TextView
+        android:id="@+id/JoinCarGroupPasswordTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/joinCarGroupIdEditText"
+        android:layout_below="@+id/joinCarGroupIdEditText"
+        android:layout_marginTop="20dp"
+        android:text="@string/userPassword" />
+
+    <EditText
+        android:id="@+id/joinCarGroupPasswordEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/JoinCarGroupPasswordTextView"
+        android:layout_below="@+id/JoinCarGroupPasswordTextView"
+        android:ems="10"
+        android:inputType="textPassword" >
+
+        <requestFocus />
+    </EditText>
 
 </RelativeLayout>
