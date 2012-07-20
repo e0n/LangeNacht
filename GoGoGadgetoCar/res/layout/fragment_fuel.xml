@@ -4,23 +4,14 @@
     android:layout_height="match_parent"
     android:gravity="top" >
 
-    <Button
-        android:id="@+id/sendFuelButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="85dp"
-        android:text="@string/send" />
-
     <TextView
         android:id="@+id/PayerTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="57dp"
-        android:layout_marginTop="66dp"
+        android:layout_marginLeft="64dp"
+        android:layout_marginTop="30dp"
         android:text="@string/payer" />
 
     <Spinner
@@ -29,7 +20,6 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/PayerTextView"
         android:layout_below="@+id/PayerTextView"
-        android:layout_marginTop="26dp"
         android:gravity="bottom"
         tools:listitem="@android:layout/simple_spinner_dropdown_item" />
 
@@ -39,7 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/payerSpinner"
         android:layout_below="@+id/payerSpinner"
-        android:layout_marginTop="23dp"
+        android:layout_marginTop="20dp"
         android:text="@string/payment" />
 
     <EditText
@@ -47,13 +37,35 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/paymentTextView"
-        android:layout_alignRight="@+id/payerSpinner"
         android:layout_below="@+id/paymentTextView"
-        android:layout_marginTop="30dp"
         android:ems="10"
-        android:inputType="numberSigned" >
+        android:inputType="numberSigned" />
 
-        <requestFocus />
-    </EditText>
+    <TextView
+        android:id="@+id/newMileageTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/paymentEditText"
+        android:layout_below="@+id/paymentEditText"
+        android:layout_marginTop="20dp"
+        android:text="@string/newMileage" />
+
+    <EditText
+        android:id="@+id/fuelNewMileageEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/newMileageTextView"
+        android:layout_below="@+id/newMileageTextView"
+        android:ems="10"
+        android:inputType="textNoSuggestions" />
+
+    <Button
+        android:id="@+id/sendFuelButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fuelNewMileageEditText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:text="@string/send" />
 
 </RelativeLayout>

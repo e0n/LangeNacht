@@ -42,5 +42,6 @@
     <string name="title_activity_create_car_group">Create car group</string>
     <string name="title_activity_logout">Logout</string>
     <string name="groupName">Group name</string>
+    <string name="newMileage">New Mileage</string>
 
 </resources>

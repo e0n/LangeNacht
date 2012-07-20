@@ -108,13 +108,13 @@ public class Database {
 		return result;
 	}
 
-	public String sendFuelToDatabase(String payerName, int payment, String username2) {
+	public String sendFuelToDatabase(String payerName, int payment, int newMileage, String username2) {
 		String result;
 		if ( payerName != null ) {
 			if ( username2 != null) {
 				if ( payment != 0) {					
 					result = username2 + " inserted: " + payerName;
-					result += " fueled for " + payment + "euro.";					
+					result += " fueled for " + payment + "euro. New Mileage is " + newMileage;					
 				} else {
 					result = "no payment entered.";
 				}
