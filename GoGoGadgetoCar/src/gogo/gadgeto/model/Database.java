@@ -133,4 +133,9 @@ public class Database {
 		return result;
 	}
 
+	public String[] getGroups(String username2) {
+		String result[] = {"123","456","789","135","246"};
+		return result;
+	}
+
 }

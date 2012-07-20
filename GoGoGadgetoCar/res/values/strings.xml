@@ -36,5 +36,9 @@
     <string name="title_activity_register">RegisterActivity</string>
     <string name="name">Name</string>
     <string name="carGroupId">Car Group Id</string>
+    <string name="title_activity_leave_car_group">LeaveCarGroupActivity</string>
+    <string name="selectedGroup">Selected group</string>
+    <string name="groupId">GROUPID</string>
+    <string name="leave">Verlassen</string>
 
 </resources>

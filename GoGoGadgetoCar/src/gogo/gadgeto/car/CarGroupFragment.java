@@ -33,7 +33,7 @@ public class CarGroupFragment extends Fragment {
 		
 		leaveGroupButton.setOnClickListener(new OnClickListener() {			
 			public void onClick(View v) {
-				Intent newIntent = new Intent(getActivity().getApplicationContext(), FuelSelectMemberActivity.class);
+				Intent newIntent = new Intent(getActivity().getApplicationContext(), LeaveCarGroupActivity.class);
 				startActivity(newIntent);
 			}
 		});

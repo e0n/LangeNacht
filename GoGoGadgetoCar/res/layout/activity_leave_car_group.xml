@@ -1,0 +1,33 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/leaverGroupSelectedGroupTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="44dp"
+        android:layout_marginTop="136dp"
+        android:text="@string/selectedGroup" />
+
+    <Spinner
+        android:id="@+id/LeaveGroupIdSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/leaverGroupSelectedGroupTextView"
+        android:layout_marginRight="42dp"/>
+
+    <Button
+        android:id="@+id/LeaveGroupSendButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/LeaveGroupIdSpinner"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="91dp"
+        android:text="@string/leave" />
+
+</RelativeLayout>
