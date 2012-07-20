@@ -2,15 +2,20 @@ package gogo.gadgeto.car;
 
 import gogo.gadgeto.model.Database;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class CreateCarGroupActivity extends Activity {
 	
 	private Button createGroupButton;
-	private EditText groupNameEditText;
+	private EditText newPasswordEditText;
+	private EditText repeatNewPasswordEditText;
 	
 	private Database database;
 
@@ -18,9 +23,43 @@ public class CreateCarGroupActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_car_group);
+        
+        createGroupButton = (Button) findViewById(R.id.createCarGroupSendButton);
+        newPasswordEditText = (EditText) findViewById(R.id.CreateCarGroupNewPasswordEditText);
+        repeatNewPasswordEditText = (EditText) findViewById(R.id.CreateCarGroupRepeatNewPasswordEditText);
+        
+        database = Database.getInstance();
+        
+        createGroupButton.setOnClickListener(new OnClickListener() {
+			
+			public void onClick(View v) {
+				String newPassword = newPasswordEditText.getText().toString();
+				String repeatNewPassword = repeatNewPasswordEditText.getText().toString();
+				
+				Boolean equal = CheckPasswords(newPassword, repeatNewPassword);
+				if (equal) {
+					int groupId = database.SendCreateGroupRequest(newPassword, database.getUsername());
+					Toast.makeText(getApplication(), "Successfully created new Group with id " + groupId + " and password " + newPassword, Toast.LENGTH_LONG).show();
+					
+					Intent newIntent = new Intent(CreateCarGroupActivity.this, MainMenuActivity.class);
+		    		startActivity(newIntent);
+				}
+				else {
+					Toast.makeText(getApplication(), "Passwords not equal.", Toast.LENGTH_LONG).show();
+				}
+				
+			}
+		});
+        
     }
 
-    @Override
+    protected Boolean CheckPasswords(String newPassword,
+			String repeatNewPassword) {
+		Boolean result = newPassword.equals(repeatNewPassword);
+		return result;
+	}
+
+	@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.activity_create_car_group, menu);
         return true;

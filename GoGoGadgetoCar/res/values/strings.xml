@@ -43,5 +43,7 @@
     <string name="title_activity_logout">Logout</string>
     <string name="groupName">Group name</string>
     <string name="newMileage">New Mileage</string>
+    <string name="newPassword">New password</string>
+    <string name="repeatNewPassword">Repeat new password</string>
 
 </resources>

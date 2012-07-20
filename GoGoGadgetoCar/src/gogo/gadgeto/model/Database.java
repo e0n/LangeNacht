@@ -149,8 +149,13 @@ public class Database {
 	}
 
 	public String sendLeaveGroupRequest(String username2, String leavingGroupId) {
-		// TODO Auto-generated method stub
-		return null;
+		String result = username2 + " left group " + leavingGroupId;
+		return result;
+	}
+
+	public int SendCreateGroupRequest(String newPassword, String username2) {
+		int newGroupId = 666;
+		return newGroupId;
 	}
 
 }
