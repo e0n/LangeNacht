@@ -15,11 +15,13 @@ public class UserFunctions {
  
     // Testing in localhost using wamp or xampp
     // use http://10.0.2.2/ to connect to your localhost ie http://localhost/
-    private static String loginURL = "http://le88.dyndns.org/android/php/android_api/";
-    private static String registerURL = "http://le88.dyndns.org/android/php/android_api/";
+    private static String phpUrl = "http://le88.dyndns.org/android/php/android_api/";
  
-    private static String login_tag = "login";
-    private static String register_tag = "registerUser";
+    private static String loginUser_tag = "login";
+    private static String registerUser_tag = "registerUser";
+    
+    private static String loginCarsShare_tag = "joinCarShare";
+    private static String registerCarShare_tag = "registerCarShare";
     private static String getUsersInCarShare_tag = "getUsersInCarShare";
  
     // constructor
@@ -35,10 +37,10 @@ public class UserFunctions {
     public JSONObject loginUser(String email, String password){
         // Building Parameters
         List<NameValuePair> params = new ArrayList<NameValuePair>();
-        params.add(new BasicNameValuePair("tag", login_tag));
+        params.add(new BasicNameValuePair("tag", loginUser_tag));
         params.add(new BasicNameValuePair("email", email));
         params.add(new BasicNameValuePair("password", password));
-        JSONObject json = jsonParser.getJSONFromUrl(loginURL, params);
+        JSONObject json = jsonParser.getJSONFromUrl(phpUrl, params);
         // return json
         // Log.e("JSON", json.toString());
         return json;
@@ -53,22 +55,56 @@ public class UserFunctions {
     public JSONObject registerUser(String name, String email, String password){
         // Building Parameters
         List<NameValuePair> params = new ArrayList<NameValuePair>();
-        params.add(new BasicNameValuePair("tag", register_tag));
+        params.add(new BasicNameValuePair("tag", registerUser_tag));
         params.add(new BasicNameValuePair("name", name));
         params.add(new BasicNameValuePair("email", email));
         params.add(new BasicNameValuePair("password", password));
  
         // getting JSON Object
-        JSONObject json = jsonParser.getJSONFromUrl(registerURL, params);
+        JSONObject json = jsonParser.getJSONFromUrl(phpUrl, params);
         // return json
         return json;
     }
- 
+    
     /**
      * function register new User
-     * @param name
      * @param email
-     * @param password
+     * @param carShareId
+     * */
+    public JSONObject loginCarshare(String email, String carShareId){
+        // Building Parameters
+        List<NameValuePair> params = new ArrayList<NameValuePair>();
+        params.add(new BasicNameValuePair("tag", loginCarsShare_tag));
+        params.add(new BasicNameValuePair("email", email));
+        params.add(new BasicNameValuePair("id", carShareId));
+ 
+        // getting JSON Object
+        JSONObject json = jsonParser.getJSONFromUrl(phpUrl, params);
+        // return json
+        return json;
+    }
+    
+    /**
+     * function register new User
+     * @param email
+     * @param carShareId
+     * */
+    public JSONObject registerCarshare(String mileage, String password){
+        // Building Parameters
+        List<NameValuePair> params = new ArrayList<NameValuePair>();
+        params.add(new BasicNameValuePair("tag", registerCarShare_tag));
+        params.add(new BasicNameValuePair("mileage", mileage));
+        params.add(new BasicNameValuePair("password", password));
+ 
+        // getting JSON Object
+        JSONObject json = jsonParser.getJSONFromUrl(phpUrl, params);
+        // return json
+        return json;
+    }
+    
+    /**
+     * function register new User
+     * @param carShareId
      * */
     public JSONObject getUsersInCarShare(String carShareId){
         // Building Parameters
@@ -76,11 +112,10 @@ public class UserFunctions {
         params.add(new BasicNameValuePair("tag", getUsersInCarShare_tag));
         params.add(new BasicNameValuePair("carShareId", carShareId));
         // getting JSON Object
-        JSONObject json = jsonParser.getJSONFromUrl(registerURL, params);
+        JSONObject json = jsonParser.getJSONFromUrl(phpUrl, params);
         // return json
         return json;
     }
-    
     
     /**
      * Function get Login status
@@ -94,6 +129,18 @@ public class UserFunctions {
         }
         return false;
     }
+    
+    /**
+     * Function get email from current logged-in user
+     * */
+    public String getEmailFromLoggedInUser(Context context){
+        DatabaseHandler db = new DatabaseHandler(context);
+        int count = db.getRowCount();
+        if(count > 0){
+            return db.getUserDetails().get("email");
+        }
+        return "";
+    }
  
     /**
      * Function to logout user
@@ -101,7 +148,7 @@ public class UserFunctions {
      * */
     public boolean logoutUser(Context context){
         DatabaseHandler db = new DatabaseHandler(context);
-        db.resetTables();
+        db.resetLogin();
         return true;
     }
  
