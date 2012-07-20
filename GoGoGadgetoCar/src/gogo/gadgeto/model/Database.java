@@ -148,5 +148,10 @@ public class Database {
 			 selectedPayerNames.remove(toggledName);
 		 }		
 	}
+	
+	public String sendJoinCarGroupRequest (String username, String groupId) {
+		String result = "Added " + username + " to group " +groupId;
+		return result;
+	}
 
 }

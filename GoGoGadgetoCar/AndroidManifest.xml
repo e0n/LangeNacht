@@ -2,8 +2,12 @@
     package="gogo.gadgeto.car"
     android:versionCode="1"
     android:versionName="1.0" >
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-sdk android:targetSdkVersion="16" android:minSdkVersion="11"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-sdk
+        android:minSdkVersion="11"
+        android:targetSdkVersion="16" />
 
     <application
         android:icon="@drawable/ic_launcher"
@@ -63,7 +67,26 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".CarGroupFragment"
+            android:label="@string/title_activity_car_group" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".JoinCarGroupActivity"
+            android:label="@string/title_activity_join_car_group" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    
         <activity android:name="RegisterActivity" android:label="@string/title_activity_register"></activity>
-    </application>
+</application>
 
 </manifest>
