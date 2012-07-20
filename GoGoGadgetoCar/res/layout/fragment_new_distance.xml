@@ -14,30 +14,12 @@
         android:text="@string/driver" />
 
     <TextView
-        android:id="@+id/numberOfDriversTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/driverTextView"
-        android:layout_marginLeft="81dp"
-        android:layout_toRightOf="@+id/driverTextView"
-        android:text="@string/numberOfDriver" />
-
-    <Button
-        android:id="@+id/changeDriversButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/numberOfDriversTextView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:text="@string/change" />
-
-    <TextView
         android:id="@+id/distanceTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/driverTextView"
-        android:layout_below="@+id/changeDriversButton"
-        android:layout_marginTop="20dp"
+        android:layout_below="@+id/driverTextView"
+        android:layout_marginTop="24dp"
         android:text="@string/distanceKM" />
 
     <EditText
@@ -47,7 +29,18 @@
         android:layout_alignLeft="@+id/distanceTextView"
         android:layout_below="@+id/distanceTextView"
         android:ems="10"
-        android:inputType="number" />
+        android:inputType="number" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/numberOfDriversTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/distanceTextView"
+        android:layout_alignRight="@+id/travelledDistanceEditText"
+        android:text="@string/numberOfDriver" />
 
     <Button
         android:id="@+id/InsertDistanceButton"
@@ -55,7 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="86dp"
+        android:layout_marginBottom="85dp"
         android:text="@string/send" />
 
 </RelativeLayout>
