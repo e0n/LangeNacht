@@ -108,24 +108,13 @@ public class Database {
 		return result;
 	}
 
-	public String sendFuelToDatabase(Set<String> selectedNames, int payment, String username2) {
+	public String sendFuelToDatabase(String payerName, int payment, String username2) {
 		String result;
-		if ( selectedNames != null ) {
+		if ( payerName != null ) {
 			if ( username2 != null) {
-				if ( payment != 0) {
-					
-					result = username2 + " inserted: ";
-					Iterator<String> it = selectedNames.iterator();
-					if (selectedNames.size() != 0) {
-						result += it.next();
-						while (it.hasNext()) {
-							result += ", " + it.next();
-						}
-						result += " fueled for " + payment + "euro.";
-					} else {
-						result = "No Names selected.";
-					}
-					
+				if ( payment != 0) {					
+					result = username2 + " inserted: " + payerName;
+					result += " fueled for " + payment + "euro.";					
 				} else {
 					result = "no payment entered.";
 				}
@@ -133,7 +122,7 @@ public class Database {
 				result = "no username found.";
 			}
 		} else {
-			result = "drivers set invalid.";
+			result = "payer invalid.";
 		}		
 		return result;
 	}
