@@ -31,24 +31,24 @@ public class LeaveCarGroupActivity extends Activity {
         
         String groupStrings[] = database.getGroups(database.getUsername());
         
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item,groupStrings);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,groupStrings);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         groupIdSpinner.setAdapter(adapter);
         
         
         
-        groupIdSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-
-			public void onItemSelected(AdapterView<?> parentView, View selectedItemView,
-					int position, long id) {
-				((TextView)parentView.getChildAt(0)).setTextColor(Color.rgb(0, 0, 0));  				
-			}
-
-			public void onNothingSelected(AdapterView<?> arg0) {
-				// TODO Auto-generated method stub
-				
-			}
-		});
+//        groupIdSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//
+//			public void onItemSelected(AdapterView<?> parentView, View selectedItemView,
+//					int position, long id) {
+//				((TextView)parentView.getChildAt(0)).setTextColor(Color.rgb(0, 0, 0));  				
+//			}
+//
+//			public void onNothingSelected(AdapterView<?> arg0) {
+//				// TODO Auto-generated method stub
+//				
+//			}
+//		});
         
     }
 

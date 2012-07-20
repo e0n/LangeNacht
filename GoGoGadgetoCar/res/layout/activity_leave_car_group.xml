@@ -15,11 +15,12 @@
 
     <Spinner
         android:id="@+id/LeaveGroupIdSpinner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/leaverGroupSelectedGroupTextView"
-        android:layout_marginRight="42dp"/>
+        tools:listitem="@android:layout/simple_spinner_dropdown_item" 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="bottom"/>
 
     <Button
         android:id="@+id/LeaveGroupSendButton"
