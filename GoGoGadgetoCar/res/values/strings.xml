@@ -40,5 +40,6 @@
     <string name="groupId">GROUPID</string>
     <string name="leave">Leave</string>
     <string name="title_activity_create_car_group">Create car group</string>
+    <string name="title_activity_logout">Logout</string>
 
 </resources>

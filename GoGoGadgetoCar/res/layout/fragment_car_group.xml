@@ -1,8 +1,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragmentCarGroup"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/fragmentCarGroup">
+    android:layout_height="match_parent" >
 
     <Button
         android:id="@+id/joinCarGroupButton"
@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="61dp"
+        android:layout_marginTop="76dp"
         android:text="@string/joinGroup" />
 
     <Button
@@ -19,16 +19,16 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/joinCarGroupButton"
         android:layout_below="@+id/joinCarGroupButton"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="50dp"
         android:text="@string/leaveGroup" />
 
     <Button
         android:id="@+id/createCarGroupButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/leaveCarGroupButton"
         android:layout_below="@+id/leaveCarGroupButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="50dp"
         android:text="@string/createGroup" />
 
 </RelativeLayout>
