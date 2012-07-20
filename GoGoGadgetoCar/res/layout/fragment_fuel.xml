@@ -1,16 +1,35 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:gravity="top" >
+
+    <Button
+        android:id="@+id/sendFuelButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="85dp"
+        android:text="@string/send" />
+
+    <TextView
+        android:id="@+id/PayerTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="57dp"
+        android:layout_marginTop="66dp"
+        android:text="@string/payer" />
 
     <TextView
         android:id="@+id/paymentTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="66dp"
-        android:layout_marginTop="104dp"
+        android:layout_alignLeft="@+id/PayerTextView"
+        android:layout_below="@+id/PayerTextView"
+        android:layout_marginTop="25dp"
         android:text="@string/payment" />
 
     <EditText
@@ -22,40 +41,13 @@
         android:ems="10"
         android:inputType="numberSigned" />
 
-    <TextView
-        android:id="@+id/PayerTextView"
+    <Spinner
+        android:id="@+id/payerSpinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/paymentEditText"
-        android:layout_below="@+id/paymentEditText"
-        android:layout_marginTop="34dp"
-        android:text="@string/payer" />
-
-    <TextView
-        android:id="@+id/payerDisplayTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/PayerTextView"
         android:layout_alignBottom="@+id/PayerTextView"
         android:layout_alignRight="@+id/paymentEditText"
-        android:text="@string/payername" />
-
-    <Button
-        android:id="@+id/changePayerButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/PayerTextView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
-        android:text="@string/change" />
-
-    <Button
-        android:id="@+id/sendFuelButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/changePayerButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="70dp"
-        android:text="@string/send" />
+        android:gravity="bottom"
+        tools:listitem="@android:layout/simple_spinner_dropdown_item" />
 
 </RelativeLayout>

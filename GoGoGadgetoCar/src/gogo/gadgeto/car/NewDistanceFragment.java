@@ -21,7 +21,6 @@ public class NewDistanceFragment extends Fragment {
 	
 	Database database;
 	
-	private Button changeDriversButton;
 	private Button sendDistanceButton;
 	
 	private EditText travelledDistance;
@@ -34,16 +33,13 @@ public class NewDistanceFragment extends Fragment {
 		database = Database.getInstance();
 		View myView = inflater.inflate(R.layout.fragment_new_distance, container, false);
 		
-		changeDriversButton = (Button) myView.findViewById(R.id.changeDriversButton);
         sendDistanceButton = (Button) myView.findViewById(R.id.InsertDistanceButton);
-        
         travelledDistance = (EditText) myView.findViewById(R.id.travelledDistanceEditText);
-        
         driverCount = (TextView) myView.findViewById(R.id.numberOfDriversTextView);        
         
         writeDriversCount();
         
-        changeDriversButton.setOnClickListener(new OnClickListener() {			
+        driverCount.setOnClickListener(new OnClickListener() {			
 			public void onClick(View v) {
 				Intent newIntent = new Intent(getActivity().getApplicationContext(), NewDistanceSelectDriverActivity.class);
 				startActivity(newIntent);

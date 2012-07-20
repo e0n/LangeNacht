@@ -1,8 +1,13 @@
 package gogo.gadgeto.model;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
+
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
 
 public class Database {
 	
@@ -10,10 +15,13 @@ public class Database {
 	Set<String> selectedDriverNames;
 	Set<String> selectedPayerNames;
 	Set<String> availableDriverNames;
+	List<NameValuePair> availableDriverNamesJson;
 	String username;
+	String carShareId;
 	
 	private Database() {
 		username = "ph";
+		carShareId = "111111";
 		selectedDriverNames= new HashSet<String>();
 		selectedPayerNames = new HashSet<String>();
 		availableDriverNames = new HashSet<String>();
@@ -23,6 +31,11 @@ public class Database {
 		availableDriverNames.add("Sam");
 		availableDriverNames.add("Nils");
 		availableDriverNames.add("Hanna");
+		
+		availableDriverNamesJson = new ArrayList<NameValuePair>();
+		for (String name : availableDriverNames) {
+			availableDriverNamesJson.add(new BasicNameValuePair("username", name));
+		}
 	}
 	
 	public static Database getInstance() {
@@ -36,6 +49,10 @@ public class Database {
 		return availableDriverNames;		
 	}
 	
+	public List<NameValuePair> getAvailableDriverNamesJson() {
+		return availableDriverNamesJson;		
+	}
+	
 	public Set<String> getSelectedDriverNames() {
 		return selectedDriverNames;		
 	}
@@ -44,6 +61,10 @@ public class Database {
 		if (newNames != null) {
 			selectedDriverNames = newNames;			
 		}
+	}
+	
+	public String getCurrentCarShareId() {
+		return carShareId; 
 	}
 	
 	public void toggleSelectedDriverName (String newName){
