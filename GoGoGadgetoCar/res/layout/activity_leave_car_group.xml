@@ -15,12 +15,14 @@
 
     <Spinner
         android:id="@+id/LeaveGroupIdSpinner"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/leaverGroupSelectedGroupTextView"
-        tools:listitem="@android:layout/simple_spinner_dropdown_item" 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="bottom"/>
+        android:layout_alignBaseline="@+id/leaverGroupSelectedGroupTextView"
+        android:layout_alignBottom="@+id/leaverGroupSelectedGroupTextView"
+        android:layout_marginLeft="42dp"
+        android:layout_toRightOf="@+id/leaverGroupSelectedGroupTextView"
+        android:gravity="bottom"
+        tools:listitem="@android:layout/simple_spinner_dropdown_item" />
 
     <Button
         android:id="@+id/LeaveGroupSendButton"
@@ -28,7 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/LeaveGroupIdSpinner"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="91dp"
+        android:layout_marginTop="99dp"
         android:text="@string/leave" />
 
 </RelativeLayout>

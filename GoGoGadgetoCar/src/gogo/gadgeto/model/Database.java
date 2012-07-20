@@ -159,4 +159,9 @@ public class Database {
 		return result;
 	}
 
+	public String sendLeaveGroupRequest(String username2, String leavingGroupId) {
+		String result = username2 + " has left group " + leavingGroupId;
+		return result;
+	}
+
 }
