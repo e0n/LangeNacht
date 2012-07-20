@@ -4,9 +4,9 @@
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
     <string name="title_activity_login">LoginActivity</string>
-    <string name="userName">Benutzername</string>
-    <string name="userPassword">Benutzerpasswort</string>
-    <string name="login">Let me in!</string>
+    <string name="userName">Username</string>
+    <string name="userPassword">Password</string>
+    <string name="login">Log In</string>
     <string name="debugOutput">Debug Ausgabe</string>
     <string name="title_activity_main_menu">MainMenuActivity</string>
     <string name="addNewDistance">Neue Strecke</string>
@@ -31,5 +31,9 @@
     <string name="createGroup">Gruppe erstellen</string>
     <string name="title_activity_join_car_group">JoinCarGroupActivity</string>
     <string name="finished">fertig</string>
+    <string name="register">Register</string>
+    <string name="userEmail">Email</string>
+    <string name="title_activity_register">RegisterActivity</string>
+    <string name="name">Name</string>
 
 </resources>

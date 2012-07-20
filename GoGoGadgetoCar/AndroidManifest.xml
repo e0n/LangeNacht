@@ -85,6 +85,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-    </application>
+    
+        <activity android:name="RegisterActivity" android:label="@string/title_activity_register"></activity>
+</application>
 
 </manifest>
