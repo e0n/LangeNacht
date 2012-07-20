@@ -25,7 +25,7 @@ public class NewDistanceFragment extends Fragment {
 	
 	private EditText travelledDistance;
 	
-	private TextView driverCount;
+	private Button driverCount;
 	
 	@Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -35,7 +35,7 @@ public class NewDistanceFragment extends Fragment {
 		
         sendDistanceButton = (Button) myView.findViewById(R.id.InsertDistanceButton);
         travelledDistance = (EditText) myView.findViewById(R.id.travelledDistanceEditText);
-        driverCount = (TextView) myView.findViewById(R.id.numberOfDriversTextView);        
+        driverCount = (Button) myView.findViewById(R.id.numberOfDriversTextView);        
         
         writeDriversCount();
         
@@ -75,7 +75,7 @@ public class NewDistanceFragment extends Fragment {
         } else if (selectedNames.size() == 1) {
         	driverCount.setText(selectedNames.iterator().next());
         } else {
-        	driverCount.setText(" " + selectedNames.size());
+        	driverCount.setText("" + selectedNames.size());
         }
 	}
 	

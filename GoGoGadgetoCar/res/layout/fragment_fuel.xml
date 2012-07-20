@@ -22,10 +22,10 @@
         android:layout_marginLeft="57dp"
         android:layout_marginTop="66dp"
         android:text="@string/payer" />
-
+
     <Spinner
         android:id="@+id/payerSpinner"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/PayerTextView"
         android:layout_below="@+id/PayerTextView"
@@ -47,6 +47,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/paymentTextView"
+        android:layout_alignRight="@+id/payerSpinner"
         android:layout_below="@+id/paymentTextView"
         android:layout_marginTop="30dp"
         android:ems="10"
