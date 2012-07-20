@@ -1,5 +1,7 @@
 package gogo.gadgeto.car;
 
+import gogo.gadgeto.car.tasks.LoginTask;
+import gogo.gadgeto.car.tasks.RegisterCarShareTask;
 import gogo.gadgeto.model.Database;
 import android.app.Activity;
 import android.content.Intent;
@@ -16,6 +18,7 @@ public class CreateCarGroupActivity extends Activity {
 	private Button createGroupButton;
 	private EditText newPasswordEditText;
 	private EditText repeatNewPasswordEditText;
+	private EditText mileage;
 	
 	private Database database;
 
@@ -38,14 +41,13 @@ public class CreateCarGroupActivity extends Activity {
 				
 				Boolean equal = CheckPasswords(newPassword, repeatNewPassword);
 				if (equal) {
-					int groupId = database.SendCreateGroupRequest(newPassword, database.getUsername());
-					Toast.makeText(getApplication(), "Successfully created new Group with id " + groupId + " and password " + newPassword, Toast.LENGTH_LONG).show();
 					
-					Intent newIntent = new Intent(CreateCarGroupActivity.this, MainMenuActivity.class);
-		    		startActivity(newIntent);
+					registerCarShare(newPassword);
 				}
 				else {
-					Toast.makeText(getApplication(), "Passwords not equal.", Toast.LENGTH_LONG).show();
+			    	newPasswordEditText.setText("");
+			    	repeatNewPasswordEditText.setText("");
+					Toast.makeText(getApplication(), "Passwords not equal.", Toast.LENGTH_LONG).show();					
 				}
 				
 			}
@@ -53,6 +55,19 @@ public class CreateCarGroupActivity extends Activity {
         
     }
 
+    protected void registerCarShare(String password) {
+    	new RegisterCarShareTask(this, password, "0").execute();	
+    	newPasswordEditText.setText("");
+    	repeatNewPasswordEditText.setText("");
+    }
+    
+    public void showError(String msg) {
+    	Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
+    	    	
+		Intent newIntent = new Intent(CreateCarGroupActivity.this, MainMenuActivity.class);
+		startActivity(newIntent);
+    }
+    
     protected Boolean CheckPasswords(String newPassword,
 			String repeatNewPassword) {
 		Boolean result = newPassword.equals(repeatNewPassword);

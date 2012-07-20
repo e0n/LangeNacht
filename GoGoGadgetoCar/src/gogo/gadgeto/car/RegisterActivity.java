@@ -1,6 +1,6 @@
 package gogo.gadgeto.car;
 
-import gogo.gadgeto.car.tasks.RegisterTask;
+import gogo.gadgeto.car.tasks.RegisterUserTask;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -35,7 +35,7 @@ public class RegisterActivity  extends Activity  {
 	}
 	
 	private void doRegister() {
-	    	new RegisterTask(this, username.getText().toString(), useremail.getText().toString(), userpassword.getText().toString()).execute();	
+	    	new RegisterUserTask(this, username.getText().toString(), useremail.getText().toString(), userpassword.getText().toString()).execute();	
 	    	username.setText("");
 	    	userpassword.setText("");
 	    	useremail.setText("");
