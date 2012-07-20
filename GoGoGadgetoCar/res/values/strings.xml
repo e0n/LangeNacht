@@ -14,6 +14,8 @@
     <string name="title_activity_new_distance_select_driver">NewDistanceSelectDriverActivity</string>
     <string name="title_activity_fuel_select_member">FuelSelectMemberActivity</string>
     <string name="title_activity_new_distance">NewDistanceActivity</string>
+    <string name="title_activity_car_group">NewCarGroupActivity</string>
+    <string name="title_activity_join_car_group">NewJoinCarGroupActivity</string>
     <string name="driver">Driver</string>
     <string name="numberOfDriver">ANZAHL</string>
     <string name="change">Ändern</string>
@@ -28,5 +30,9 @@
     <string name="userEmail">Email</string>
     <string name="title_activity_register">RegisterActivity</string>
     <string name="name">Name</string>
+    <string name="joinGroup">Join</string>
+    <string name="leaveGroup">Leave</string>
+    <string name="createGroup">Create</string>
+    <string name="carGroupId">Sharing Group ID</string>
 
 </resources>
