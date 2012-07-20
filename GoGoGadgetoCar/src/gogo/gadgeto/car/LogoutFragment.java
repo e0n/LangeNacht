@@ -12,13 +12,18 @@ public class LogoutFragment extends Fragment {
 
 	@Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		View myView = inflater.inflate(R.layout.activity_login, container, false);
+		View myView = inflater.inflate(R.layout.fragment_logout, container, false);
 		
-		Toast.makeText(getActivity(), "Fickt euch penise", Toast.LENGTH_LONG).show();
 		
-//		Intent newIntent = new Intent(getActivity().getApplicationContext(), LoginActivity.class);
-//		startActivity(newIntent);
 		
 		return myView;
+	}
+	
+	@Override
+	public void onStart() {
+		super.onStart();
+		Intent newIntent = new Intent(getActivity().getApplicationContext(), LoginActivity.class);
+		Toast.makeText(getActivity(), "Fickt euch penise", Toast.LENGTH_SHORT).show();
+		startActivity(newIntent);		
 	}
 }
