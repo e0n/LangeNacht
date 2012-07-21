@@ -1,7 +1,6 @@
 package gogo.gadgeto.car;
 
 import gogo.gadgeto.car.tasks.RegisterCarShareTask;
-import gogo.gadgeto.model.Database;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,9 +16,7 @@ public class CreateCarGroupActivity extends Activity {
 	private Button createGroupButton;
 	private EditText newPasswordEditText;
 	private EditText repeatNewPasswordEditText;
-	private EditText mileage;
-	
-	private Database database;
+	private EditText currentMileageEditText;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -29,33 +26,32 @@ public class CreateCarGroupActivity extends Activity {
         createGroupButton = (Button) findViewById(R.id.createCarGroupSendButton);
         newPasswordEditText = (EditText) findViewById(R.id.CreateCarGroupNewPasswordEditText);
         repeatNewPasswordEditText = (EditText) findViewById(R.id.CreateCarGroupRepeatNewPasswordEditText);
-        
-        database = Database.getInstance();
+        currentMileageEditText = (EditText) findViewById(R.id.createCarGroupEnterMileageEditText);
         
         createGroupButton.setOnClickListener(new OnClickListener() {
 			
 			public void onClick(View v) {
 				String newPassword = newPasswordEditText.getText().toString();
 				String repeatNewPassword = repeatNewPasswordEditText.getText().toString();
+				String currentMileage = currentMileageEditText.getText().toString();
 				
 				Boolean equal = CheckPasswords(newPassword, repeatNewPassword);
 				if (equal) {
-					
-					registerCarShare(newPassword);
+					// TODO: enter mileage! ask lars
+					registerCarShare(newPassword, currentMileage);
 				}
 				else {
 			    	newPasswordEditText.setText("");
 			    	repeatNewPasswordEditText.setText("");
 					Toast.makeText(getApplication(), "Passwords not equal.", Toast.LENGTH_LONG).show();					
-				}
-				
+				}			
 			}
 		});
         
     }
 
-    protected void registerCarShare(String password) {
-    	new RegisterCarShareTask(this, password, "0").execute();	
+    protected void registerCarShare(String password, String currentMileage) {
+    	new RegisterCarShareTask(this, password, currentMileage).execute();	
     	newPasswordEditText.setText("");
     	repeatNewPasswordEditText.setText("");
     }

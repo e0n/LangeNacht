@@ -47,5 +47,6 @@
     <string name="repeatNewPassword">Repeat new password</string>
     <string name="cash">Cash</string>
     <string name="title_activity_dept">Depts</string>
+    <string name="currentMileage">Current mileage</string>
 
 </resources>

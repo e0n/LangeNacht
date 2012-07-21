@@ -31,6 +31,14 @@ public class Database {
 		availableDriverNames.add("Sam");
 		availableDriverNames.add("Nils");
 		availableDriverNames.add("Hanna");
+		availableDriverNames.add("Hanna1");
+		availableDriverNames.add("Hanna2");
+		availableDriverNames.add("Hanna3");
+		availableDriverNames.add("Hanna4");
+		availableDriverNames.add("Hanna5");
+		availableDriverNames.add("Hanna6");
+		availableDriverNames.add("Hanna7");
+		availableDriverNames.add("Hanna8");
 		
 		availableDriverNamesJson = new ArrayList<NameValuePair>();
 		for (String name : availableDriverNames) {
