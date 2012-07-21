@@ -1,5 +1,8 @@
 package gogo.gadgeto.car;
 
+import java.util.Iterator;
+import java.util.Set;
+
 import gogo.gadgeto.model.Database;
 import android.app.ListFragment;
 import android.content.Intent;
@@ -17,10 +20,36 @@ public class StatisticFragment extends ListFragment{
 		super.onActivityCreated(savedInstanceState);
 		
 		database = Database.getInstance();
-		String[] fuelEntries = database.getFuelEntries(database.getUsername());
 		
-        setListAdapter(new ArrayAdapter<String>(getActivity(),
-                android.R.layout.simple_list_item_1, fuelEntries));
+		Set<FuelEntry> fuelEntries = database.getFuelEntries(database.getUsername());
+		
+		FuelEntry fuel_data[] = new FuelEntry[fuelEntries.size()];
+		Iterator<FuelEntry> it = fuelEntries.iterator();
+		
+		for (int fuelEntryIndex = 0; it.hasNext() ; fuelEntryIndex++) {
+			fuel_data[fuelEntryIndex] = it.next();
+		}
+		
+		setListAdapter(new FuelAdapter(getActivity(), R.layout.fuel_list_item, fuel_data));
+		
+		
+		
+		
+		
+		
+		
+		
+//        Set<String> names = database.getAvailableDriverNames();
+//        
+//        CashEntry cash_data[] = new CashEntry[names.size()];
+//        Iterator<String> it = names.iterator();
+//        
+//        for (int namesIndex = 0; it.hasNext() ; namesIndex++) {
+//        	cash_data[namesIndex] = new CashEntry(it.next(), "" + (namesIndex-2));
+//        }
+//		
+//        setListAdapter(new CashAdapter(getActivity(), R.layout.cash_list_item, cash_data));
+		
 	}
 	
 	@Override

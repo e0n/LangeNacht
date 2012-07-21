@@ -1,5 +1,8 @@
 package gogo.gadgeto.model;
 
+import gogo.gadgeto.car.CashEntry;
+import gogo.gadgeto.car.FuelEntry;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -166,8 +169,21 @@ public class Database {
 		return newGroupId;
 	}
 
-	public String[] getFuelEntries(String username2) {
-		String[] fuelEntries = {"1.2.3","2.2.3","12.12.12", "3.2.3", "12.3.45", "45.56.67", "45.56.67", "45.56.67", "45.56.67", "45.56.67", "45.56.67", "45.56.67", "45.56.67", "45.56.67"};
+	public Set<FuelEntry> getFuelEntries(String username2) {
+		
+		Set<FuelEntry> fuelEntries = new HashSet<FuelEntry>();
+		fuelEntries.add(new FuelEntry("1.1.1", "1111", "111"));
+		fuelEntries.add(new FuelEntry("1.1.1", "1111", "111"));
+		fuelEntries.add(new FuelEntry("1.1.1", "1111", "111"));
+		fuelEntries.add(new FuelEntry("1.1.1", "1111", "111"));
+		fuelEntries.add(new FuelEntry("1.1.1", "1111", "111"));
+		fuelEntries.add(new FuelEntry("1.1.1", "1111", "111"));
+		fuelEntries.add(new FuelEntry("1.1.1", "1111", "111"));
+		fuelEntries.add(new FuelEntry("1.1.1", "1111", "111"));
+		fuelEntries.add(new FuelEntry("1.1.1", "1111", "111"));
+		fuelEntries.add(new FuelEntry("1.1.1", "1111", "111"));
+		fuelEntries.add(new FuelEntry("1.1.1", "1111", "111"));
+		//String[] fuelEntries = {"1.2.3","2.2.3","12.12.12", "3.2.3", "12.3.45", "45.56.67", "45.56.67", "45.56.67", "45.56.67", "45.56.67", "45.56.67", "45.56.67", "45.56.67", "45.56.67"};
 		return fuelEntries;
 	}
 

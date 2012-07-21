@@ -2,20 +2,18 @@ package gogo.gadgeto.car;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-public class CashAdapter extends ArrayAdapter<CashEntry> {
-
+public class FuelAdapter  extends ArrayAdapter<FuelEntry>{
 	private Context context;
 	private int layoutResourceId;
-	private CashEntry data[] = null;
+	private FuelEntry data[] = null;
 	
-	public CashAdapter(Context context, int layoutResourceId, CashEntry[] data) {
+	public FuelAdapter(Context context, int layoutResourceId, FuelEntry[] data) {
 		super(context, layoutResourceId, data);
 		this.context = context;
 		this.layoutResourceId = layoutResourceId;
@@ -32,8 +30,9 @@ public class CashAdapter extends ArrayAdapter<CashEntry> {
 			row = inflater.inflate(layoutResourceId, parent, false);
 			
 			holder = new CashHolder();
-			holder.nameTextView = (TextView) row.findViewById(R.id.cashListItemNameTextView);
-			holder.deptTextView = (TextView) row.findViewById(R.id.cashListItemDeptTextView);
+			holder.dateTextView = (TextView) row.findViewById(R.id.fuelListItemDateTextView);
+			holder.distanceTextView = (TextView) row.findViewById(R.id.fuelListItemDistanceTextView);
+			holder.costTextView = (TextView) row.findViewById(R.id.fuelListItemCostsTextView);
 			
 			row.setTag(holder);
 		}
@@ -41,23 +40,19 @@ public class CashAdapter extends ArrayAdapter<CashEntry> {
 			holder = (CashHolder) row.getTag();
 		}
 		
-		CashEntry cashEntry = data[position];
-		holder.nameTextView.setText(cashEntry.name);
-		holder.deptTextView.setText(cashEntry.dept);
-		if (Integer.parseInt(cashEntry.dept) < 0)
-		{
-			holder.deptTextView.setTextColor(Color.RED);
-		}
-		else {
-			holder.deptTextView.setTextColor(Color.GREEN);
-		}
+		FuelEntry fuelEntry = data[position];
+		holder.dateTextView.setText(fuelEntry.date);
+		holder.distanceTextView.setText(fuelEntry.distance);
+		holder.costTextView.setText(fuelEntry.costs);
 		
 		return row;
 	}
 	
 	static class CashHolder
     {
-		TextView nameTextView;
-        TextView deptTextView;
+		TextView dateTextView;
+        TextView distanceTextView;
+        TextView costTextView;
     }
+
 }
