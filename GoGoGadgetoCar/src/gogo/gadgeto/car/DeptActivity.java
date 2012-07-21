@@ -28,7 +28,7 @@ public class DeptActivity extends Activity {
         Iterator<String> it = names.iterator();
         
         for (int namesIndex = 0; it.hasNext() ; namesIndex++) {
-        	cash_data[namesIndex] = new CashEntry(it.next(), "" + namesIndex);
+        	cash_data[namesIndex] = new CashEntry(it.next(), "" + (namesIndex-2));
         }
         
         CashAdapter adapter = new CashAdapter(this, R.layout.cash_list_item, cash_data);

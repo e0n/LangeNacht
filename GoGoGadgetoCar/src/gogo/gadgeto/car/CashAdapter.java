@@ -2,6 +2,7 @@ package gogo.gadgeto.car;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,6 +44,13 @@ public class CashAdapter extends ArrayAdapter<CashEntry> {
 		CashEntry cashEntry = data[position];
 		holder.txtTitle1.setText(cashEntry.name);
 		holder.txtTitle2.setText(cashEntry.dept);
+		if (Integer.parseInt(cashEntry.dept) < 0)
+		{
+			holder.txtTitle2.setTextColor(Color.RED);
+		}
+		else {
+			holder.txtTitle2.setTextColor(Color.GREEN);
+		}
 		
 		return row;
 	}
