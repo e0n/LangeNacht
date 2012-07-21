@@ -1,14 +1,9 @@
 package gogo.gadgeto.car.tasks;
 
 import gogo.gadgeto.car.CreateCarGroupActivity;
-import gogo.gadgeto.car.FuelFragment;
 import gogo.gadgeto.car.helper.DatabaseHandler;
 import gogo.gadgeto.car.helper.UserFunctions;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 

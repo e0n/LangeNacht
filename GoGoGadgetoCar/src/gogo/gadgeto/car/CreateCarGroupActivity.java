@@ -1,6 +1,5 @@
 package gogo.gadgeto.car;
 
-import gogo.gadgeto.car.tasks.LoginTask;
 import gogo.gadgeto.car.tasks.RegisterCarShareTask;
 import gogo.gadgeto.model.Database;
 import android.app.Activity;

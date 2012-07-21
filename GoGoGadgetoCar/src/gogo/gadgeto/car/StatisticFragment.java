@@ -1,27 +1,16 @@
 package gogo.gadgeto.car;
 
 import gogo.gadgeto.model.Database;
-
-import java.util.Iterator;
-import java.util.Set;
-
-import android.app.Fragment;
 import android.app.ListFragment;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
 
 public class StatisticFragment extends ListFragment{
 	
-	private Button cashDeptsButton;
 	private Database database;
-	private ListView myListView;
 
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
