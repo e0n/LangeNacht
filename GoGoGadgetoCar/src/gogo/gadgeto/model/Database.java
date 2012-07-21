@@ -158,4 +158,9 @@ public class Database {
 		return newGroupId;
 	}
 
+	public String[] getFuelEntries(String username2) {
+		String[] fuelEntries = {"1.2.3","2.2.3","12.12.12", "3.2.3", "12.3.45", "45.56.67", "45.56.67", "45.56.67", "45.56.67", "45.56.67", "45.56.67", "45.56.67", "45.56.67", "45.56.67"};
+		return fuelEntries;
+	}
+
 }
