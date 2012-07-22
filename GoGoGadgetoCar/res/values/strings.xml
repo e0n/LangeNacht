@@ -17,7 +17,7 @@
     <string name="driver">Driver</string>
     <string name="numberOfDriver">AMOUNT</string>
     <string name="change">change</string>
-    <string name="distanceKM">Distance (km)</string>
+    <string name="distanceKM">New milage (km)</string>
     <string name="send">Send</string>
     <string name="mainmenu">Mainmenu</string>
     <string name="title_activity_fuel_fragment">Fuel</string>
@@ -48,5 +48,7 @@
     <string name="cash">Cash</string>
     <string name="title_activity_dept">Depts</string>
     <string name="currentMileage">Current mileage</string>
+    <string name="currentCarGroupId">Current group id:</string>
+    <string name="id">ID</string>
 
 </resources>
