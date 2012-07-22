@@ -172,19 +172,30 @@ public class Database {
 	public Set<FuelEntry> getFuelEntries(String username2) {
 		
 		Set<FuelEntry> fuelEntries = new HashSet<FuelEntry>();
-		fuelEntries.add(new FuelEntry("1.1.1", "1111", "111"));
-		fuelEntries.add(new FuelEntry("1.1.1", "1111", "111"));
-		fuelEntries.add(new FuelEntry("1.1.1", "1111", "111"));
-		fuelEntries.add(new FuelEntry("1.1.1", "1111", "111"));
-		fuelEntries.add(new FuelEntry("1.1.1", "1111", "111"));
-		fuelEntries.add(new FuelEntry("1.1.1", "1111", "111"));
-		fuelEntries.add(new FuelEntry("1.1.1", "1111", "111"));
-		fuelEntries.add(new FuelEntry("1.1.1", "1111", "111"));
-		fuelEntries.add(new FuelEntry("1.1.1", "1111", "111"));
-		fuelEntries.add(new FuelEntry("1.1.1", "1111", "111"));
-		fuelEntries.add(new FuelEntry("1.1.1", "1111", "111"));
+		fuelEntries.add(new FuelEntry("01.01.11", "423 km", "53,03 €"));
+		fuelEntries.add(new FuelEntry("02.02.22", "409 km", "59,55 €"));
+		fuelEntries.add(new FuelEntry("03.03.33", "412 km", "60,23 €"));
+		fuelEntries.add(new FuelEntry("04.03.12", "432 km", "43,52 €"));
+		fuelEntries.add(new FuelEntry("05.03.12", "388 km", "53,87 €"));
+		fuelEntries.add(new FuelEntry("09.03.12", "420 km", "62,54 €"));
+		fuelEntries.add(new FuelEntry("13.03.12", "423 km", "56,63 €"));
+		fuelEntries.add(new FuelEntry("20.03.12", "416 km", "57,39 €"));
+		fuelEntries.add(new FuelEntry("25.03.12", "435 km", "54,99 €"));
+		fuelEntries.add(new FuelEntry("01.04.12", "419 km", "48,63 €"));
+		fuelEntries.add(new FuelEntry("15.04.12", "403 km", "48,86 €"));
 		//String[] fuelEntries = {"1.2.3","2.2.3","12.12.12", "3.2.3", "12.3.45", "45.56.67", "45.56.67", "45.56.67", "45.56.67", "45.56.67", "45.56.67", "45.56.67", "45.56.67", "45.56.67"};
 		return fuelEntries;
+	}
+
+	public Set<CashEntry> getCashEntries(String username2, String fuelId) {
+		Set<CashEntry> cashEntries = new HashSet<CashEntry>();
+		cashEntries.add(new CashEntry("Lars","1251"));
+		cashEntries.add(new CashEntry("Phil","1596"));
+		cashEntries.add(new CashEntry("Tobi","2389"));
+		cashEntries.add(new CashEntry("Hanna","5"));
+		cashEntries.add(new CashEntry("Sam","0"));
+		cashEntries.add(new CashEntry("Nils","36"));
+		return cashEntries;
 	}
 
 }

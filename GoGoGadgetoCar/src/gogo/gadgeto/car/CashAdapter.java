@@ -43,7 +43,7 @@ public class CashAdapter extends ArrayAdapter<CashEntry> {
 		
 		CashEntry cashEntry = data[position];
 		holder.nameTextView.setText(cashEntry.name);
-		holder.deptTextView.setText(cashEntry.dept);
+		holder.deptTextView.setText(parseCentToEuroString(cashEntry.dept));
 		if (Integer.parseInt(cashEntry.dept) < 0)
 		{
 			holder.deptTextView.setTextColor(Color.RED);
@@ -55,6 +55,17 @@ public class CashAdapter extends ArrayAdapter<CashEntry> {
 		return row;
 	}
 	
+	private String parseCentToEuroString(String centString) {
+		int length = centString.length();
+		String workString = centString;
+		while (length < 3) {
+			workString = "0" + workString;
+			length++;
+		}
+		String resultString = workString.substring(0, length-2) + "," + workString.substring(length-2) + " €";
+		return resultString;
+	}
+
 	static class CashHolder
     {
 		TextView nameTextView;

@@ -1,14 +1,14 @@
 package gogo.gadgeto.car;
 
+import gogo.gadgeto.model.Database;
+
 import java.util.Iterator;
 import java.util.Set;
 
-import gogo.gadgeto.model.Database;
 import android.app.ListFragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 public class StatisticFragment extends ListFragment{
@@ -30,26 +30,7 @@ public class StatisticFragment extends ListFragment{
 			fuel_data[fuelEntryIndex] = it.next();
 		}
 		
-		setListAdapter(new FuelAdapter(getActivity(), R.layout.fuel_list_item, fuel_data));
-		
-		
-		
-		
-		
-		
-		
-		
-//        Set<String> names = database.getAvailableDriverNames();
-//        
-//        CashEntry cash_data[] = new CashEntry[names.size()];
-//        Iterator<String> it = names.iterator();
-//        
-//        for (int namesIndex = 0; it.hasNext() ; namesIndex++) {
-//        	cash_data[namesIndex] = new CashEntry(it.next(), "" + (namesIndex-2));
-//        }
-//		
-//        setListAdapter(new CashAdapter(getActivity(), R.layout.cash_list_item, cash_data));
-		
+		setListAdapter(new FuelAdapter(getActivity(), R.layout.fuel_list_item, fuel_data));		
 	}
 	
 	@Override
