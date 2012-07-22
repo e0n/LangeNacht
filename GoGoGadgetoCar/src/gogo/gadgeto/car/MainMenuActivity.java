@@ -41,7 +41,7 @@ public class MainMenuActivity extends Activity {
         carGroupTab   	= bar.newTab().setText("CarGroup");
         logoutTab 		= bar.newTab().setText("Logout");
         
-        Fragment fragmentDistance 	= new NewDistanceFragment();
+        Fragment fragmentDistance 	= new NewTripFragment();
         Fragment fragmentFuel 		= new FuelFragment();
         Fragment fragmentStatistic	= new StatisticFragment();
         fragmentCarGroup   = new CarGroupFragment();

@@ -9,16 +9,16 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="44dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginLeft="55dp"
         android:text="@string/newPassword" />
 
     <EditText
         android:id="@+id/CreateCarGroupNewPasswordEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/createCarGroupNewPasswordTextView"
         android:layout_below="@+id/createCarGroupNewPasswordTextView"
+        android:layout_centerHorizontal="true"
         android:ems="10"
         android:inputType="textPassword" />
 
@@ -45,7 +45,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
+        android:layout_marginTop="350dp"
         android:text="@string/createGroup" />
 
 </RelativeLayout>

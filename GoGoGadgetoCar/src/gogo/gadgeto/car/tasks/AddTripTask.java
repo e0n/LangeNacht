@@ -1,6 +1,6 @@
 package gogo.gadgeto.car.tasks;
 
-import gogo.gadgeto.car.FuelFragment;
+import gogo.gadgeto.car.NewTripFragment;
 import gogo.gadgeto.car.helper.UserFunctions;
 
 import org.json.JSONException;
@@ -9,26 +9,24 @@ import org.json.JSONObject;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 
-public class AddRefuelTask extends AsyncTask<Void, Void, Void> {
+public class AddTripTask extends AsyncTask<Void, Void, Void> {
 
     // JSON Response node names
     private static String KEY_SUCCESS = "success";
     private static String KEY_ERROR_MSG = "error_msg";
     
     // Properties
-    private FuelFragment fragment;
+    private NewTripFragment fragment;
     private ProgressDialog mProgressDialog;
     private UserFunctions userFunction;
     private JSONObject json;
-    private String mileage;
-    private String amount;
+    private String distance;
     private String error_msg;
 	
-	public AddRefuelTask(FuelFragment fragment, String amount, String mileage)
+	public AddTripTask(NewTripFragment fragment, String distance)
 	{
 		this.fragment = fragment;
-		this.amount = amount;
-		this.mileage = mileage;
+		this.distance = distance;
 		this.error_msg = "";
 	}
 	
@@ -54,7 +52,7 @@ public class AddRefuelTask extends AsyncTask<Void, Void, Void> {
     @Override
     protected Void doInBackground(Void... params) {        
         userFunction = new UserFunctions();
-        json = userFunction.addRefuel(fragment.getActivity().getApplicationContext(),amount , mileage);
+        json = userFunction.addTrip(fragment.getActivity().getApplicationContext(), distance);
 		
 		try {
             if (json.getString(KEY_SUCCESS) != null) {

@@ -2,7 +2,6 @@ package gogo.gadgeto.car;
 
 import gogo.gadgeto.car.tasks.JoinCarGroupTask;
 import android.app.Activity;
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
