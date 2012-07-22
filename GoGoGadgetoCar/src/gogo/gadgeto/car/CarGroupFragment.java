@@ -1,5 +1,6 @@
 package gogo.gadgeto.car;
 
+import gogo.gadgeto.car.helper.DatabaseHandler;
 import gogo.gadgeto.car.helper.UserFunctions;
 import android.app.Fragment;
 import android.content.Intent;
@@ -48,8 +49,12 @@ public class CarGroupFragment extends Fragment {
 		
 		leaveGroupButton.setOnClickListener(new OnClickListener() {			
 			public void onClick(View v) {
-				Intent newIntent = new Intent(getActivity().getApplicationContext(), LeaveCarGroupActivity.class);
-				startActivity(newIntent);
+				
+				DatabaseHandler db = new DatabaseHandler(getActivity().getApplicationContext());
+				db.leaveCarGroup();
+				
+				startActivity(getActivity().getIntent());
+				getActivity().finish();
 			}
 		});
 		

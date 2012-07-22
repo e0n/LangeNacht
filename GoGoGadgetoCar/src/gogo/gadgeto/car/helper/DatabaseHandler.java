@@ -7,6 +7,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
  
 public class DatabaseHandler extends SQLiteOpenHelper {
  
@@ -103,8 +104,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
  
         ContentValues values = new ContentValues();
-        values.put(KEY_CARGROUPID, getUserDetails().get(KEY_CARGROUPID)); // ID
- 
+        values.put(KEY_CARGROUPID, "null"); // ID
+        Log.i("TEST", values.toString());
         // Updating Row
         db.update(TABLE_LOGIN, values, null, null);
         db.close(); // Closing database connection

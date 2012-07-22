@@ -23,7 +23,7 @@ public class RegisterCarGroupTask extends AsyncTask<Void, Void, Void> {
     private String password;
     private String error_msg;
 	
-	public RegisterCarGroupTask(CreateCarGroupActivity activity, String password, String mileage)
+	public RegisterCarGroupTask(CreateCarGroupActivity activity, String password)
 	{
 		this.activity = activity;
 		this.password = password;
