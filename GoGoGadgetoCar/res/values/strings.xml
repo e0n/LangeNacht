@@ -50,5 +50,6 @@
     <string name="currentMileage">Current mileage</string>
     <string name="currentCarGroupId">Current group id:</string>
     <string name="id">ID</string>
+    <string name="appName">GogoGadgetoCar</string>
 
 </resources>
