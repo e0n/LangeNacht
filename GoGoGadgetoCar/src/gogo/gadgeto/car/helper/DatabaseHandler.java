@@ -83,16 +83,27 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     /**
      * Updating carGroup details in database
      * */
-    public void updateCarGroup(String cargroupid) {
-    	if(cargroupid == null || cargroupid.equals(0))
-    	{
-    		cargroupid = "NULL";
-    	}
+    public void joinCarGroup(String cargroupid) {
     	
         SQLiteDatabase db = this.getWritableDatabase();
  
         ContentValues values = new ContentValues();
         values.put(KEY_CARGROUPID, cargroupid); // ID
+ 
+        // Updating Row
+        db.update(TABLE_LOGIN, values, null, null);
+        db.close(); // Closing database connection
+    }
+    
+    /**
+     * Updating carGroup details in database
+     * */
+    public void leaveCarGroup() {
+    	
+        SQLiteDatabase db = this.getWritableDatabase();
+ 
+        ContentValues values = new ContentValues();
+        values.put(KEY_CARGROUPID, getUserDetails().get(KEY_CARGROUPID)); // ID
  
         // Updating Row
         db.update(TABLE_LOGIN, values, null, null);
@@ -111,10 +122,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         // Move to first row
         cursor.moveToFirst();
         if(cursor.getCount() > 0){
-            user.put("name", cursor.getString(1));
-            user.put("email", cursor.getString(2));
-            user.put("cargroupid", cursor.getString(3));            
-            user.put("created_at", cursor.getString(4));
+            user.put(KEY_NAME, cursor.getString(1));
+            user.put(KEY_EMAIL, cursor.getString(2));
+            user.put(KEY_CARGROUPID, cursor.getString(3));            
+            user.put(KEY_CREATED_AT, cursor.getString(4));
         }
         cursor.close();
         db.close();

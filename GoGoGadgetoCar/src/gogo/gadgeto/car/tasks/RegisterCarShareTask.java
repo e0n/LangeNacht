@@ -48,10 +48,10 @@ public class RegisterCarShareTask extends AsyncTask<Void, Void, Void> {
 	                // registration successfully
 	                // Store cargroupid in SQLite Database
 	                DatabaseHandler db = new DatabaseHandler(activity.getApplicationContext());                							
-	                String carshareId = json.getString(KEY_CARGROUPID);
-	                db.updateCarGroup(carshareId);
+	                String carGroupId = json.getString(KEY_CARGROUPID);
+	                db.joinCarGroup(carGroupId);
 	                
-	                error_msg = carshareId;
+	                error_msg = carGroupId;
                 }
             }
 			else {
