@@ -1,10 +1,6 @@
 package gogo.gadgeto.car;
 
 import gogo.gadgeto.model.Database;
-
-import java.util.List;
-
-import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.text.Editable;
@@ -12,10 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class FuelFragment extends Fragment {
@@ -25,7 +20,7 @@ public class FuelFragment extends Fragment {
 	private Button sendFuelButton;
 	private EditText paymentEditText;
 	private EditText mileageEditText;
-	private Spinner payerSpinner;
+	private TextView payerName;
 	
 	@Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -37,7 +32,9 @@ public class FuelFragment extends Fragment {
 		sendFuelButton = (Button) myView.findViewById(R.id.sendFuelButton);
 		paymentEditText = (EditText) myView.findViewById(R.id.paymentEditText);
 		mileageEditText = (EditText) myView.findViewById(R.id.fuelNewMileageEditText);
-		payerSpinner = (Spinner) myView.findViewById(R.id.payerSpinner);
+		payerName = (TextView) myView.findViewById(R.id.payerNameTextView);
+		
+		payerName.setText(database.getUsername());
 		
 		
 		sendFuelButton.setOnClickListener(new OnClickListener() {
@@ -49,7 +46,7 @@ public class FuelFragment extends Fragment {
 				{
 					int payment = Integer.parseInt(paymentText.toString());
 					int newMileage = Integer.parseInt(mileageText.toString());
-					String result = database.sendFuelToDatabase((String) payerSpinner.getSelectedItem(), payment, newMileage, database.getUsername());
+					String result = database.sendFuelToDatabase(database.getUsername(), payment, newMileage, database.getUsername());
 				
 					Toast.makeText(getActivity(), result, Toast.LENGTH_LONG).show();
 				} else {

@@ -14,21 +14,21 @@
         android:layout_marginTop="30dp"
         android:text="@string/payer" />
 
-    <Spinner
-        android:id="@+id/payerSpinner"
+    <TextView
+        android:id="@+id/payerNameTextView"
         android:layout_width="210dp"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/PayerTextView"
         android:layout_below="@+id/PayerTextView"
-        android:gravity="bottom"
-        tools:listitem="@android:layout/simple_spinner_dropdown_item" />
+        android:gravity="center_horizontal"
+        android:text="@string/name" />
 
     <TextView
         android:id="@+id/paymentTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/payerSpinner"
-        android:layout_below="@+id/payerSpinner"
+        android:layout_alignLeft="@+id/payerNameTextView"
+        android:layout_below="@+id/payerNameTextView"
         android:layout_marginTop="20dp"
         android:text="@string/payment" />
 

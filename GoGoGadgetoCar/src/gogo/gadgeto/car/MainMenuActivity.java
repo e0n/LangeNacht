@@ -1,6 +1,10 @@
 package gogo.gadgeto.car;
 
+<<<<<<< HEAD
 import gogo.gadgeto.car.helper.UserFunctions;
+=======
+import gogo.gadgeto.model.Database;
+>>>>>>> branch 'master' of https://github.com/e0n/LangeNacht.git
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;

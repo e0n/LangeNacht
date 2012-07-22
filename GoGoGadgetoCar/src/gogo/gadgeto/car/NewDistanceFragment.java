@@ -5,7 +5,6 @@ import gogo.gadgeto.model.Database;
 import java.util.Set;
 
 import android.app.Fragment;
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.view.LayoutInflater;
@@ -14,6 +13,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class NewDistanceFragment extends Fragment {
@@ -24,7 +24,7 @@ public class NewDistanceFragment extends Fragment {
 	
 	private EditText travelledDistance;
 	
-	private Button driverCount;
+	private TextView driverName;
 	
 	@Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -34,16 +34,9 @@ public class NewDistanceFragment extends Fragment {
 		
         sendDistanceButton = (Button) myView.findViewById(R.id.InsertDistanceButton);
         travelledDistance = (EditText) myView.findViewById(R.id.travelledDistanceEditText);
-        driverCount = (Button) myView.findViewById(R.id.numberOfDriversTextView);        
+        driverName = (TextView) myView.findViewById(R.id.distanceDriverNameTextView);        
         
-        writeDriversCount();
-        
-        driverCount.setOnClickListener(new OnClickListener() {			
-			public void onClick(View v) {
-				Intent newIntent = new Intent(getActivity().getApplicationContext(), NewDistanceSelectDriverActivity.class);
-				startActivity(newIntent);
-			}
-		});
+        driverName.setText(database.getUsername());
         
         sendDistanceButton.setOnClickListener(new OnClickListener() {
 			
@@ -52,7 +45,7 @@ public class NewDistanceFragment extends Fragment {
 				if (text.length() != 0)
 				{
 					int distance = Integer.parseInt(text.toString());
-					String result = database.sendDistanceToDatabase(database.getSelectedDriverNames(), distance, database.getUsername());
+					String result = database.sendDistanceToDatabase(database.getUsername(), distance);
 				
 					Toast.makeText(getActivity(), result, Toast.LENGTH_LONG).show();
 				} else {
@@ -70,11 +63,11 @@ public class NewDistanceFragment extends Fragment {
         Set<String> selectedNames = database.getSelectedDriverNames();
         if (selectedNames.size() == 0) {
         	database.toggleSelectedDriverName(database.getUsername());
-        	driverCount.setText(database.getUsername());
+        	driverName.setText(database.getUsername());
         } else if (selectedNames.size() == 1) {
-        	driverCount.setText(selectedNames.iterator().next());
+        	driverName.setText(selectedNames.iterator().next());
         } else {
-        	driverCount.setText("" + selectedNames.size());
+        	driverName.setText("" + selectedNames.size());
         }
 	}
 	
