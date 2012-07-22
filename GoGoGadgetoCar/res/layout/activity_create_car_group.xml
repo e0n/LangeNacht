@@ -40,34 +40,12 @@
         android:ems="10"
         android:inputType="textPassword" />
 
-    <TextView
-        android:id="@+id/createCarGroupEnterMileageTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/CreateCarGroupRepeatNewPasswordEditText"
-        android:layout_below="@+id/CreateCarGroupRepeatNewPasswordEditText"
-        android:layout_marginTop="25dp"
-        android:text="@string/currentMileage" />
-
-    <EditText
-        android:id="@+id/createCarGroupEnterMileageEditText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/createCarGroupEnterMileageTextView"
-        android:layout_below="@+id/createCarGroupEnterMileageTextView"
-        android:ems="10"
-        android:inputType="numberSigned" >
-
-        <requestFocus />
-    </EditText>
-
     <Button
         android:id="@+id/createCarGroupSendButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/createCarGroupEnterMileageEditText"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
+        android:layout_centerVertical="true"
         android:text="@string/createGroup" />
 
 </RelativeLayout>

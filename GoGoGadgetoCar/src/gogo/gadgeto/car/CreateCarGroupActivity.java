@@ -26,7 +26,6 @@ public class CreateCarGroupActivity extends Activity {
         createGroupButton = (Button) findViewById(R.id.createCarGroupSendButton);
         newPasswordEditText = (EditText) findViewById(R.id.CreateCarGroupNewPasswordEditText);
         repeatNewPasswordEditText = (EditText) findViewById(R.id.CreateCarGroupRepeatNewPasswordEditText);
-        currentMileageEditText = (EditText) findViewById(R.id.createCarGroupEnterMileageEditText);
         
         createGroupButton.setOnClickListener(new OnClickListener() {
 			
@@ -36,13 +35,12 @@ public class CreateCarGroupActivity extends Activity {
 				String currentMileage = currentMileageEditText.getText().toString();
 				
 				if (newPassword.equals(repeatNewPassword)) {
-					// TODO: enter mileage! ask lars
 					registerCarShare(newPassword, currentMileage);
 				}
 				else {
 			    	newPasswordEditText.setText("");
 			    	repeatNewPasswordEditText.setText("");
-					Toast.makeText(getApplication(), "Passwords not equal.", Toast.LENGTH_LONG).show();					
+					Toast.makeText(getApplication(), "Passwords are not equal.", Toast.LENGTH_LONG).show();					
 				}			
 			}
 		});
@@ -66,7 +64,5 @@ public class CreateCarGroupActivity extends Activity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.activity_create_car_group, menu);
         return true;
-    }
-
-    
+    }    
 }
