@@ -118,7 +118,7 @@ public class UserFunctions {
         List<NameValuePair> params = new ArrayList<NameValuePair>();
         params.add(new BasicNameValuePair("tag", cargroup_leave_tag));
         params.add(new BasicNameValuePair("email", getEmailFromLoggedInUser(context)));
-        params.add(new BasicNameValuePair("cargroupid", getcarGroupIdFromLoggedInUser(context)));
+        params.add(new BasicNameValuePair("cargroupid", getCarGroupIdFromLoggedInUser(context)));
         
         // getting JSON Object
         JSONObject json = jsonParser.getJSONFromUrl(phpUrl, params);
@@ -136,7 +136,7 @@ public class UserFunctions {
         List<NameValuePair> params = new ArrayList<NameValuePair>();
         params.add(new BasicNameValuePair("tag", cargroup_addTrip_tag));
         params.add(new BasicNameValuePair("email", getEmailFromLoggedInUser(context)));
-        params.add(new BasicNameValuePair("cargroupid", getcarGroupIdFromLoggedInUser(context)));
+        params.add(new BasicNameValuePair("cargroupid", getCarGroupIdFromLoggedInUser(context)));
         params.add(new BasicNameValuePair("mileage", mileage));
         
         // getting JSON Object
@@ -155,7 +155,7 @@ public class UserFunctions {
         List<NameValuePair> params = new ArrayList<NameValuePair>();
         params.add(new BasicNameValuePair("tag", cargroup_addRefuel_tag));
         params.add(new BasicNameValuePair("refuelid", getEmailFromLoggedInUser(context)));
-        params.add(new BasicNameValuePair("cargroupid", getcarGroupIdFromLoggedInUser(context)));
+        params.add(new BasicNameValuePair("cargroupid", getCarGroupIdFromLoggedInUser(context)));
         params.add(new BasicNameValuePair("mileage", mileage));
         params.add(new BasicNameValuePair("amount", amount));
         
@@ -189,7 +189,7 @@ public class UserFunctions {
         // Building Parameters
         List<NameValuePair> params = new ArrayList<NameValuePair>();
         params.add(new BasicNameValuePair("tag", cargroup_refuelings_tag));
-        params.add(new BasicNameValuePair("cargroupid", getcarGroupIdFromLoggedInUser(context)));
+        params.add(new BasicNameValuePair("cargroupid", getCarGroupIdFromLoggedInUser(context)));
         
         // getting JSON Object
         JSONObject json = jsonParser.getJSONFromUrl(phpUrl, params);
@@ -238,11 +238,11 @@ public class UserFunctions {
     /**
      * @function get cargroupid from current logged-in user
      * */
-    public String getcarGroupIdFromLoggedInUser(Context context){
+    public String getCarGroupIdFromLoggedInUser(Context context){
         DatabaseHandler db = new DatabaseHandler(context);
         int count = db.getRowCount();
         if(count > 0){
-            return db.getUserDetails().get("cargrouid");
+            return db.getUserDetails().get("cargroupid");
         }
         return "";
     }

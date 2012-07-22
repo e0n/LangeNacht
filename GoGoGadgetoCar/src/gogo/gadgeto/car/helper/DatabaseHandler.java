@@ -121,11 +121,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery(selectQuery, null);
         // Move to first row
         cursor.moveToFirst();
-        if(cursor.getCount() > 0){
-            user.put(KEY_NAME, cursor.getString(1));
-            user.put(KEY_EMAIL, cursor.getString(2));
-            user.put(KEY_CARGROUPID, cursor.getString(3));            
-            user.put(KEY_CREATED_AT, cursor.getString(4));
+        if(cursor.getCount() > 0){        	
+            user.put(KEY_NAME, cursor.getString(0));
+            user.put(KEY_EMAIL, cursor.getString(1));
+            user.put(KEY_CARGROUPID, cursor.getString(2));            
+            user.put(KEY_CREATED_AT, cursor.getString(3));
         }
         cursor.close();
         db.close();

@@ -1,6 +1,6 @@
 package gogo.gadgeto.car;
 
-import gogo.gadgeto.model.Database;
+import gogo.gadgeto.car.helper.UserFunctions;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,9 +18,7 @@ public class CarGroupFragment extends Fragment {
 	private Button joinGroupButton;
 	private Button leaveGroupButton;
 	private Button createGroupButton;
-	
-	private Database database;
-	
+		
 	@Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		
@@ -30,10 +28,16 @@ public class CarGroupFragment extends Fragment {
 		joinGroupButton = (Button) myView.findViewById(R.id.joinCarGroupButton);
 		leaveGroupButton = (Button) myView.findViewById(R.id.leaveCarGroupButton);
 		createGroupButton = (Button) myView.findViewById(R.id.createCarGroupButton);
+				
 		
-		database = Database.getInstance();
-		
-		currentGroupId.setText(database.getCurrentCarShareId());
+		// Display cargroupID
+		String carGroupId = new UserFunctions().getCarGroupIdFromLoggedInUser(getActivity().getApplicationContext());
+				
+		if (carGroupId != null && !carGroupId.equals("null") && !carGroupId.isEmpty()) {
+			currentGroupId.setText(carGroupId);
+		} else {
+			currentGroupId.setText("(not in group)");
+		}
 		
 		joinGroupButton.setOnClickListener(new OnClickListener() {			
 			public void onClick(View v) {
