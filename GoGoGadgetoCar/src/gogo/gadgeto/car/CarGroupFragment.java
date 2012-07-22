@@ -29,7 +29,7 @@ public class CarGroupFragment extends Fragment {
 		leaveGroupButton = (Button) myView.findViewById(R.id.leaveCarGroupButton);
 		createGroupButton = (Button) myView.findViewById(R.id.createCarGroupButton);
 				
-		
+
 		// Display cargroupID
 		String carGroupId = new UserFunctions().getCarGroupIdFromLoggedInUser(getActivity().getApplicationContext());
 				
