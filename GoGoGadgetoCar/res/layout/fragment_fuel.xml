@@ -39,7 +39,7 @@
         android:layout_alignLeft="@+id/paymentTextView"
         android:layout_below="@+id/paymentTextView"
         android:ems="10"
-        android:inputType="numberSigned" />
+        android:inputType="numberDecimal" />
 
     <TextView
         android:id="@+id/newMileageTextView"

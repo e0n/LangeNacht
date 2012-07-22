@@ -34,6 +34,7 @@ public class CashAdapter extends ArrayAdapter<CashEntry> {
 			holder = new CashHolder();
 			holder.nameTextView = (TextView) row.findViewById(R.id.cashListItemNameTextView);
 			holder.deptTextView = (TextView) row.findViewById(R.id.cashListItemDeptTextView);
+			holder.mileageTextView = (TextView) row.findViewById(R.id.cashListItemMileageTextView);
 			
 			row.setTag(holder);
 		}
@@ -44,13 +45,8 @@ public class CashAdapter extends ArrayAdapter<CashEntry> {
 		CashEntry cashEntry = data[position];
 		holder.nameTextView.setText(cashEntry.name);
 		holder.deptTextView.setText(parseCentToEuroString(cashEntry.dept));
-		if (Integer.parseInt(cashEntry.dept) < 0)
-		{
-			holder.deptTextView.setTextColor(Color.RED);
-		}
-		else {
-			holder.deptTextView.setTextColor(Color.GREEN);
-		}
+		holder.deptTextView.setTextColor(Color.GREEN);
+		holder.mileageTextView.setText(cashEntry.mileage + " km");
 		
 		return row;
 	}
@@ -65,10 +61,11 @@ public class CashAdapter extends ArrayAdapter<CashEntry> {
 		String resultString = workString.substring(0, length-2) + "," + workString.substring(length-2) + " €";
 		return resultString;
 	}
-
+	
 	static class CashHolder
     {
 		TextView nameTextView;
         TextView deptTextView;
+        TextView mileageTextView;
     }
 }

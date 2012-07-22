@@ -1,6 +1,6 @@
 package gogo.gadgeto.car;
 
-import gogo.gadgeto.model.Database;
+import gogo.gadgeto.car.tasks.GetUserstatisticTask;
 
 import java.util.Iterator;
 import java.util.Set;
@@ -12,7 +12,6 @@ import android.widget.ListView;
 
 public class DeptActivity extends Activity {
 	
-	private Database database;
 	private ListView myListView;
 
     @Override
@@ -20,12 +19,18 @@ public class DeptActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dept);
         
-        database = Database.getInstance();        
-        
-        String fuelId = "34";
-        Set<CashEntry> cashEntries = database.getCashEntries(database.getUsername(), fuelId);
-        
-        CashEntry cash_data[] = new CashEntry[cashEntries.size()];
+        Bundle bundle = this.getIntent().getExtras();
+        String refuelid = bundle.getString("refuelid");
+		
+        getUserstatistics(refuelid);                 
+    }
+    
+    private void getUserstatistics(String refuelid) {
+    	new GetUserstatisticTask(this, refuelid).execute();
+    }
+
+	public void refreshView(Set<CashEntry> cashEntries) {
+		CashEntry cash_data[] = new CashEntry[cashEntries.size()];
 		Iterator<CashEntry> it = cashEntries.iterator();
 		
 		for (int cashEntryIndex = 0; it.hasNext() ; cashEntryIndex++) {
@@ -36,8 +41,7 @@ public class DeptActivity extends Activity {
         
         myListView = (ListView) findViewById(R.id.statisticsListView);
         myListView.setAdapter(adapter);
-        
-    }
+	}
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -2,7 +2,6 @@ package gogo.gadgeto.car;
 
 import gogo.gadgeto.car.helper.UserFunctions;
 import gogo.gadgeto.car.tasks.AddTripTask;
-import gogo.gadgeto.model.Database;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.text.Editable;
@@ -17,18 +16,13 @@ import android.widget.Toast;
 
 public class NewTripFragment extends Fragment {
 	
-	Database database;
-	
 	private Button sendDistanceButton;
-	
 	private EditText travelledDistance;
-	
 	private TextView driverName;
 	
 	@Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		
-		database = Database.getInstance();
 		View myView = inflater.inflate(R.layout.fragment_new_trip, container, false);
 		
         sendDistanceButton = (Button) myView.findViewById(R.id.InsertDistanceButton);

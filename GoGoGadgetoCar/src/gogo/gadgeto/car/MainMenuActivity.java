@@ -23,9 +23,6 @@ public class MainMenuActivity extends Activity {
 	ActionBar.Tab statisticTab;
 	ActionBar.Tab carGroupTab;
 	ActionBar.Tab logoutTab;
-	
-	static Fragment fragmentCarGroup;
-	
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -44,7 +41,7 @@ public class MainMenuActivity extends Activity {
         Fragment fragmentDistance 	= new NewTripFragment();
         Fragment fragmentFuel 		= new FuelFragment();
         Fragment fragmentStatistic	= new StatisticFragment();
-        fragmentCarGroup   = new CarGroupFragment();
+        Fragment fragmentCarGroup   = new CarGroupFragment();
         Fragment fragmentLogout		= new LogoutFragment();
         
         distanceTab.setTabListener(new MyTabsListener(fragmentDistance));
@@ -86,10 +83,7 @@ public class MainMenuActivity extends Activity {
     		if (fuelTab.getPosition() == -1)
 	    		bar.addTab(fuelTab,0);
     		if (statisticTab.getPosition() == -1)
-	    		bar.addTab(statisticTab,0);
-//    		bar.addTab(distanceTab,0);
-//    		bar.addTab(fuelTab,0);
-//    		bar.addTab(statisticTab,0);    		
+	    		bar.addTab(statisticTab,0);   		
     	}
     }
 

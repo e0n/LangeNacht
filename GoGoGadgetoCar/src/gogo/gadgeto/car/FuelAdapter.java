@@ -48,6 +48,11 @@ public class FuelAdapter  extends ArrayAdapter<FuelEntry>{
 		return row;
 	}
 	
+	@Override
+	public FuelEntry getItem(int position) {
+		return super.getItem(position);
+	}
+	
 	static class CashHolder
     {
 		TextView dateTextView;

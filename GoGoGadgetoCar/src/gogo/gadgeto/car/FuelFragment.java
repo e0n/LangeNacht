@@ -2,7 +2,6 @@ package gogo.gadgeto.car;
 
 import gogo.gadgeto.car.helper.UserFunctions;
 import gogo.gadgeto.car.tasks.AddRefuelTask;
-import gogo.gadgeto.model.Database;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -15,9 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class FuelFragment extends Fragment {
-	
-	Database database;
-	
+		
 	private Button sendFuelButton;
 	private EditText paymentEditText;
 	private EditText mileageEditText;
@@ -27,7 +24,6 @@ public class FuelFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 		
-		database = Database.getInstance();
 		View myView = inflater.inflate(R.layout.fragment_fuel, container, false);
 		
 		sendFuelButton = (Button) myView.findViewById(R.id.sendFuelButton);
