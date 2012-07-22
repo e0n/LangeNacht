@@ -1,6 +1,5 @@
 package gogo.gadgeto.car;
 
-import gogo.gadgeto.car.R.id;
 import gogo.gadgeto.model.Database;
 import android.app.ActionBar;
 import android.app.Activity;

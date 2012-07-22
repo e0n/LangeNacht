@@ -5,7 +5,6 @@ import gogo.gadgeto.car.FuelEntry;
 
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -89,32 +88,16 @@ public class Database {
 		return username;
 	}
 	
-	public String sendDistanceToDatabase(Set<String> driverNames, int distance, String username2) {
+	public String sendDistanceToDatabase(String username2, int distance) {
 		String result;
-		if ( driverNames != null ) {
-			if ( username2 != null) {
-				if ( distance != 0) {
-					
-					result = username2 + " inserted: ";
-					Iterator<String> it = driverNames.iterator();
-					if (driverNames.size() != 0) {
-						result += it.next();
-						while (it.hasNext()) {
-							result += ", " + it.next();
-						}
-						result += " drove " + distance + "km.";
-					} else {
-						result = "No Names selected.";
-					}
-					
-				} else {
-					result = "no distance entered.";
-				}
+		if ( username2 != null) {
+			if ( distance != 0) {
+				result = username2 + " drove " + distance + " km.";								
 			} else {
-				result = "no username found.";
+				result = "no distance entered.";
 			}
 		} else {
-			result = "drivers set invalid.";
+			result = "no username found.";
 		}		
 		return result;
 	}

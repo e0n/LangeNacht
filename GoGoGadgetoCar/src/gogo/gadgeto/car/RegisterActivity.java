@@ -1,8 +1,5 @@
 package gogo.gadgeto.car;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import gogo.gadgeto.car.helper.EmailCheck;
 import gogo.gadgeto.car.tasks.RegisterUserTask;
 import android.app.Activity;

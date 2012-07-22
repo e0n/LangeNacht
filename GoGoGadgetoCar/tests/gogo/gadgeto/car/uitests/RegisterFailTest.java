@@ -3,7 +3,6 @@ package gogo.gadgeto.car.uitests;
 import gogo.gadgeto.car.LoginActivity;
 import android.test.ActivityInstrumentationTestCase2;
 import android.test.suitebuilder.annotation.Smoke;
-import android.util.Log;
 
 import com.jayway.android.robotium.solo.Solo;
 
