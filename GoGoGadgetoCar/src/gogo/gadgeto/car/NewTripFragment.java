@@ -1,12 +1,8 @@
 package gogo.gadgeto.car;
 
 import gogo.gadgeto.car.helper.UserFunctions;
-import gogo.gadgeto.car.tasks.AddRefuelTask;
 import gogo.gadgeto.car.tasks.AddTripTask;
 import gogo.gadgeto.model.Database;
-
-import java.util.Set;
-
 import android.app.Fragment;
 import android.os.Bundle;
 import android.text.Editable;

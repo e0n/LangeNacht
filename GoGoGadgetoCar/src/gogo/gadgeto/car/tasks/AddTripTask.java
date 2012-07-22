@@ -1,6 +1,5 @@
 package gogo.gadgeto.car.tasks;
 
-import gogo.gadgeto.car.FuelFragment;
 import gogo.gadgeto.car.NewTripFragment;
 import gogo.gadgeto.car.helper.UserFunctions;
 
