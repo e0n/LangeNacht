@@ -43,7 +43,7 @@ public class FuelAdapter  extends ArrayAdapter<FuelEntry>{
 		FuelEntry fuelEntry = data[position];
 		holder.dateTextView.setText(fuelEntry.date);
 		holder.distanceTextView.setText(fuelEntry.distance);
-		holder.costTextView.setText(fuelEntry.costs);
+		holder.costTextView.setText(parseCentToEuroString(fuelEntry.costs));
 		
 		return row;
 	}
@@ -51,6 +51,17 @@ public class FuelAdapter  extends ArrayAdapter<FuelEntry>{
 	@Override
 	public FuelEntry getItem(int position) {
 		return super.getItem(position);
+	}
+	
+	private String parseCentToEuroString(String centString) {
+		int length = centString.length();
+		String workString = centString;
+		while (length < 3) {
+			workString = "0" + workString;
+			length++;
+		}
+		String resultString = workString.substring(0, length-2) + "," + workString.substring(length-2) + " €";
+		return resultString;
 	}
 	
 	static class CashHolder

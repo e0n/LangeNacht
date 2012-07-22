@@ -33,25 +33,30 @@ public class FuelFragment extends Fragment {
 		
 		payerName.setText(new UserFunctions().getNameFromLoggedInUser(getActivity().getApplicationContext()));
 		
-		
 		sendFuelButton.setOnClickListener(new OnClickListener() {
 			
 			public void onClick(View v) {
 				String paymentText = paymentEditText.getText().toString();
 				String mileageText = mileageEditText.getText().toString();
+				int paymentInt = 0;
 				
-				if (paymentText.length() != 0 &&mileageText.length() != 0)
+				if (paymentText.length() != 0 && mileageText.length() != 0)
 				{
 					try {
-						Integer payment = Integer.parseInt(paymentText.toString());
-						Integer newMileage = Integer.parseInt(mileageText.toString());
-						
-						doRefuel(payment.toString(), newMileage.toString());
-						
+						if (paymentText.contains(".")) {
+							Double doubleValue = Double.parseDouble(paymentText) * 100;
+							paymentInt = Integer.parseInt(doubleValue.toString().split("\\.")[0]);	
+						} else {
+							paymentInt = Integer.parseInt(paymentText) * 100;
+						}					
+						Integer newMileage = Integer.parseInt(mileageText);
+						doRefuel(String.valueOf(paymentInt), newMileage.toString());
+					
 					} catch (Exception e) {
 						cleanEditText();
 						Toast.makeText(getActivity(), "No valid payment or mileage!", Toast.LENGTH_LONG).show();
 					}
+
 				} else {
 					cleanEditText();
 					Toast.makeText(getActivity(), "No valid payment or mileage", Toast.LENGTH_LONG).show();
@@ -61,6 +66,8 @@ public class FuelFragment extends Fragment {
 		
         return myView;
     }
+	
+	
 	
 	private void doRefuel(String payment, String mileage) {
 		new AddRefuelTask(this, payment, mileage).execute();

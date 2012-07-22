@@ -71,7 +71,7 @@ public class NewTripFragment extends Fragment {
     }
     
 	public void showErrorMsg(String msg) {
-		if (!msg.equals("") && this != null) {
+		if (!msg.equals("")) {
 			Toast.makeText(getActivity().getApplicationContext(), msg, Toast.LENGTH_LONG).show();
 		}
 	}
