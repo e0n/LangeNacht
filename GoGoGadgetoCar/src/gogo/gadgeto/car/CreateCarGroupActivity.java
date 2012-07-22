@@ -35,8 +35,7 @@ public class CreateCarGroupActivity extends Activity {
 				String repeatNewPassword = repeatNewPasswordEditText.getText().toString();
 				String currentMileage = currentMileageEditText.getText().toString();
 				
-				Boolean equal = CheckPasswords(newPassword, repeatNewPassword);
-				if (equal) {
+				if (newPassword.equals(repeatNewPassword)) {
 					// TODO: enter mileage! ask lars
 					registerCarShare(newPassword, currentMileage);
 				}
@@ -63,12 +62,6 @@ public class CreateCarGroupActivity extends Activity {
 		startActivity(newIntent);
     }
     
-    protected Boolean CheckPasswords(String newPassword,
-			String repeatNewPassword) {
-		Boolean result = newPassword.equals(repeatNewPassword);
-		return result;
-	}
-
 	@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.activity_create_car_group, menu);
