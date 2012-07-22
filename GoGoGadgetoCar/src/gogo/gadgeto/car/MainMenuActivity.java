@@ -24,6 +24,8 @@ public class MainMenuActivity extends Activity {
 	ActionBar.Tab carGroupTab;
 	ActionBar.Tab logoutTab;
 	
+	static Fragment fragmentCarGroup;
+	
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -42,7 +44,7 @@ public class MainMenuActivity extends Activity {
         Fragment fragmentDistance 	= new NewTripFragment();
         Fragment fragmentFuel 		= new FuelFragment();
         Fragment fragmentStatistic	= new StatisticFragment();
-        Fragment fragmentCarGroup   = new CarGroupFragment();
+        fragmentCarGroup   = new CarGroupFragment();
         Fragment fragmentLogout		= new LogoutFragment();
         
         distanceTab.setTabListener(new MyTabsListener(fragmentDistance));
@@ -72,13 +74,22 @@ public class MainMenuActivity extends Activity {
     	ActionBar bar = getActionBar();
     	
     	if (new UserFunctions().getCarGroupIdFromLoggedInUser(getApplicationContext()).equals("null")) {
-    		bar.removeTab(distanceTab);
-    		bar.removeTab(fuelTab);
-    		bar.removeTab(statisticTab);
+    		if (distanceTab.getPosition() != -1) 
+	    		bar.removeTab(distanceTab);
+    		if (fuelTab.getPosition() != -1)
+	    		bar.removeTab(fuelTab);
+    		if (statisticTab.getPosition() != -1)
+	    		bar.removeTab(statisticTab);
     	} else if (bar.getTabCount() < 5){
-    		bar.addTab(distanceTab,0);
-    		bar.addTab(fuelTab,0);
-    		bar.addTab(statisticTab,0);    		
+    		if (distanceTab.getPosition() == -1) 
+	    		bar.addTab(distanceTab,0);
+    		if (fuelTab.getPosition() == -1)
+	    		bar.addTab(fuelTab,0);
+    		if (statisticTab.getPosition() == -1)
+	    		bar.addTab(statisticTab,0);
+//    		bar.addTab(distanceTab,0);
+//    		bar.addTab(fuelTab,0);
+//    		bar.addTab(statisticTab,0);    		
     	}
     }
 
