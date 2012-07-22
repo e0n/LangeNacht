@@ -20,11 +20,11 @@ public class Database {
 	Set<String> availableDriverNames;
 	List<NameValuePair> availableDriverNamesJson;
 	String username;
-	String carShareId;
+	String carShareId = "0";
 	
 	private Database() {
 		username = "ph";
-		carShareId = "111111";
+		//carShareId = "111111";
 		selectedDriverNames= new HashSet<String>();
 		selectedPayerNames = new HashSet<String>();
 		availableDriverNames = new HashSet<String>();
@@ -151,6 +151,7 @@ public class Database {
 	
 	public String sendJoinCarGroupRequest (String username, String groupId, String password) {
 		String result = "Added " + username + " to group " + groupId + " with password " + password;
+		carShareId = groupId;
 		return result;
 	}
 
@@ -161,6 +162,7 @@ public class Database {
 
 	public String sendLeaveGroupRequest(String username2, String leavingGroupId) {
 		String result = username2 + " left group " + leavingGroupId;
+		carShareId = "0";
 		return result;
 	}
 

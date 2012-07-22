@@ -1,5 +1,9 @@
 package gogo.gadgeto.car;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import gogo.gadgeto.car.helper.EmailCheck;
 import gogo.gadgeto.car.tasks.RegisterUserTask;
 import android.app.Activity;
 import android.content.Intent;
@@ -28,9 +32,15 @@ public class RegisterActivity  extends Activity  {
         registerButton = (Button) findViewById(R.id.register_registerButton);
         
         registerButton.setOnClickListener(new OnClickListener() {			
-			public void onClick(View v) {    
-				doRegister();
-			} 	
+			public void onClick(View v) {   
+				boolean result = new EmailCheck().isEmailAdress(useremail.getText().toString());				
+				if (result) {
+					doRegister();
+				}
+				else {
+					Toast.makeText(getApplication(), "Invalid email.", Toast.LENGTH_SHORT).show();
+				}
+			}	
         });	 
 	}
 	

@@ -1,5 +1,6 @@
 package gogo.gadgeto.car;
 
+import gogo.gadgeto.car.helper.EmailCheck;
 import gogo.gadgeto.car.helper.UserFunctions;
 import gogo.gadgeto.car.tasks.LoginTask;
 import android.app.Activity;
@@ -36,8 +37,14 @@ public class LoginActivity extends Activity {
         registerButton = (Button) findViewById(R.id.registerButton);
         
         loginButton.setOnClickListener(new OnClickListener() {			
-			public void onClick(View v) {    
-				doLogIn();			} 	
+			public void onClick(View v) {   
+				boolean result = new EmailCheck().isEmailAdress(useremail.getText().toString());
+				if (result) {
+					doLogIn();
+				}
+				else {
+					Toast.makeText(getApplication(), "Invalid email.", Toast.LENGTH_SHORT).show();
+				}			} 	
         });	 
         
         registerButton.setOnClickListener(new OnClickListener() {
