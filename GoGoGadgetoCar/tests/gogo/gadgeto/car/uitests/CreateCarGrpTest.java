@@ -3,7 +3,6 @@ package gogo.gadgeto.car.uitests;
 import gogo.gadgeto.car.CreateCarGroupActivity;
 import android.test.ActivityInstrumentationTestCase2;
 import android.test.suitebuilder.annotation.Smoke;
-import android.util.Log;
 
 import com.jayway.android.robotium.solo.Solo;
 
@@ -27,6 +26,7 @@ public class CreateCarGrpTest extends
 		solo.enterText(0, "1234");
 		//repeat New password
 		solo.enterText(1, "1234");
+		solo.enterText(2, "52390");
 		solo.clickOnButton("Create group");
 		
 		
