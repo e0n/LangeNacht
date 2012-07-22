@@ -65,6 +65,7 @@ public class RegisterCarGroupTask extends AsyncTask<Void, Void, Void> {
 	                // Store cargroupid in SQLite Database
 	                DatabaseHandler db = new DatabaseHandler(activity.getApplicationContext());                							
 	                String carGroupId = json.getString(KEY_CARGROUPID);
+	                userFunction.joinCarGroup(activity.getApplicationContext(), carGroupId, password);
 	                db.joinCarGroup(carGroupId); 
                 }
             }
