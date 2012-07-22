@@ -1,5 +1,8 @@
 package gogo.gadgeto.car;
 
+import gogo.gadgeto.car.helper.UserFunctions;
+import gogo.gadgeto.car.tasks.AddRefuelTask;
+import gogo.gadgeto.car.tasks.AddTripTask;
 import gogo.gadgeto.model.Database;
 
 import java.util.Set;
@@ -16,7 +19,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class NewDistanceFragment extends Fragment {
+public class NewTripFragment extends Fragment {
 	
 	Database database;
 	
@@ -30,13 +33,13 @@ public class NewDistanceFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		
 		database = Database.getInstance();
-		View myView = inflater.inflate(R.layout.fragment_new_distance, container, false);
+		View myView = inflater.inflate(R.layout.fragment_new_trip, container, false);
 		
         sendDistanceButton = (Button) myView.findViewById(R.id.InsertDistanceButton);
         travelledDistance = (EditText) myView.findViewById(R.id.travelledDistanceEditText);
         driverName = (TextView) myView.findViewById(R.id.distanceDriverNameTextView);        
         
-        driverName.setText(database.getUsername());
+        driverName.setText(new UserFunctions().getNameFromLoggedInUser(getActivity().getApplicationContext()));
         
         sendDistanceButton.setOnClickListener(new OnClickListener() {
 			
@@ -44,12 +47,17 @@ public class NewDistanceFragment extends Fragment {
 				Editable text = travelledDistance.getText();
 				if (text.length() != 0)
 				{
-					int distance = Integer.parseInt(text.toString());
-					String result = database.sendDistanceToDatabase(database.getUsername(), distance);
-				
-					Toast.makeText(getActivity(), result, Toast.LENGTH_LONG).show();
+					try {
+						Integer distance = Integer.parseInt(text.toString());
+						doTrip(distance.toString());
+						cleanEditText();		
+					} catch (Exception e) {
+						cleanEditText();
+						Toast.makeText(getActivity(), "No valid distance!", Toast.LENGTH_LONG).show();
+					}
 				} else {
-					Toast.makeText(getActivity(), "no valid distance", Toast.LENGTH_LONG).show();
+					cleanEditText();
+					Toast.makeText(getActivity(), "No valid distance!", Toast.LENGTH_LONG).show();
 				}
 			}
 		});
@@ -57,23 +65,26 @@ public class NewDistanceFragment extends Fragment {
 		// Inflate the layout for this fragment
         return myView;
     }
-
-	private void writeDriversCount() {
-		
-        Set<String> selectedNames = database.getSelectedDriverNames();
-        if (selectedNames.size() == 0) {
-        	database.toggleSelectedDriverName(database.getUsername());
-        	driverName.setText(database.getUsername());
-        } else if (selectedNames.size() == 1) {
-        	driverName.setText(selectedNames.iterator().next());
-        } else {
-        	driverName.setText("" + selectedNames.size());
-        }
+	
+	private void doTrip(String distance) {
+		new AddTripTask(this, distance).execute();
 	}
 	
-	@Override
-    public void onStart() {
-		super.onStart();
-		writeDriversCount();
+	private void cleanEditText() {
+		travelledDistance.setText("");
+	}   
+	
+    public void refreshFragment() {
+    	cleanEditText();    	
+		startActivity(getActivity().getIntent());
+		getActivity().finish();
+    }
+    
+	public void showErrorMsg(String msg) {
+		if (!msg.equals("") && this != null) {
+			Toast.makeText(getActivity().getApplicationContext(), msg, Toast.LENGTH_LONG).show();
+		}
 	}
+	
+
 }

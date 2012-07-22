@@ -50,7 +50,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".NewDistanceFragment"
+            android:name=".NewTripFragment"
             android:label="@string/title_activity_new_distance" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

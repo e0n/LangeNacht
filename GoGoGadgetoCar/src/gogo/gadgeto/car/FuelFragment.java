@@ -66,8 +66,8 @@ public class FuelFragment extends Fragment {
         return myView;
     }
 	
-	private void doRefuel(String amount, String mileage) {
-		new AddRefuelTask(this, amount, mileage).execute();
+	private void doRefuel(String payment, String mileage) {
+		new AddRefuelTask(this, payment, mileage).execute();
 	}
 	
 	private void cleanEditText() {

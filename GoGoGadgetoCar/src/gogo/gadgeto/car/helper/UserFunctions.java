@@ -152,14 +152,14 @@ public class UserFunctions {
      * @param context
      * @param mileage
      * */
-    public JSONObject addRefuel(Context context, String mileage, String amount){
+    public JSONObject addRefuel(Context context, String amount, String mileage){
         // Building Parameters
         List<NameValuePair> params = new ArrayList<NameValuePair>();
         params.add(new BasicNameValuePair("tag", cargroup_addRefuel_tag));
         params.add(new BasicNameValuePair("email", getEmailFromLoggedInUser(context)));
         params.add(new BasicNameValuePair("cargroupid", getCarGroupIdFromLoggedInUser(context)));
-        params.add(new BasicNameValuePair("mileage", mileage));
         params.add(new BasicNameValuePair("amount", amount));
+        params.add(new BasicNameValuePair("mileage", mileage));
         
         // getting JSON Object
         JSONObject json = jsonParser.getJSONFromUrl(phpUrl, params);
