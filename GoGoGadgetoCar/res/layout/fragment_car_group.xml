@@ -37,18 +37,18 @@
         android:id="@+id/leaveCarGroupButton"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/joinCarGroupButton"
+        android:layout_alignBottom="@+id/joinCarGroupButton"
         android:layout_alignLeft="@+id/joinCarGroupButton"
-        android:layout_below="@+id/joinCarGroupButton"
-        android:layout_marginTop="35dp"
         android:text="@string/leaveGroup" />
 
     <Button
         android:id="@+id/createCarGroupButton"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/leaveCarGroupButton"
-        android:layout_below="@+id/leaveCarGroupButton"
-        android:layout_marginTop="35dp"
+        android:layout_alignLeft="@+id/joinCarGroupButton"
+        android:layout_below="@+id/joinCarGroupButton"
+        android:layout_marginTop="40dp"
         android:text="@string/createGroup" />
 
 </RelativeLayout>

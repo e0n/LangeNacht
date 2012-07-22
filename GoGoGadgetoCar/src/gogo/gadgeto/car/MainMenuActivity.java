@@ -1,6 +1,6 @@
 package gogo.gadgeto.car;
 
-import gogo.gadgeto.model.Database;
+import gogo.gadgeto.car.helper.UserFunctions;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
@@ -11,7 +11,6 @@ import android.view.Menu;
 public class MainMenuActivity extends Activity {
 	public static Context appContext;
 	
-	private Database database;
 	private int[] tabPositions;
 	final int DISTANCE = 0;
 	final int FUEL = 1;
@@ -64,17 +63,15 @@ public class MainMenuActivity extends Activity {
         tabPositions[STATISTIC] = statisticTab.getPosition();
         tabPositions[CARGROUP] = carGroupTab.getPosition();
         tabPositions[LOGOUT] = logoutTab.getPosition();
-        
                
-        database = Database.getInstance();
-       
     }
     
     @Override
     public void onStart() {
     	super.onStart();
     	ActionBar bar = getActionBar();
-    	if (database.getCurrentCarShareId() == "0") {
+    	
+    	if (new UserFunctions().getCarGroupIdFromLoggedInUser(getApplicationContext()).equals("null")) {
     		bar.removeTab(distanceTab);
     		bar.removeTab(fuelTab);
     		bar.removeTab(statisticTab);
@@ -89,10 +86,5 @@ public class MainMenuActivity extends Activity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.activity_main_menu, menu);
         return true;
-    }
-
-    public Database getDatabase() {
-    	return database;
-    }
-    
+    }    
 }

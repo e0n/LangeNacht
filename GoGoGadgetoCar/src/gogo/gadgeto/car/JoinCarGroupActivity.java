@@ -1,6 +1,6 @@
 package gogo.gadgeto.car;
 
-import gogo.gadgeto.model.Database;
+import gogo.gadgeto.car.tasks.JoinCarGroupTask;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,7 +15,6 @@ public class JoinCarGroupActivity extends Activity {
 	private Button sendButton;
 	private EditText carGroupIdEditText;
 	private EditText carGroupPasswordEditText;
-	private Database database;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -25,26 +24,32 @@ public class JoinCarGroupActivity extends Activity {
 		sendButton = (Button) findViewById(R.id.joinCarGroupSendButton);
 		carGroupIdEditText = (EditText) findViewById(R.id.joinCarGroupIdEditText);
 		carGroupPasswordEditText = (EditText) findViewById(R.id.joinCarGroupPasswordEditText);
-		
-		database = Database.getInstance();
-		
+	
 		sendButton.setOnClickListener(new OnClickListener() {
 			
 			public void onClick(View v) {
 				
 				String groupId = carGroupIdEditText.getText().toString();
 				String password = carGroupPasswordEditText.getText().toString();
-				String result = database.sendJoinCarGroupRequest(database.getUsername(), groupId, password);
 				
-				Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG).show();
-				
-				Intent newIntent = new Intent(JoinCarGroupActivity.this, MainMenuActivity.class);
-	    		startActivity(newIntent);
+				doJoin(groupId, password);
 			}
-		});
-		
-
-		
+		});		
+	}
+	
+	private void doJoin(String carGroupId, String password) {
+		new JoinCarGroupTask(this, carGroupId, password).execute();
+	}
+	
+    public void carGroupWindow() {
+		Intent newIntent = new Intent(JoinCarGroupActivity.this, MainMenuActivity.class);
+		startActivity(newIntent);
+    }
+	
+	public void showErrorMsg(String msg) {
+		if (!msg.equals("") && this != null) {
+			Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
+		}
 	}
     
 }

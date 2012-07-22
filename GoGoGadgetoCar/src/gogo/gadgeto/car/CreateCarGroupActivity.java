@@ -16,7 +16,6 @@ public class CreateCarGroupActivity extends Activity {
 	private Button createGroupButton;
 	private EditText newPasswordEditText;
 	private EditText repeatNewPasswordEditText;
-	private EditText currentMileageEditText;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -32,10 +31,9 @@ public class CreateCarGroupActivity extends Activity {
 			public void onClick(View v) {
 				String newPassword = newPasswordEditText.getText().toString();
 				String repeatNewPassword = repeatNewPasswordEditText.getText().toString();
-				String currentMileage = currentMileageEditText.getText().toString();
 				
 				if (newPassword.equals(repeatNewPassword)) {
-					registerCarShare(newPassword, currentMileage);
+					registerCarGroup(newPassword);
 				}
 				else {
 			    	cleanEditText();
@@ -46,14 +44,16 @@ public class CreateCarGroupActivity extends Activity {
         
     }
 
-    protected void registerCarShare(String password, String currentMileage) {
-    	new RegisterCarGroupTask(this, password, currentMileage).execute();	
+    protected void registerCarGroup(String password) {
+    	new RegisterCarGroupTask(this, password).execute();	
     	cleanEditText();
     }
     
     public void showError(String msg) {
-    	Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
-    	    	
+    	Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();    
+    }
+    
+    public void carGroupWindow() {
 		Intent newIntent = new Intent(CreateCarGroupActivity.this, MainMenuActivity.class);
 		startActivity(newIntent);
     }

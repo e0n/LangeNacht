@@ -8,6 +8,7 @@ import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONObject;
  
 import android.content.Context;
+import android.util.Log;
  
 public class UserFunctions {
  
@@ -103,6 +104,7 @@ public class UserFunctions {
         params.add(new BasicNameValuePair("cargroupid", carGroupId));
         params.add(new BasicNameValuePair("cargrouppassword", cargrouppassword));
         
+        Log.i("test", params.toString());
         // getting JSON Object
         JSONObject json = jsonParser.getJSONFromUrl(phpUrl, params);
         // return json
