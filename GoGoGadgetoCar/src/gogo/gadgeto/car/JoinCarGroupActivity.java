@@ -41,7 +41,7 @@ public class JoinCarGroupActivity extends Activity {
 		new JoinCarGroupTask(this, carGroupId, password).execute();
 	}
 	
-    public void joinWindow() {
+    public void carGroupWindow() {
 		Intent newIntent = new Intent(JoinCarGroupActivity.this, CarGroupFragment.class);
 		startActivity(newIntent);
     }

@@ -48,7 +48,7 @@ public class JoinCarGroupTask extends AsyncTask<Void, Void, Void> {
 	        	activity.showErrorMsg(error_msg);
 	        }
 	        else {
-	            activity.joinWindow();
+	            activity.carGroupWindow();
 	        }
         }
     }

@@ -36,8 +36,12 @@ public class CarGroupFragment extends Fragment {
 				
 		if (carGroupId != null && !carGroupId.equals("null") && !carGroupId.isEmpty()) {
 			currentGroupId.setText(carGroupId);
+			joinGroupButton.setVisibility(View.INVISIBLE);
+			leaveGroupButton.setVisibility(View.VISIBLE);
 		} else {
 			currentGroupId.setText("(not in group)");
+			leaveGroupButton.setVisibility(View.INVISIBLE);
+			joinGroupButton.setVisibility(View.VISIBLE);
 		}
 		
 		joinGroupButton.setOnClickListener(new OnClickListener() {			

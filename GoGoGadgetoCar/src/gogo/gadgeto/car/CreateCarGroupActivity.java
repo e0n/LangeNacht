@@ -33,7 +33,7 @@ public class CreateCarGroupActivity extends Activity {
 				String repeatNewPassword = repeatNewPasswordEditText.getText().toString();
 				
 				if (newPassword.equals(repeatNewPassword)) {
-					registerCarShare(newPassword);
+					registerCarGroup(newPassword);
 				}
 				else {
 			    	cleanEditText();
@@ -44,15 +44,17 @@ public class CreateCarGroupActivity extends Activity {
         
     }
 
-    protected void registerCarShare(String password) {
+    protected void registerCarGroup(String password) {
     	new RegisterCarGroupTask(this, password).execute();	
     	cleanEditText();
     }
     
     public void showError(String msg) {
-    	Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
-    	    	
-		Intent newIntent = new Intent(CreateCarGroupActivity.this, MainMenuActivity.class);
+    	Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();    
+    }
+    
+    public void carGroupWindow() {
+		Intent newIntent = new Intent(CreateCarGroupActivity.this, CarGroupFragment.class);
 		startActivity(newIntent);
     }
     

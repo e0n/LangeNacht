@@ -32,7 +32,14 @@ public class RegisterCarGroupTask extends AsyncTask<Void, Void, Void> {
 	
     @Override
 	protected void onPostExecute(Void result) {
-    	activity.showError(error_msg);
+    	if (activity != null) {
+    		if (!error_msg.equals("")) {
+    			activity.showError(error_msg);
+    		}
+    		else {
+        		activity.carGroupWindow();
+    		}
+    	}	
 	}
 
     @Override
@@ -49,9 +56,7 @@ public class RegisterCarGroupTask extends AsyncTask<Void, Void, Void> {
 	                // Store cargroupid in SQLite Database
 	                DatabaseHandler db = new DatabaseHandler(activity.getApplicationContext());                							
 	                String carGroupId = json.getString(KEY_CARGROUPID);
-	                db.joinCarGroup(carGroupId);
-	                
-	                error_msg = carGroupId;
+	                db.joinCarGroup(carGroupId); 
                 }
             }
 			else {
