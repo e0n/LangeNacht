@@ -1,6 +1,5 @@
 package gogo.gadgeto.car;
 
-import gogo.gadgeto.car.tasks.GetUsersTask;
 import gogo.gadgeto.model.Database;
 
 import java.util.List;
@@ -21,15 +20,6 @@ import android.widget.Toast;
 
 public class FuelFragment extends Fragment {
 	
-    // JSON Response node names
-    private static String KEY_SUCCESS = "success";
-    private static String KEY_ERROR = "error";
-    private static String KEY_ERROR_MSG = "error_msg";
-    private static String KEY_UID = "uid";
-    private static String KEY_NAME = "name";
-    private static String KEY_EMAIL = "email";
-    private static String KEY_CREATED_AT = "created_at";
-	
 	Database database;
 	
 	private Button sendFuelButton;
@@ -49,7 +39,6 @@ public class FuelFragment extends Fragment {
 		mileageEditText = (EditText) myView.findViewById(R.id.fuelNewMileageEditText);
 		payerSpinner = (Spinner) myView.findViewById(R.id.payerSpinner);
 		
-		new GetUsersTask(this, database.getCurrentCarShareId()).execute();
 		
 		sendFuelButton.setOnClickListener(new OnClickListener() {
 			
@@ -64,28 +53,11 @@ public class FuelFragment extends Fragment {
 				
 					Toast.makeText(getActivity(), result, Toast.LENGTH_LONG).show();
 				} else {
-					Toast.makeText(getActivity(), "no valid payment or mileage", Toast.LENGTH_LONG).show();
+					Toast.makeText(getActivity(), "No valid payment or mileage", Toast.LENGTH_LONG).show();
 				}
 			}
 		});
 		
         return myView;
-    }
-	
-	public void updateSpinner(List<String> daten, String error_msg) {
-		
-		Activity activity;
-		
-		if ((activity = getActivity()) != null) {		
-			if(error_msg.isEmpty()) {
-				ArrayAdapter<String> datenAdapter = new ArrayAdapter<String>(activity, android.R.layout.simple_spinner_item, daten);
-				datenAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-				payerSpinner.setAdapter(datenAdapter);	
-			}
-			else {
-				Toast.makeText(activity, error_msg, Toast.LENGTH_SHORT).show();
-			}
-		}
-	
-	}    
+    } 
 }

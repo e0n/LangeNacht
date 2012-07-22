@@ -15,29 +15,35 @@ public class UserFunctions {
  
     // Testing in localhost using wamp or xampp
     // use http://10.0.2.2/ to connect to your localhost ie http://localhost/
-    private static String phpUrl = "http://le88.dyndns.org/android/php/android_api/";
+    private static String phpUrl = "http://le88.dyndns.org/android/php/cargroup/";
  
-    private static String loginUser_tag = "login";
-    private static String registerUser_tag = "registerUser";
+    private static String user_login_tag = "loginUser";
+    private static String user_register_tag = "registerUser";
     
-    private static String loginCarsShare_tag = "joinCarShare";
-    private static String registerCarShare_tag = "registerCarShare";
-    private static String getUsersInCarShare_tag = "getUsersInCarShare";
+    private static String carsgroup_register_tag = "registerCarGroup";
+    private static String cargroup_join_tag = "joinCarGroup";
+    private static String cargroup_leave_tag = "leaveCarGroup";
  
+    private static String cargroup_addTrip_tag = "addTrip";
+    private static String cargroup_addRefuel_tag = "addRefuel";
+    
+    private static String cargroup_refuelings_tag = "getRefuelings";
+    private static String cargroup_userstatistics_tag = "getUserStatistics";
+    
     // constructor
     public UserFunctions(){
         jsonParser = new JSONParser();
     }
  
     /**
-     * function make Login Request
+     * @function make Login Request
      * @param email
      * @param password
      * */
     public JSONObject loginUser(String email, String password){
         // Building Parameters
         List<NameValuePair> params = new ArrayList<NameValuePair>();
-        params.add(new BasicNameValuePair("tag", loginUser_tag));
+        params.add(new BasicNameValuePair("tag", user_login_tag));
         params.add(new BasicNameValuePair("email", email));
         params.add(new BasicNameValuePair("password", password));
         JSONObject json = jsonParser.getJSONFromUrl(phpUrl, params);
@@ -47,7 +53,7 @@ public class UserFunctions {
     }
  
     /**
-     * function register new User
+     * @function register new User
      * @param name
      * @param email
      * @param password
@@ -55,7 +61,7 @@ public class UserFunctions {
     public JSONObject registerUser(String name, String email, String password){
         // Building Parameters
         List<NameValuePair> params = new ArrayList<NameValuePair>();
-        params.add(new BasicNameValuePair("tag", registerUser_tag));
+        params.add(new BasicNameValuePair("tag", user_register_tag));
         params.add(new BasicNameValuePair("name", name));
         params.add(new BasicNameValuePair("email", email));
         params.add(new BasicNameValuePair("password", password));
@@ -66,34 +72,15 @@ public class UserFunctions {
         return json;
     }
     
-    /**
-     * function register new User
-     * @param email
-     * @param carShareId
-     * */
-    public JSONObject loginCarshare(String email, String carShareId){
-        // Building Parameters
-        List<NameValuePair> params = new ArrayList<NameValuePair>();
-        params.add(new BasicNameValuePair("tag", loginCarsShare_tag));
-        params.add(new BasicNameValuePair("email", email));
-        params.add(new BasicNameValuePair("id", carShareId));
- 
-        // getting JSON Object
-        JSONObject json = jsonParser.getJSONFromUrl(phpUrl, params);
-        // return json
-        return json;
-    }
     
     /**
-     * function register new User
-     * @param email
-     * @param carShareId
+     * @function register new cargroup
+     * @param password
      * */
-    public JSONObject registerCarshare(String mileage, String password){
+    public JSONObject registerCarGroup(String password){
         // Building Parameters
         List<NameValuePair> params = new ArrayList<NameValuePair>();
-        params.add(new BasicNameValuePair("tag", registerCarShare_tag));
-        params.add(new BasicNameValuePair("mileage", mileage));
+        params.add(new BasicNameValuePair("tag", carsgroup_register_tag));
         params.add(new BasicNameValuePair("password", password));
  
         // getting JSON Object
@@ -103,20 +90,113 @@ public class UserFunctions {
     }
     
     /**
-     * function register new User
-     * @param carShareId
+     * @function join existing cargroup
+     * @param context
+     * @param carGroupId
+     * @param cargrouppassword
      * */
-    public JSONObject getUsersInCarShare(String carShareId){
+    public JSONObject joinCarGroup(Context context, String carGroupId, String cargrouppassword){
         // Building Parameters
         List<NameValuePair> params = new ArrayList<NameValuePair>();
-        params.add(new BasicNameValuePair("tag", getUsersInCarShare_tag));
-        params.add(new BasicNameValuePair("carShareId", carShareId));
+        params.add(new BasicNameValuePair("tag", cargroup_join_tag));
+        params.add(new BasicNameValuePair("email", getEmailFromLoggedInUser(context)));
+        params.add(new BasicNameValuePair("cargroupid", carGroupId));
+        params.add(new BasicNameValuePair("cargrouppassword", cargrouppassword));
+        
         // getting JSON Object
         JSONObject json = jsonParser.getJSONFromUrl(phpUrl, params);
         // return json
         return json;
     }
     
+    /**
+     * @function leave existing cargroup
+     * @param context
+     * */
+    public JSONObject leaveCarGroup(Context context){
+        // Building Parameters
+        List<NameValuePair> params = new ArrayList<NameValuePair>();
+        params.add(new BasicNameValuePair("tag", cargroup_leave_tag));
+        params.add(new BasicNameValuePair("email", getEmailFromLoggedInUser(context)));
+        params.add(new BasicNameValuePair("cargroupid", getcarGroupIdFromLoggedInUser(context)));
+        
+        // getting JSON Object
+        JSONObject json = jsonParser.getJSONFromUrl(phpUrl, params);
+        // return json
+        return json;
+    }
+    
+    /**
+     * @function add trip
+     * @param context
+     * @param mileage
+     * */
+    public JSONObject addTrip(Context context, String mileage){
+        // Building Parameters
+        List<NameValuePair> params = new ArrayList<NameValuePair>();
+        params.add(new BasicNameValuePair("tag", cargroup_addTrip_tag));
+        params.add(new BasicNameValuePair("email", getEmailFromLoggedInUser(context)));
+        params.add(new BasicNameValuePair("cargroupid", getcarGroupIdFromLoggedInUser(context)));
+        params.add(new BasicNameValuePair("mileage", mileage));
+        
+        // getting JSON Object
+        JSONObject json = jsonParser.getJSONFromUrl(phpUrl, params);
+        // return json
+        return json;
+    }
+    
+    /**
+     * @function add refuel
+     * @param context
+     * @param mileage
+     * */
+    public JSONObject addRefuel(Context context, String mileage, String amount){
+        // Building Parameters
+        List<NameValuePair> params = new ArrayList<NameValuePair>();
+        params.add(new BasicNameValuePair("tag", cargroup_addRefuel_tag));
+        params.add(new BasicNameValuePair("refuelid", getEmailFromLoggedInUser(context)));
+        params.add(new BasicNameValuePair("cargroupid", getcarGroupIdFromLoggedInUser(context)));
+        params.add(new BasicNameValuePair("mileage", mileage));
+        params.add(new BasicNameValuePair("amount", amount));
+        
+        // getting JSON Object
+        JSONObject json = jsonParser.getJSONFromUrl(phpUrl, params);
+        // return json
+        return json;
+    }
+    
+    /**
+     * @function get user statistics for selected refuel
+     * @param refuelId
+     * */
+    public JSONObject getUserStatistics(String refuelId){
+        // Building Parameters
+        List<NameValuePair> params = new ArrayList<NameValuePair>();
+        params.add(new BasicNameValuePair("tag", cargroup_userstatistics_tag));
+        params.add(new BasicNameValuePair("refuelId", refuelId));
+        
+        // getting JSON Object
+        JSONObject json = jsonParser.getJSONFromUrl(phpUrl, params);
+        // return json
+        return json;
+    }
+    
+    /**
+     * @function get refuelings for cargroup
+     * @param context
+     * */
+    public JSONObject getRefuelings(Context context){
+        // Building Parameters
+        List<NameValuePair> params = new ArrayList<NameValuePair>();
+        params.add(new BasicNameValuePair("tag", cargroup_refuelings_tag));
+        params.add(new BasicNameValuePair("cargroupid", getcarGroupIdFromLoggedInUser(context)));
+        
+        // getting JSON Object
+        JSONObject json = jsonParser.getJSONFromUrl(phpUrl, params);
+        // return json
+        return json;
+    }
+        
     /**
      * Function get Login status
      * */
@@ -131,13 +211,38 @@ public class UserFunctions {
     }
     
     /**
-     * Function get email from current logged-in user
+     * @function get email from current logged-in user
      * */
     public String getEmailFromLoggedInUser(Context context){
         DatabaseHandler db = new DatabaseHandler(context);
         int count = db.getRowCount();
         if(count > 0){
             return db.getUserDetails().get("email");
+        }
+        return "";
+    }
+    
+    
+    /**
+     * @function get name from current logged-in user
+     * */
+    public String getNameFromLoggedInUser(Context context){
+        DatabaseHandler db = new DatabaseHandler(context);
+        int count = db.getRowCount();
+        if(count > 0){
+            return db.getUserDetails().get("name");
+        }
+        return "";
+    }
+    
+    /**
+     * @function get cargroupid from current logged-in user
+     * */
+    public String getcarGroupIdFromLoggedInUser(Context context){
+        DatabaseHandler db = new DatabaseHandler(context);
+        int count = db.getRowCount();
+        if(count > 0){
+            return db.getUserDetails().get("cargrouid");
         }
         return "";
     }
@@ -148,7 +253,7 @@ public class UserFunctions {
      * */
     public boolean logoutUser(Context context){
         DatabaseHandler db = new DatabaseHandler(context);
-        db.resetLogin();
+        db.deleteUser();
         return true;
     }
  

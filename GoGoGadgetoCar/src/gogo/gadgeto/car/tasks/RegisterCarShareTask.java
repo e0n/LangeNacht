@@ -14,21 +14,18 @@ public class RegisterCarShareTask extends AsyncTask<Void, Void, Void> {
     // JSON Response node names
     private static String KEY_SUCCESS = "success";
     private static String KEY_ERROR_MSG = "error_msg";
-    private static String KEY_EMAIL = "email";
-    private static String KEY_ID = "id";
+    private static final String KEY_CARGROUPID = "cargroupid";
     
     // Properties
     private CreateCarGroupActivity activity;
     private UserFunctions userFunction;
     private JSONObject json;
-    private String mileage; 
     private String password;
     private String error_msg;
 	
 	public RegisterCarShareTask(CreateCarGroupActivity activity, String password, String mileage)
 	{
 		this.activity = activity;
-		this.mileage = mileage;
 		this.password = password;
 		this.error_msg = "";
 	}
@@ -41,31 +38,28 @@ public class RegisterCarShareTask extends AsyncTask<Void, Void, Void> {
     @Override
     protected Void doInBackground(Void... params) {        
         userFunction = new UserFunctions();
-        json = userFunction.registerCarshare(mileage, password);
+        json = userFunction.registerCarGroup(password);
 		
 		try {
             if (json.getString(KEY_SUCCESS) != null) {
                 String res = json.getString(KEY_SUCCESS);
                 if(Integer.parseInt(res) == 1){
+                	
 	                // registration successfully
-	                // Store carShare details in SQLite Database
+	                // Store cargroupid in SQLite Database
 	                DatabaseHandler db = new DatabaseHandler(activity.getApplicationContext());                							
-	                JSONObject json_user = json.getJSONObject("carShare");
-	
-	                // Clear all previous data in database
-	                userFunction.logoutUser(activity.getApplicationContext());
-	                db.addCarSharing(new UserFunctions().getEmailFromLoggedInUser(activity.getApplicationContext()), json_user.getString(KEY_ID));
-	                error_msg = "CarSharing:" + json_user.getString(KEY_ID);
+	                String carshareId = json.getString(KEY_CARGROUPID);
+	                db.updateCarGroup(carshareId);
+	                
+	                error_msg = carshareId;
                 }
             }
 			else {
 				error_msg = json.getString(KEY_ERROR_MSG);
 			}
 		} catch (NumberFormatException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (JSONException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
         
