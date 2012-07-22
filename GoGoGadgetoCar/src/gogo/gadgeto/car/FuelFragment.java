@@ -1,9 +1,10 @@
 package gogo.gadgeto.car;
 
+import gogo.gadgeto.car.helper.UserFunctions;
+import gogo.gadgeto.car.tasks.AddRefuelTask;
 import gogo.gadgeto.model.Database;
 import android.app.Fragment;
 import android.os.Bundle;
-import android.text.Editable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -34,27 +35,55 @@ public class FuelFragment extends Fragment {
 		mileageEditText = (EditText) myView.findViewById(R.id.fuelNewMileageEditText);
 		payerName = (TextView) myView.findViewById(R.id.payerNameTextView);
 		
-		payerName.setText(database.getUsername());
+		payerName.setText(new UserFunctions().getNameFromLoggedInUser(getActivity().getApplicationContext()));
 		
 		
 		sendFuelButton.setOnClickListener(new OnClickListener() {
 			
 			public void onClick(View v) {
-				Editable paymentText = paymentEditText.getText();
-				Editable mileageText = mileageEditText.getText();
-				if (paymentText.length() != 0 && mileageText.length() != 0)
-				{
-					int payment = Integer.parseInt(paymentText.toString());
-					int newMileage = Integer.parseInt(mileageText.toString());
-					String result = database.sendFuelToDatabase(database.getUsername(), payment, newMileage, database.getUsername());
+				String paymentText = paymentEditText.getText().toString();
+				String mileageText = mileageEditText.getText().toString();
 				
-					Toast.makeText(getActivity(), result, Toast.LENGTH_LONG).show();
+				if (paymentText.length() != 0 &&mileageText.length() != 0)
+				{
+					try {
+						Integer payment = Integer.parseInt(paymentText.toString());
+						Integer newMileage = Integer.parseInt(mileageText.toString());
+						
+						doRefuel(payment.toString(), newMileage.toString());
+						
+					} catch (Exception e) {
+						cleanEditText();
+						Toast.makeText(getActivity(), "No valid payment or mileage!", Toast.LENGTH_LONG).show();
+					}
 				} else {
+					cleanEditText();
 					Toast.makeText(getActivity(), "No valid payment or mileage", Toast.LENGTH_LONG).show();
 				}
 			}
 		});
 		
         return myView;
-    } 
+    }
+	
+	private void doRefuel(String amount, String mileage) {
+		new AddRefuelTask(this, amount, mileage).execute();
+	}
+	
+	private void cleanEditText() {
+		paymentEditText.setText("");
+		mileageEditText.setText("");
+	}   
+	
+    public void refreshFragment() {
+    	cleanEditText();    	
+		startActivity(getActivity().getIntent());
+		getActivity().finish();
+    }
+    
+	public void showErrorMsg(String msg) {
+		if (!msg.equals("") && this != null) {
+			Toast.makeText(getActivity().getApplicationContext(), msg, Toast.LENGTH_LONG).show();
+		}
+	}
 }
