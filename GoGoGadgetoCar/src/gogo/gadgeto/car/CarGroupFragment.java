@@ -2,6 +2,8 @@ package gogo.gadgeto.car;
 
 import gogo.gadgeto.car.helper.DatabaseHandler;
 import gogo.gadgeto.car.helper.UserFunctions;
+import gogo.gadgeto.car.tasks.JoinCarGroupTask;
+import gogo.gadgeto.car.tasks.LeaveCarGroupTask;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +13,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class CarGroupFragment extends Fragment {
 	
@@ -55,12 +58,7 @@ public class CarGroupFragment extends Fragment {
 		
 		leaveGroupButton.setOnClickListener(new OnClickListener() {			
 			public void onClick(View v) {
-				
-				DatabaseHandler db = new DatabaseHandler(getActivity().getApplicationContext());
-				db.leaveCarGroup();
-				
-				startActivity(getActivity().getIntent());
-				getActivity().finish();
+				doLeave();
 			}
 		});
 		
@@ -75,5 +73,20 @@ public class CarGroupFragment extends Fragment {
 		
 		return myView;
 		
+	}
+		
+	private void doLeave() {
+		new LeaveCarGroupTask(this).execute();
+	}
+	
+    public void refreshFragment() {
+		startActivity(getActivity().getIntent());
+		getActivity().finish();
+    }
+    
+	public void showErrorMsg(String msg) {
+		if (!msg.equals("") && this != null) {
+			Toast.makeText(getActivity().getApplicationContext(), msg, Toast.LENGTH_LONG).show();
+		}
 	}
 }
