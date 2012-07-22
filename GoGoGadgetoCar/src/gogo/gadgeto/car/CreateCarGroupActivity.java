@@ -38,8 +38,7 @@ public class CreateCarGroupActivity extends Activity {
 					registerCarShare(newPassword, currentMileage);
 				}
 				else {
-			    	newPasswordEditText.setText("");
-			    	repeatNewPasswordEditText.setText("");
+			    	cleanEditText();
 					Toast.makeText(getApplication(), "Passwords are not equal.", Toast.LENGTH_LONG).show();					
 				}			
 			}
@@ -49,8 +48,7 @@ public class CreateCarGroupActivity extends Activity {
 
     protected void registerCarShare(String password, String currentMileage) {
     	new RegisterCarGroupTask(this, password, currentMileage).execute();	
-    	newPasswordEditText.setText("");
-    	repeatNewPasswordEditText.setText("");
+    	cleanEditText();
     }
     
     public void showError(String msg) {
@@ -64,5 +62,10 @@ public class CreateCarGroupActivity extends Activity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.activity_create_car_group, menu);
         return true;
-    }    
+    }
+
+	private void cleanEditText() {
+		newPasswordEditText.setText("");
+		repeatNewPasswordEditText.setText("");
+	}    
 }
