@@ -3,6 +3,7 @@ package gogo.gadgeto.car.uitests;
 import gogo.gadgeto.car.LoginActivity;
 import android.test.ActivityInstrumentationTestCase2;
 import android.test.suitebuilder.annotation.Smoke;
+import android.util.Log;
 
 import com.jayway.android.robotium.solo.Solo;
 
@@ -27,9 +28,9 @@ public class RegisterFailTest extends
 		solo.waitForActivity("RegisterActivity");
         solo.assertCurrentActivity("Expect RegisterActivity shown...", "RegisterActivity");
         
-		solo.enterText(0, "Tobias Ladewig");
-		solo.enterText(1, "123");
-		solo.enterText(2, "toladewig@gmail.com");
+		solo.enterText(0, "Test User");
+		solo.enterText(1, "test");
+		solo.enterText(2, "testuser@test.de");
 		solo.clickOnButton("Register");
 		
 		Thread.sleep(10000);

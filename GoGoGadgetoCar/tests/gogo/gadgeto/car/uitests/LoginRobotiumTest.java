@@ -6,6 +6,7 @@ import gogo.gadgeto.car.helper.UserFunctions;
 import android.content.Context;
 import android.test.ActivityInstrumentationTestCase2;
 import android.test.suitebuilder.annotation.Smoke;
+import android.util.Log;
 
 import com.jayway.android.robotium.solo.Solo;
 
@@ -28,8 +29,8 @@ public class LoginRobotiumTest extends
 		// TODO don't use dbh.getRowCount() to proof correctness, OR test it before!
 		// tests the login by entering username and password and click "Log In"
 		Context context = solo.getCurrentActivity().getApplicationContext();
-		solo.enterText(0, "toladewig@gmail.com");
-		solo.enterText(1, "123");
+		solo.enterText(0, "testuser@test.de");
+		solo.enterText(1, "test");
 		solo.clickOnButton("Log In");
 		//have to wait on the data from the server which allow us to enter or deny.
 		solo.waitForActivity("MainMenuActivity");
