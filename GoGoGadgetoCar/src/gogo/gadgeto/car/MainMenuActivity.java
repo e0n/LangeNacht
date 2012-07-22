@@ -70,7 +70,8 @@ public class MainMenuActivity extends Activity {
     public void onStart() {
     	super.onStart();
     	ActionBar bar = getActionBar();
-    	if (new UserFunctions().getCarGroupIdFromLoggedInUser(getApplicationContext()) == "null") {
+    	
+    	if (new UserFunctions().getCarGroupIdFromLoggedInUser(getApplicationContext()).equals("null")) {
     		bar.removeTab(distanceTab);
     		bar.removeTab(fuelTab);
     		bar.removeTab(statisticTab);

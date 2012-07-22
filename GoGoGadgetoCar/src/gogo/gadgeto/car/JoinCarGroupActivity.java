@@ -42,7 +42,7 @@ public class JoinCarGroupActivity extends Activity {
 	}
 	
     public void carGroupWindow() {
-		Intent newIntent = new Intent(JoinCarGroupActivity.this, CarGroupFragment.class);
+		Intent newIntent = new Intent(JoinCarGroupActivity.this, MainMenuActivity.class);
 		startActivity(newIntent);
     }
 	

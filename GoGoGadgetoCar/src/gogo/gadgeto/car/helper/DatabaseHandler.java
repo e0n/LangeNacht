@@ -105,7 +105,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
  
         ContentValues values = new ContentValues();
         values.put(KEY_CARGROUPID, "null"); // ID
-        Log.i("TEST", values.toString());
+
         // Updating Row
         db.update(TABLE_LOGIN, values, null, null);
         db.close(); // Closing database connection

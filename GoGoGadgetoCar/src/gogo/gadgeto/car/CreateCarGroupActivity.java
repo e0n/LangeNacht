@@ -54,7 +54,7 @@ public class CreateCarGroupActivity extends Activity {
     }
     
     public void carGroupWindow() {
-		Intent newIntent = new Intent(CreateCarGroupActivity.this, CarGroupFragment.class);
+		Intent newIntent = new Intent(CreateCarGroupActivity.this, MainMenuActivity.class);
 		startActivity(newIntent);
     }
     

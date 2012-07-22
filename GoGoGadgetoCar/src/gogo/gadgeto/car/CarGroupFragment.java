@@ -33,15 +33,17 @@ public class CarGroupFragment extends Fragment {
 
 		// Display cargroupID
 		String carGroupId = new UserFunctions().getCarGroupIdFromLoggedInUser(getActivity().getApplicationContext());
-				
+		
 		if (carGroupId != null && !carGroupId.equals("null") && !carGroupId.isEmpty()) {
 			currentGroupId.setText(carGroupId);
-			joinGroupButton.setVisibility(View.INVISIBLE);
+			joinGroupButton.setVisibility(View.GONE);
 			leaveGroupButton.setVisibility(View.VISIBLE);
+			createGroupButton.setVisibility(View.INVISIBLE);
 		} else {
 			currentGroupId.setText("(not in group)");
-			leaveGroupButton.setVisibility(View.INVISIBLE);
 			joinGroupButton.setVisibility(View.VISIBLE);
+			leaveGroupButton.setVisibility(View.INVISIBLE);
+			createGroupButton.setVisibility(View.VISIBLE);
 		}
 		
 		joinGroupButton.setOnClickListener(new OnClickListener() {			
@@ -64,6 +66,8 @@ public class CarGroupFragment extends Fragment {
 		
 		createGroupButton.setOnClickListener(new OnClickListener() {			
 			public void onClick(View v) {
+				
+				
 				Intent newIntent = new Intent(getActivity().getApplicationContext(), CreateCarGroupActivity.class);
 				startActivity(newIntent);
 			}

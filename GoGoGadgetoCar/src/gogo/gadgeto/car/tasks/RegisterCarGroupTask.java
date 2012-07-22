@@ -7,6 +7,7 @@ import gogo.gadgeto.car.helper.UserFunctions;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.app.ProgressDialog;
 import android.os.AsyncTask;
 
 public class RegisterCarGroupTask extends AsyncTask<Void, Void, Void> {
@@ -18,6 +19,7 @@ public class RegisterCarGroupTask extends AsyncTask<Void, Void, Void> {
     
     // Properties
     private CreateCarGroupActivity activity;
+    private ProgressDialog mProgressDialog;
     private UserFunctions userFunction;
     private JSONObject json;
     private String password;
@@ -32,6 +34,7 @@ public class RegisterCarGroupTask extends AsyncTask<Void, Void, Void> {
 	
     @Override
 	protected void onPostExecute(Void result) {
+    	mProgressDialog.dismiss(); 
     	if (activity != null) {
     		if (!error_msg.equals("")) {
     			activity.showError(error_msg);
@@ -41,6 +44,12 @@ public class RegisterCarGroupTask extends AsyncTask<Void, Void, Void> {
     		}
     	}	
 	}
+    
+    @Override
+    protected void onPreExecute() {
+        mProgressDialog = ProgressDialog.show(activity, "Loading...", "Fetching data from server...");
+    }
+
 
     @Override
     protected Void doInBackground(Void... params) {        

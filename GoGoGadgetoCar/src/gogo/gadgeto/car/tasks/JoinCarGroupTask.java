@@ -1,7 +1,6 @@
 package gogo.gadgeto.car.tasks;
 
 import gogo.gadgeto.car.JoinCarGroupActivity;
-import gogo.gadgeto.car.LoginActivity;
 import gogo.gadgeto.car.helper.DatabaseHandler;
 import gogo.gadgeto.car.helper.UserFunctions;
 
@@ -10,17 +9,12 @@ import org.json.JSONObject;
 
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
-import android.util.Log;
 
 public class JoinCarGroupTask extends AsyncTask<Void, Void, Void> {
 
     // JSON Response node names
     private static String KEY_SUCCESS = "success";
     private static String KEY_ERROR_MSG = "error_msg";
-    private static String KEY_NAME = "name";
-    private static String KEY_EMAIL = "email";
-    private static String KEY_CARGROUPID = "cargroupid";
-    private static String KEY_CREATED_AT = "created_at";
 	
     // Properties
     private ProgressDialog mProgressDialog;
