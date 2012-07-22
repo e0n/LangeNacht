@@ -1,39 +1,32 @@
 package gogo.gadgeto.car.uitests;
 
-import gogo.gadgeto.car.CreateCarGroupActivity;
+import gogo.gadgeto.car.MainMenuActivity;
 import android.test.ActivityInstrumentationTestCase2;
 import android.test.suitebuilder.annotation.Smoke;
 
 import com.jayway.android.robotium.solo.Solo;
 
 
-public class CreateCarGrpTest extends
-		ActivityInstrumentationTestCase2<CreateCarGroupActivity> {
+public class DistanceTest extends
+		ActivityInstrumentationTestCase2<MainMenuActivity> {
 
 	private Solo solo;
-	public CreateCarGrpTest () {
-		super(CreateCarGroupActivity.class);
+	public DistanceTest () {
+		super(MainMenuActivity.class);
 	}
 	
-
 	public void setUp() throws Exception {
-		solo = new Solo(getInstrumentation(), getActivity());
+		solo = new Solo(getInstrumentation(), getActivity());			
 	}
 	
 	@Smoke
-	public void testCreateGrp() throws Exception {
-		//New password
-		solo.enterText(0, "1234");
-		//repeat New password
-		solo.enterText(1, "1234");
-		solo.clickOnButton("Create group");
-		
-		
-		//have to wait on the data from the server which allow us to enter or deny.
-		solo.waitForActivity("MainMenuActivity",10000);
+	public void testEnterNewDistance() {
+		//Enter new Mileage in kilometers
+		solo.enterText(0, "450");
+		solo.clickOnButton("Send");
 		solo.assertCurrentActivity("Expect MainMenuActivity....", "MainMenuActivity");
 	}
-	
+		
 	@Override
 	public void tearDown() throws Exception {
 		solo.finishOpenedActivities();

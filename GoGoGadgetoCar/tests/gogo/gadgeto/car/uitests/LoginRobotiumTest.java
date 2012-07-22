@@ -25,7 +25,6 @@ public class LoginRobotiumTest extends
 	
 	@Smoke
 	public void testLoginAndLogOut() throws Exception {
-		// TODO don't use dbh.getRowCount() to proof correctness, OR test it before!
 		// tests the login by entering username and password and click "Log In"
 		Context context = solo.getCurrentActivity().getApplicationContext();
 		solo.enterText(0, "testuser@test.de");
