@@ -156,7 +156,7 @@ public class UserFunctions {
         // Building Parameters
         List<NameValuePair> params = new ArrayList<NameValuePair>();
         params.add(new BasicNameValuePair("tag", cargroup_addRefuel_tag));
-        params.add(new BasicNameValuePair("refuelid", getEmailFromLoggedInUser(context)));
+        params.add(new BasicNameValuePair("email", getEmailFromLoggedInUser(context)));
         params.add(new BasicNameValuePair("cargroupid", getCarGroupIdFromLoggedInUser(context)));
         params.add(new BasicNameValuePair("mileage", mileage));
         params.add(new BasicNameValuePair("amount", amount));

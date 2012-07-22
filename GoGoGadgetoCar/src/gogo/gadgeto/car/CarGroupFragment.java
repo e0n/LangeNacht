@@ -1,8 +1,6 @@
 package gogo.gadgeto.car;
 
-import gogo.gadgeto.car.helper.DatabaseHandler;
 import gogo.gadgeto.car.helper.UserFunctions;
-import gogo.gadgeto.car.tasks.JoinCarGroupTask;
 import gogo.gadgeto.car.tasks.LeaveCarGroupTask;
 import android.app.Fragment;
 import android.content.Intent;
