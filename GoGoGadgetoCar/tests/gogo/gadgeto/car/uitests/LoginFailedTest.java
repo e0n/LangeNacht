@@ -5,7 +5,6 @@ import gogo.gadgeto.car.helper.UserFunctions;
 import android.content.Context;
 import android.test.ActivityInstrumentationTestCase2;
 import android.test.suitebuilder.annotation.Smoke;
-import android.util.Log;
 
 import com.jayway.android.robotium.solo.Solo;
 

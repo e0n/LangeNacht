@@ -13,8 +13,8 @@
         android:layout_marginTop="40dp"
         android:text="@string/driver" />
 
-    <Button
-        android:id="@+id/numberOfDriversTextView"
+    <TextView
+        android:id="@+id/distanceDriverNameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/driverTextView"
@@ -27,7 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/driverTextView"
-        android:layout_below="@+id/numberOfDriversTextView"
+        android:layout_below="@+id/distanceDriverNameTextView"
         android:layout_marginTop="40dp"
         android:text="@string/distanceKM" />
 
