@@ -1,6 +1,6 @@
 package gogo.gadgeto.car;
 
-import gogo.gadgeto.car.tasks.RegisterCarShareTask;
+import gogo.gadgeto.car.tasks.RegisterCarGroupTask;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -51,7 +51,7 @@ public class CreateCarGroupActivity extends Activity {
     }
 
     protected void registerCarShare(String password, String currentMileage) {
-    	new RegisterCarShareTask(this, password, currentMileage).execute();	
+    	new RegisterCarGroupTask(this, password, currentMileage).execute();	
     	newPasswordEditText.setText("");
     	repeatNewPasswordEditText.setText("");
     }

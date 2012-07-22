@@ -9,7 +9,7 @@ import org.json.JSONObject;
 
 import android.os.AsyncTask;
 
-public class RegisterCarShareTask extends AsyncTask<Void, Void, Void> {
+public class RegisterCarGroupTask extends AsyncTask<Void, Void, Void> {
 
     // JSON Response node names
     private static String KEY_SUCCESS = "success";
@@ -23,7 +23,7 @@ public class RegisterCarShareTask extends AsyncTask<Void, Void, Void> {
     private String password;
     private String error_msg;
 	
-	public RegisterCarShareTask(CreateCarGroupActivity activity, String password, String mileage)
+	public RegisterCarGroupTask(CreateCarGroupActivity activity, String password, String mileage)
 	{
 		this.activity = activity;
 		this.password = password;
