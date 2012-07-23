@@ -10,7 +10,7 @@ import org.json.JSONObject;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 
-public class RegisterUserTask extends AsyncTask<Void, Void, Boolean> {
+public class RegisterUserTask extends AsyncTask<Void, Void, Void> {
 
     // JSON Response node names
     private static String KEY_SUCCESS = "success";
@@ -36,13 +36,19 @@ public class RegisterUserTask extends AsyncTask<Void, Void, Boolean> {
 		this.username = username;
 		this.email = email;
 		this.password = password;
+		this.error_msg = "";
 	}
 	
     @Override
-    protected void onPostExecute(Boolean result) {
-        mProgressDialog.dismiss();   
-        if (!result) {
-        	activity.showErrorMsg(error_msg);
+    protected void onPostExecute(Void v) {
+        mProgressDialog.dismiss(); 
+        if (activity != null) {
+            if (!error_msg.equals("")) {
+            	activity.showErrorMsg(error_msg);
+            }
+            else {
+                activity.loginWindow();
+            }
         }
     }
 
@@ -52,7 +58,7 @@ public class RegisterUserTask extends AsyncTask<Void, Void, Boolean> {
     }
 
     @Override
-    protected Boolean doInBackground(Void... params) {        
+    protected Void doInBackground(Void... params) {        
         userFunction = new UserFunctions();
         json = userFunction.registerUser(username, email, password);
         
@@ -70,12 +76,9 @@ public class RegisterUserTask extends AsyncTask<Void, Void, Boolean> {
                     // Clear all previous data in database
                     userFunction.logoutUser(activity.getApplicationContext());
                     db.addUser(json_user.getString(KEY_NAME), json_user.getString(KEY_EMAIL),json_user.getString(KEY_CARGROUPID), json_user.getString(KEY_CREATED_AT));                     
-                    activity.loginWindow();
                     
-                    return true;
                 }else{
                 	error_msg = json.getString(KEY_ERROR_MSG);             	
-                	return false;
                 }
             }
         } catch (JSONException e) {

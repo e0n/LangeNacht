@@ -73,8 +73,8 @@ public class GetRefuelingsTask extends AsyncTask<Void, Void, Void> {
                     for (int i = 0; i < json_fuelEntries.length(); i++) {
 						JSONObject json_fuelEntry = json_fuelEntries.getJSONObject(i);
 						fuelEntries.add(new FuelEntry(	json_fuelEntry.getString(KEY_CREATED_AT),
-														json_fuelEntry.getString(KEY_MILEAGE) + " km",
-														json_fuelEntry.getString(KEY_AMOUNT) + " €",
+														json_fuelEntry.getString(KEY_MILEAGE),
+														json_fuelEntry.getString(KEY_AMOUNT),
 														json_fuelEntry.getString(KEY_FUELID)));
 					}
                 } else{

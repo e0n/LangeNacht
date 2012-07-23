@@ -68,10 +68,11 @@ public class RegisterCarGroupTask extends AsyncTask<Void, Void, Void> {
 	                userFunction.joinCarGroup(activity.getApplicationContext(), carGroupId, password);
 	                db.joinCarGroup(carGroupId); 
                 }
+    			else {
+    				error_msg = json.getString(KEY_ERROR_MSG);
+    			}
             }
-			else {
-				error_msg = json.getString(KEY_ERROR_MSG);
-			}
+
 		} catch (NumberFormatException e) {
 			e.printStackTrace();
 		} catch (JSONException e) {

@@ -16,8 +16,7 @@ public class UserFunctions {
  
     // Testing in localhost using wamp or xampp
     // use http://10.0.2.2/ to connect to your localhost ie http://localhost/
-    //private static String phpUrl = "http://10.0.2.2/android/php/cargroup/";
-    private static String phpUrl = "http://le88.dyndns.org/android/php/cargroup/";
+    private static String phpUrl = "http://10.0.2.2/cargroup/";
  
     private static String user_login_tag = "loginUser";
     private static String user_register_tag = "registerUser";

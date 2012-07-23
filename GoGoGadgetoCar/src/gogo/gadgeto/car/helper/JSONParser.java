@@ -30,6 +30,11 @@ public class JSONParser {
  
     }
  
+    /**
+     * @function get JSON from url with param as http post request.
+     * @param url
+     * @param params
+     * */
     public JSONObject getJSONFromUrl(String url, List<NameValuePair> params) {
  
         // Making HTTP request
