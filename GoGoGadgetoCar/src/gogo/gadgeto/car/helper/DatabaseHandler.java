@@ -51,9 +51,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         // Recreate tables
         onCreate(db);
     }
- 
+
     /**
-     * Storing user details in database
+     * @function Storing user details in database
+     * @param email
+     * @param cargroupid
+     * @param created_at
      * */
     public void addUser(String name, String email, String cargroupid, String created_at) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -70,8 +73,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
     
     /**
-     * Recreate database
-     * Delete login table;
+     * @function Recreate database / delete login table
      * */
     public void deleteUser(){
         SQLiteDatabase db = this.getWritableDatabase();
@@ -81,7 +83,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
    
     /**
-     * Updating carGroup details in database
+     * @function join cargroup in sqlLite database
+     * @param cargroupid
      * */
     public void joinCarGroup(String cargroupid) {
     	
@@ -96,7 +99,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
     
     /**
-     * Updating carGroup details in database
+     * @function leave cargroup in sqlLite database
      * */
     public void leaveCarGroup() {
     	
@@ -111,7 +114,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
     
     /**
-     * Getting user data from database
+     * @function get user stored in sqlLite database
+     * @return userDetails
      * */
     public HashMap<String, String> getUserDetails(){
         HashMap<String,String> user = new HashMap<String,String>();
@@ -134,7 +138,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
  
     /**
-     * Get row count of login table
+     * @function Get row count of login table
      * @return row count
      * */
     public int getRowCount() {
@@ -148,7 +152,4 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         // return row count
         return rowCount;
     }
- 
-
- 
 }

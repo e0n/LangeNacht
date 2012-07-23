@@ -4,7 +4,6 @@ import gogo.gadgeto.car.helper.UserFunctions;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
-import android.provider.CalendarContract.Colors;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
