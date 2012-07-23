@@ -31,6 +31,7 @@ public class CashAdapter extends ArrayAdapter<CashEntry> {
 			LayoutInflater inflater = ((Activity)context).getLayoutInflater();
 			row = inflater.inflate(layoutResourceId, parent, false);
 			
+			// connect Textviews to holder
 			holder = new CashHolder();
 			holder.nameTextView = (TextView) row.findViewById(R.id.cashListItemNameTextView);
 			holder.deptTextView = (TextView) row.findViewById(R.id.cashListItemDeptTextView);
@@ -41,7 +42,7 @@ public class CashAdapter extends ArrayAdapter<CashEntry> {
 		else {
 			holder = (CashHolder) row.getTag();
 		}
-		
+		// fill holder with data
 		CashEntry cashEntry = data[position];
 		holder.nameTextView.setText(cashEntry.name);
 		holder.deptTextView.setText(parseCentToEuroString(cashEntry.dept));
@@ -51,9 +52,11 @@ public class CashAdapter extends ArrayAdapter<CashEntry> {
 		return row;
 	}
 	
+	//changes cent to euro and adds € symbol
 	private String parseCentToEuroString(String centString) {
 		int length = centString.length();
 		String workString = centString;
+		//when smaller than 3 chars, fill with 0
 		while (length < 3) {
 			workString = "0" + workString;
 			length++;
@@ -62,6 +65,7 @@ public class CashAdapter extends ArrayAdapter<CashEntry> {
 		return resultString;
 	}
 	
+	// helperclass
 	static class CashHolder
     {
 		TextView nameTextView;

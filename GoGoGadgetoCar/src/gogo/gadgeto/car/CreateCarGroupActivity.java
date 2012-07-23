@@ -22,20 +22,25 @@ public class CreateCarGroupActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_car_group);
         
+        
+        //connect GUI elements
         createGroupButton = (Button) findViewById(R.id.createCarGroupSendButton);
         newPasswordEditText = (EditText) findViewById(R.id.CreateCarGroupNewPasswordEditText);
         repeatNewPasswordEditText = (EditText) findViewById(R.id.CreateCarGroupRepeatNewPasswordEditText);
         
+        // send create grp request to server
         createGroupButton.setOnClickListener(new OnClickListener() {
 			
 			public void onClick(View v) {
 				String newPassword = newPasswordEditText.getText().toString();
 				String repeatNewPassword = repeatNewPasswordEditText.getText().toString();
 				
+				// compare passwords
 				if (newPassword.equals(repeatNewPassword)) {
 					registerCarGroup(newPassword);
 				}
 				else {
+					// if nor equal, clean edit fields and output msg
 			    	cleanEditText();
 					Toast.makeText(getApplication(), "Passwords are not equal.", Toast.LENGTH_LONG).show();					
 				}			
@@ -44,6 +49,7 @@ public class CreateCarGroupActivity extends Activity {
         
     }
 
+    // start register grp task and clean edit fields
     protected void registerCarGroup(String password) {
     	new RegisterCarGroupTask(this, password).execute();	
     	cleanEditText();
