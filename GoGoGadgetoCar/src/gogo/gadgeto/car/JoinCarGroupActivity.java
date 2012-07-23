@@ -21,10 +21,12 @@ public class JoinCarGroupActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_join_car_group);
 		
+		// connect GUI elements
 		sendButton = (Button) findViewById(R.id.joinCarGroupSendButton);
 		carGroupIdEditText = (EditText) findViewById(R.id.joinCarGroupIdEditText);
 		carGroupPasswordEditText = (EditText) findViewById(R.id.joinCarGroupPasswordEditText);
 	
+		// 
 		sendButton.setOnClickListener(new OnClickListener() {
 			
 			public void onClick(View v) {

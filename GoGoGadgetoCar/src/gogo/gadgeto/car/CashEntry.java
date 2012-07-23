@@ -1,9 +1,11 @@
 package gogo.gadgeto.car;
 
 public class CashEntry {
-	
+	// username of person
 	public String name;
+	// depts of user
 	public String dept;
+	// distance of user
 	public String mileage;
 	
 	public CashEntry() {
