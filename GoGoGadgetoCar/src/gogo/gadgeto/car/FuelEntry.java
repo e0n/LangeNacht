@@ -2,9 +2,13 @@ package gogo.gadgeto.car;
 
 public class FuelEntry {
 	
+	// date of fuel
 	public String date;
+	// travelled distance with last fuel
 	public String distance;
+	// costs of fuel
 	public String costs;
+	// fuelid for database
 	public String fuelid;
 	
 	public FuelEntry() {

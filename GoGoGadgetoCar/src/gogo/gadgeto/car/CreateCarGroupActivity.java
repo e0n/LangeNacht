@@ -59,6 +59,7 @@ public class CreateCarGroupActivity extends Activity {
     	Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();    
     }
     
+    // switch to main activity
     public void carGroupWindow() {
 		Intent newIntent = new Intent(CreateCarGroupActivity.this, MainMenuActivity.class);
 		startActivity(newIntent);
@@ -70,6 +71,7 @@ public class CreateCarGroupActivity extends Activity {
         return true;
     }
 
+	// clean both password edit textes
 	private void cleanEditText() {
 		newPasswordEditText.setText("");
 		repeatNewPasswordEditText.setText("");

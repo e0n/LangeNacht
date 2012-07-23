@@ -29,6 +29,7 @@ public class FuelAdapter  extends ArrayAdapter<FuelEntry>{
 			LayoutInflater inflater = ((Activity)context).getLayoutInflater();
 			row = inflater.inflate(layoutResourceId, parent, false);
 			
+			// connect Textviews to holder
 			holder = new CashHolder();
 			holder.dateTextView = (TextView) row.findViewById(R.id.fuelListItemDateTextView);
 			holder.distanceTextView = (TextView) row.findViewById(R.id.fuelListItemDistanceTextView);
@@ -40,6 +41,7 @@ public class FuelAdapter  extends ArrayAdapter<FuelEntry>{
 			holder = (CashHolder) row.getTag();
 		}
 		
+		// fill holder with data
 		FuelEntry fuelEntry = data[position];
 		holder.dateTextView.setText(fuelEntry.date);
 		holder.distanceTextView.setText(fuelEntry.distance);
@@ -48,11 +50,13 @@ public class FuelAdapter  extends ArrayAdapter<FuelEntry>{
 		return row;
 	}
 	
+	// returns item at position
 	@Override
 	public FuelEntry getItem(int position) {
 		return super.getItem(position);
 	}
 	
+	//changes cent to euro and adds € symbol
 	private String parseCentToEuroString(String centString) {
 		int length = centString.length();
 		String workString = centString;
@@ -64,6 +68,7 @@ public class FuelAdapter  extends ArrayAdapter<FuelEntry>{
 		return resultString;
 	}
 	
+	//helperclass
 	static class CashHolder
     {
 		TextView dateTextView;
