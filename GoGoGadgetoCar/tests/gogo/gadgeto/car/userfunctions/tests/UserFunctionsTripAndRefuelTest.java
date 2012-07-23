@@ -39,7 +39,6 @@ public class UserFunctionsTripAndRefuelTest extends
 		//convert to String to compare it
 		String actual = json.toString();
 		Log.e("json.TRIP", actual);
-		// TODO Tobi Expected String 
 		boolean correct = false;
 		if(actual.startsWith("{\"cargroupid\"") && 
 				actual.endsWith("\"success\":1,\"tag\":\"registerCarGroup\"}")){
@@ -55,7 +54,6 @@ public class UserFunctionsTripAndRefuelTest extends
 		//convert to String to compare it
 		String actual = json.toString();
 		Log.e("json.REFUEL", actual);
-		// TODO Tobi Expected String 
 		boolean correct = false;
 		if(actual.startsWith("{\"cargroupid\"") && 
 				actual.endsWith("\"success\":1,\"tag\":\"registerCarGroup\"}")){
@@ -63,44 +61,7 @@ public class UserFunctionsTripAndRefuelTest extends
 		}
 		assertTrue("Refuel should be added...", correct);
 	}
-	
-	@Smoke
-	public void testGetUserStatistics(){
-		//Create a JSon Object which contains the return value of addRefuel()
-		JSONObject refuel = userFunc.addRefuel(solo.getCurrentActivity().getApplicationContext(), "1200", "85");
-		String refuelId = "";
-		try {
-			refuelId = refuel.getString("refuelId");
-		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		JSONObject json = userFunc.getUserStatistics(refuelId);
-		//convert to String to compare it
-		String actual = json.toString();
-		Log.e("json.USERSTAT", actual);
-		boolean correct = false;
-		if(actual.startsWith("{\"cargroupid\"") && 
-				actual.endsWith("\"success\":1,\"tag\":\"registerCarGroup\"}")){
-			correct = true;
-		}
-		assertTrue("User Statistics should be returned...", correct);
-	}
-	
-	//TODO Wenn es nicht läuft muss es raus
-//	@Smoke
-//	public void testGetRefuelings(){
-//		userFunc.addRefuel(solo.getCurrentActivity().getApplicationContext(), "50", "250");
-//		//Create a JSon Object which contains the return value of getRefuelings()
-//		JSONObject json = userFunc.getRefuelings(solo.getCurrentActivity().getApplicationContext());
-//		//convert to String to compare it
-//		String actual = json.toString();
-//		Log.e("json.GETREFUEL", actual);
-//		// TODO Tobi String expected
-//		String expected = "";
-//		assertTrue("Refuelings should be returned...", actual.equalsIgnoreCase(expected));
-//	}
-	
+		
 	@Smoke
 	public void testGetRefuelingsFailed(){
 		//Create a JSon Object which contains the return value of getRefuelings()
@@ -108,7 +69,6 @@ public class UserFunctionsTripAndRefuelTest extends
 		//convert to String to compare it
 		String actual = json.toString();
 		Log.e("json.GETREFUEL", actual);
-		// TODO Tobi String expected
 		String expected = "{\"success\":0,\"error_msg\":\"Couldn't find any refueling\",\"tag\":\"getRefuelings\"}";
 		assertTrue("Refuelings should be returned...", actual.equalsIgnoreCase(expected));
 	}

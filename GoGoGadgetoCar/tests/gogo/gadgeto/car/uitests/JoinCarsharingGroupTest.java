@@ -20,19 +20,7 @@ public class JoinCarsharingGroupTest extends
 		solo = new Solo(getInstrumentation(), getActivity());	
 	}
 	
-	@Smoke
-	public void testJoinCarsharingGroup() {
-		//Testing the join of an existing CarSharingGroup
-		//CarGrp-ID
-		solo.enterText(0, "11");
-		//Password
-		solo.enterText(1, "12");
-		solo.clickOnButton("Send");
-		//have to wait on the data from the server which allow us to enter or deny.
-		solo.waitForActivity("MainMenuActivity",10000);
-		solo.assertCurrentActivity("Expect MainMenuActivity....", "MainMenuActivity");
-	}
-	
+
 	@Smoke
 	public void testJoinCarsharingGroupFailed() {
 		//Testing the join of an existing CarSharingGroup
