@@ -3,7 +3,6 @@ package gogo.gadgeto.car.userfunctions.tests;
 import gogo.gadgeto.car.LoginActivity;
 import gogo.gadgeto.car.helper.UserFunctions;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.test.ActivityInstrumentationTestCase2;
