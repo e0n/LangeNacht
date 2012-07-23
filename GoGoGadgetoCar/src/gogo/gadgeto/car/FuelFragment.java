@@ -80,8 +80,6 @@ public class FuelFragment extends Fragment {
 	
     public void refreshFragment() {
     	cleanEditText();    	
-		startActivity(getActivity().getIntent());
-		getActivity().finish();
     }
     
 	public void showErrorMsg(String msg) {

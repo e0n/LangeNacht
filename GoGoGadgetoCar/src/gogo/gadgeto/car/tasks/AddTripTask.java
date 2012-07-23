@@ -60,10 +60,11 @@ public class AddTripTask extends AsyncTask<Void, Void, Void> {
                 if(Integer.parseInt(res) == 1){
 
                 }
+    			else {
+    				error_msg = json.getString(KEY_ERROR_MSG);
+    			}
             }
-			else {
-				error_msg = json.getString(KEY_ERROR_MSG);
-			}
+
 		} catch (NumberFormatException e) {
 			e.printStackTrace();
 		} catch (JSONException e) {

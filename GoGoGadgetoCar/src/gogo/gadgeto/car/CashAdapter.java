@@ -1,8 +1,10 @@
 package gogo.gadgeto.car;
 
+import gogo.gadgeto.car.helper.UserFunctions;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
+import android.provider.CalendarContract.Colors;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,8 +46,17 @@ public class CashAdapter extends ArrayAdapter<CashEntry> {
 		
 		CashEntry cashEntry = data[position];
 		holder.nameTextView.setText(cashEntry.name);
+		if (cashEntry.name.equals(new UserFunctions().getNameFromLoggedInUser(context))) {
+			holder.nameTextView.setBackgroundColor(Color.LTGRAY);
+			holder.deptTextView.setBackgroundColor(Color.LTGRAY);
+			holder.mileageTextView.setBackgroundColor(Color.LTGRAY);
+			holder.deptTextView.setTextColor(Color.RED);
+		}
+		else {
+			holder.deptTextView.setTextColor(Color.GREEN);
+		}
 		holder.deptTextView.setText(parseCentToEuroString(cashEntry.dept));
-		holder.deptTextView.setTextColor(Color.GREEN);
+
 		holder.mileageTextView.setText(cashEntry.mileage + " km");
 		
 		return row;

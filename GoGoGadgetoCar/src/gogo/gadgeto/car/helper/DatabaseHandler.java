@@ -34,9 +34,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String CREATE_LOGIN_TABLE = "CREATE TABLE " + TABLE_LOGIN + "("
-                + KEY_NAME + " TEXT,"
-                + KEY_EMAIL + " TEXT UNIQUE PRIMARY KEY,"
-                + KEY_CARGROUPID + " TEXT,"
+                + KEY_NAME + "  	varchar(50),"
+                + KEY_EMAIL + "  	varchar(100) UNIQUE PRIMARY KEY,"
+                + KEY_CARGROUPID + " int(11),"
                 + KEY_CREATED_AT + " TIMESTAMP" + ")";
 
         db.execSQL(CREATE_LOGIN_TABLE);
